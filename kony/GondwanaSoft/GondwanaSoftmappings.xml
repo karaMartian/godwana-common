@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<application name="GondwanaSoft" id="GondwanaSoft">
+    <container type="dialog" id="logoHeader" displayname="Popup"/>
+    <container type="dialog" id="filterBtns" displayname="Popup"/>
+    <container type="form" id="frm105DemoSeaGrey" displayname="Form"/>
+    <container type="form" id="frmDashboard" displayname="Form"/>
+    <container type="form" id="frmGrading" displayname="Form"/>
+    <container type="form" id="frmGrowth" displayname="Form"/>
+    <container type="form" id="frmHome" displayname="Form">
+        <component type="map" id="mainMap" displayname="Map">
+            <attributes value="Google map key is not defined in application properties" platform="general" name="key" datatype="string"/>
+        </component>
+    </container>
+    <container type="form" id="frmTop" displayname="Form"/>
+    <container type="form" id="frmTrends" displayname="Form"/>
+    <container type="form" id="frmVis" displayname="Form"/>
+    <container type="dialog" id="logoHeader" displayname="Popup"/>
+    <container type="dialog" id="dateExt" displayname="Popup"/>
+    <container type="dialog" id="filterBtns" displayname="Popup"/>
+    <container type="form" id="frm105DemoSeaGrey" displayname="Form"/>
+    <container type="form" id="frmDashboard" displayname="Form"/>
+    <container type="form" id="frmGrading" displayname="Form"/>
+    <container type="form" id="frmGrowth" displayname="Form"/>
+    <container type="form" id="frmHome" displayname="Form">
+        <component type="map" id="mainMap" displayname="Map">
+            <attributes value="Google map key is not defined in application properties" platform="general" name="key" datatype="string"/>
+        </component>
+    </container>
+    <container type="form" id="frmTop" displayname="Form"/>
+    <container type="form" id="frmTrends" displayname="Form"/>
+    <container type="form" id="frmVis" displayname="Form"/>
+    <container type="dialog" id="datePopup" displayname="Popup"/>
+    <container type="dialog" id="welcomePop" displayname="Popup"/>
+    <globalsequences/>
+    <skins/>
+</application>

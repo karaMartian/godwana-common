@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xsObject>
+    <appSmsCode></appSmsCode>
+    <sharePointRoot>
+        <name>SharePoint Servers</name>
+    </sharePointRoot>
+    <wsdlroot>
+        <wsdltree>
+            <name>Web Services</name>
+            <wsdlservice>
+                <authenticationMode>basic</authenticationMode>
+                <loaded>true</loaded>
+                <name>SalesDataFilter</name>
+                <ntlmDomain></ntlmDomain>
+                <ntlmHost></ntlmHost>
+                <password></password>
+                <preBuilt>false</preBuilt>
+                <soapservice>
+                    <authenticationMode>basic</authenticationMode>
+                    <cacheduration></cacheduration>
+                    <cacheable>false</cacheable>
+                    <dataprovider></dataprovider>
+                    <dcResponse/>
+                    <encryptPwd>true</encryptPwd>
+                    <escapeXML>false</escapeXML>
+                    <id>getDateFilter</id>
+                    <ignoreProxy>false</ignoreProxy>
+                    <intemplate>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://interfaces.ws.gondwana.mobile.arkitex.co.za/"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;int:getDateFilter&gt;
+         &lt;date&gt;?&lt;/date&gt;
+      &lt;/int:getDateFilter&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</intemplate>
+                    <ntlmDomain></ntlmDomain>
+                    <ntlmHost></ntlmHost>
+                    <operationname>getDateFilter</operationname>
+                    <outtemplate></outtemplate>
+                    <outTemplateHeader></outTemplateHeader>
+                    <password></password>
+                    <postclassname></postclassname>
+                    <preclassname></preclassname>
+                    <proxyname></proxyname>
+                    <proxyport></proxyport>
+                    <proxypwd></proxypwd>
+                    <proxyuserid></proxyuserid>
+                    <responseencoding>UTF-8</responseencoding>
+                    <sharePoint>false</sharePoint>
+                    <smscode></smscode>
+                    <smsenabled>false</smsenabled>
+                    <soapaction></soapaction>
+                    <timeout></timeout>
+                    <url>http://209.203.36.130:8081/com/arkitex/mobile</url>
+                    <urlprovider></urlprovider>
+                    <userid></userid>
+                    <version>1.1</version>
+                    <wsdlurl>http://209.203.36.130:8081/com/arkitex/mobile?wsdl</wsdlurl>
+                </soapservice>
+                <soapservice>
+                    <authenticationMode>basic</authenticationMode>
+                    <cacheduration></cacheduration>
+                    <cacheable>false</cacheable>
+                    <dataprovider></dataprovider>
+                    <dcResponse/>
+                    <encryptPwd>true</encryptPwd>
+                    <escapeXML>false</escapeXML>
+                    <id>getBrandsByRepByDate</id>
+                    <ignoreProxy>false</ignoreProxy>
+                    <inparam>
+                        <category></category>
+                        <datatype>string</datatype>
+                        <defaultvalue></defaultvalue>
+                        <description></description>
+                        <encode>true</encode>
+                        <format>None</format>
+                        <formatvalue></formatvalue>
+                        <id>repId</id>
+                        <invalue></invalue>
+                        <name></name>
+                        <order></order>
+                        <passNull>false</passNull>
+                        <recordid></recordid>
+                        <smsname></smsname>
+                        <source></source>
+                        <srcformatvalue></srcformatvalue>
+                        <target></target>
+                        <targetdatatype></targetdatatype>
+                        <testvalue>0008</testvalue>
+                        <value></value>
+                    </inparam>
+                    <inparam>
+                        <category></category>
+                        <datatype>string</datatype>
+                        <defaultvalue></defaultvalue>
+                        <description></description>
+                        <encode>true</encode>
+                        <format>None</format>
+                        <formatvalue></formatvalue>
+                        <id>startDate</id>
+                        <invalue></invalue>
+                        <name></name>
+                        <order></order>
+                        <passNull>false</passNull>
+                        <recordid></recordid>
+                        <smsname></smsname>
+                        <source></source>
+                        <srcformatvalue></srcformatvalue>
+                        <target></target>
+                        <targetdatatype></targetdatatype>
+                        <testvalue>2013-01-01</testvalue>
+                        <value></value>
+                    </inparam>
+                    <inparam>
+                        <category></category>
+                        <datatype>string</datatype>
+                        <defaultvalue></defaultvalue>
+                        <description></description>
+                        <encode>true</encode>
+                        <format>None</format>
+                        <formatvalue></formatvalue>
+                        <id>endDate</id>
+                        <invalue></invalue>
+                        <name></name>
+                        <order></order>
+                        <passNull>false</passNull>
+                        <recordid></recordid>
+                        <smsname></smsname>
+                        <source></source>
+                        <srcformatvalue></srcformatvalue>
+                        <target></target>
+                        <targetdatatype></targetdatatype>
+                        <testvalue>2013-06-30</testvalue>
+                        <value></value>
+                    </inparam>
+                    <intemplate>&lt;soapenv:Envelope xmlns:int="http://interfaces.ws.gondwana.mobile.arkitex.co.za/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;int:getBrandsByRepByDate&gt;
+         &lt;repId&gt;0008&lt;/repId&gt;
+         &lt;startDate&gt;2013-01-01&lt;/startDate&gt;
+         &lt;endDate&gt;2013-06-30&lt;/endDate&gt;
+      &lt;/int:getBrandsByRepByDate&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;
+</intemplate>
+                    <ntlmDomain></ntlmDomain>
+                    <ntlmHost></ntlmHost>
+                    <operationname>getBrandsByRepByDate</operationname>
+                    <outtemplate>&lt;S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+   &lt;S:Body&gt;
+      &lt;ns2:getBrandsByRepByDateResponse xmlns:ns2="http://interfaces.ws.gondwana.mobile.arkitex.co.za/"&gt;
+         &lt;return&gt;
+            &lt;item&gt;Product 11&lt;/item&gt;
+            &lt;item&gt;Product 12&lt;/item&gt;
+            &lt;item&gt;Product 13&lt;/item&gt;
+            &lt;item&gt;Product 14&lt;/item&gt;
+            &lt;item&gt;Product 2&lt;/item&gt;
+            &lt;item&gt;Product 22&lt;/item&gt;
+            &lt;item&gt;Product 23&lt;/item&gt;
+            &lt;item&gt;Product 28&lt;/item&gt;
+            &lt;item&gt;Product 6&lt;/item&gt;
+            &lt;item&gt;Product 7&lt;/item&gt;
+         &lt;/return&gt;
+      &lt;/ns2:getBrandsByRepByDateResponse&gt;
+   &lt;/S:Body&gt;
+&lt;/S:Envelope&gt;
+</outtemplate>
+                    <outTemplateHeader></outTemplateHeader>
+                    <outparam>
+                        <category></category>
+                        <datatype>string</datatype>
+                        <defaultvalue></defaultvalue>
+                        <description></description>
+                        <encode>true</encode>
+                        <format>None</format>
+                        <formatvalue></formatvalue>
+                        <id>products</id>
+                        <invalue></invalue>
+                        <name></name>
+                        <order></order>
+                        <passNull>false</passNull>
+                        <recordid></recordid>
+                        <smsname></smsname>
+                        <source>//return</source>
+                        <srcformatvalue></srcformatvalue>
+                        <target></target>
+                        <targetdatatype></targetdatatype>
+                        <testvalue></testvalue>
+                        <value></value>
+                    </outparam>
+                    <outparam>
+                        <category></category>
+                        <datatype>string</datatype>
+                        <defaultvalue></defaultvalue>
+                        <description></description>
+                        <encode>true</encode>
+                        <format>None</format>
+                        <formatvalue></formatvalue>
+                        <id>item</id>
+                        <invalue></invalue>
+                        <name></name>
+                        <order></order>
+                        <passNull>false</passNull>
+                        <recordid></recordid>
+                        <smsname></smsname>
+                        <source>item</source>
+                        <srcformatvalue></srcformatvalue>
+                        <target></target>
+                        <targetdatatype></targetdatatype>
+                        <testvalue></testvalue>
+                        <value>products</value>
+                    </outparam>
+                    <password></password>
+                    <postclassname></postclassname>
+                    <preclassname></preclassname>
+                    <proxyname></proxyname>
+                    <proxyport></proxyport>
+                    <proxypwd></proxypwd>
+                    <proxyuserid></proxyuserid>
+                    <responseencoding>UTF-8</responseencoding>
+                    <sharePoint>false</sharePoint>
+                    <smscode></smscode>
+                    <smsenabled>false</smsenabled>
+                    <soapaction></soapaction>
+                    <timeout></timeout>
+                    <url>http://209.203.36.130:8081/com/arkitex/mobile</url>
+                    <urlprovider></urlprovider>
+                    <userid></userid>
+                    <version>1.1</version>
+                    <wsdlurl>http://209.203.36.130:8081/com/arkitex/mobile?wsdl</wsdlurl>
+                </soapservice>
+                <soapservice>
+                    <authenticationMode>basic</authenticationMode>
+                    <cacheduration></cacheduration>
+                    <cacheable>false</cacheable>
+                    <dataprovider></dataprovider>
+                    <dcResponse/>
+                    <encryptPwd>true</encryptPwd>
+                    <escapeXML>false</escapeXML>
+                    <id>getSalesTrendData</id>
+                    <ignoreProxy>false</ignoreProxy>
+                    <intemplate>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://interfaces.ws.gondwana.mobile.arkitex.co.za/"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;int:getSalesTrendData&gt;
+         &lt;months&gt;
+            &lt;!--Zero or more repetitions:--&gt;
+            &lt;item&gt;?&lt;/item&gt;
+         &lt;/months&gt;
+         &lt;brands&gt;
+            &lt;!--Zero or more repetitions:--&gt;
+            &lt;item/&gt;
+         &lt;/brands&gt;
+      &lt;/int:getSalesTrendData&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</intemplate>
+                    <ntlmDomain></ntlmDomain>
+                    <ntlmHost></ntlmHost>
+                    <operationname>getSalesTrendData</operationname>
+                    <outtemplate></outtemplate>
+                    <outTemplateHeader></outTemplateHeader>
+                    <password></password>
+                    <postclassname></postclassname>
+                    <preclassname></preclassname>
+                    <proxyname></proxyname>
+                    <proxyport></proxyport>
+                    <proxypwd></proxypwd>
+                    <proxyuserid></proxyuserid>
+                    <responseencoding>UTF-8</responseencoding>
+                    <sharePoint>false</sharePoint>
+                    <smscode></smscode>
+                    <smsenabled>false</smsenabled>
+                    <soapaction></soapaction>
+                    <timeout></timeout>
+                    <url>http://209.203.36.130:8081/com/arkitex/mobile</url>
+                    <urlprovider></urlprovider>
+                    <userid></userid>
+                    <version>1.1</version>
+                    <wsdlurl>http://209.203.36.130:8081/com/arkitex/mobile?wsdl</wsdlurl>
+                </soapservice>
+                <sharePoint>false</sharePoint>
+                <userName></userName>
+                <wsdlurl>http://209.203.36.130:8081/com/arkitex/mobile?wsdl</wsdlurl>
+            </wsdlservice>
+        </wsdltree>
+    </wsdlroot>
+</xsObject>
