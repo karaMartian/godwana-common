@@ -2,7 +2,7 @@
 <kPage>
     <ID></ID>
     <layoutType>0</layoutType>
-    <widgetID>p2kwiet1043463898966</widgetID>
+    <widgetID>p2kwiet1043463898970</widgetID>
     <createdGAVersion>5.5.0</createdGAVersion>
     <marginUnitUpdated>true</marginUnitUpdated>
     <location>
@@ -23,16 +23,16 @@
         <height>false</height>
     </overridePerferred>
     <projectName>GondwanaSoft</projectName>
-    <formName>frm105DemoSeaGrey</formName>
+    <formName>frm115DemoCC</formName>
     <platform>0</platform>
     <mode>0</mode>
-    <formCategory>0</formCategory>
+    <formCategory>100</formCategory>
     <toList></toList>
     <fromList></fromList>
     <headersrcList></headersrcList>
     <footersrcList></footersrcList>
     <children xsi:type="kForm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ID>frm105DemoSeaGrey</ID>
+        <ID>frm115DemoCC</ID>
         <gridMetaData>
             <colSpan>1</colSpan>
             <column>0</column>
@@ -45,7 +45,7 @@
             <verticalFill>1</verticalFill>
         </gridMetaData>
         <layoutType>0</layoutType>
-        <widgetID>p2kwiet1043463898967</widgetID>
+        <widgetID>p2kwiet1043463898971</widgetID>
         <createdGAVersion>5.5.0</createdGAVersion>
         <location>
             <x>5</x>
@@ -59,7 +59,7 @@
             <width>100</width>
             <height>100</height>
         </sizePercent>
-        <skinId>frmSknGrey</skinId>
+        <skinId>Skin Defaults</skinId>
         <focusSkinId>Skin Defaults</focusSkinId>
         <localeId>None</localeId>
         <visible>true</visible>
@@ -652,7 +652,7 @@
             <visible>true</visible>
         </win8TitleBarData>
         <android_orientation>2</android_orientation>
-        <android_transition_effect>3</android_transition_effect>
+        <android_transition_effect>0</android_transition_effect>
         <android_isModal>false</android_isModal>
         <android_footerOverlap>false</android_footerOverlap>
         <android_headerOverlap>false</android_headerOverlap>
@@ -696,7 +696,7 @@
             <visible>true</visible>
         </androidTitleBarData>
         <android_softkeyMode>SoftInput adjust resize</android_softkeyMode>
-        <android_transition_out_effect>5</android_transition_out_effect>
+        <android_transition_out_effect>0</android_transition_out_effect>
         <android_showActionBar>true</android_showActionBar>
         <android_showActionBarIcon>true</android_showActionBarIcon>
         <android_actionBarIcon></android_actionBarIcon>
@@ -832,7 +832,7 @@
             <referenceWidth>0</referenceWidth>
             <sizeMode>constants.GRID_TYPE_FIXED</sizeMode>
         </gridviewConfig>
-        <widgetID>p2kwiet1043463898969</widgetID>
+        <widgetID>p2kwiet1043463898973</widgetID>
         <createdGAVersion>5.5.0</createdGAVersion>
         <location>
             <x>-1</x>

@@ -2,8 +2,8 @@
 <kPage>
     <ID></ID>
     <layoutType>0</layoutType>
-    <widgetID>p2kwiet1043463898966</widgetID>
-    <createdGAVersion>5.5.0</createdGAVersion>
+    <widgetID>p2kwiet156813108540</widgetID>
+    <createdGAVersion>5.0.0</createdGAVersion>
     <marginUnitUpdated>true</marginUnitUpdated>
     <location>
         <x>1</x>
@@ -23,16 +23,16 @@
         <height>false</height>
     </overridePerferred>
     <projectName>GondwanaSoft</projectName>
-    <formName>frm105DemoSeaGrey</formName>
+    <formName>frm000DataVizViewForm</formName>
     <platform>0</platform>
     <mode>0</mode>
-    <formCategory>0</formCategory>
-    <toList></toList>
+    <formCategory>100</formCategory>
+    <toList>frm1Demo0Main</toList>
     <fromList></fromList>
     <headersrcList></headersrcList>
     <footersrcList></footersrcList>
     <children xsi:type="kForm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ID>frm105DemoSeaGrey</ID>
+        <ID>frm000DataVizViewForm</ID>
         <gridMetaData>
             <colSpan>1</colSpan>
             <column>0</column>
@@ -45,21 +45,21 @@
             <verticalFill>1</verticalFill>
         </gridMetaData>
         <layoutType>0</layoutType>
-        <widgetID>p2kwiet1043463898967</widgetID>
-        <createdGAVersion>5.5.0</createdGAVersion>
+        <widgetID>p2kwiet156813108541</widgetID>
+        <createdGAVersion>5.0.0</createdGAVersion>
         <location>
             <x>5</x>
             <y>5</y>
         </location>
         <size>
             <width>450</width>
-            <height>450</height>
+            <height>510</height>
         </size>
         <sizePercent>
             <width>100</width>
             <height>100</height>
         </sizePercent>
-        <skinId>frmSknGrey</skinId>
+        <skinId>skFrmMetro</skinId>
         <focusSkinId>Skin Defaults</focusSkinId>
         <localeId>None</localeId>
         <visible>true</visible>
@@ -210,7 +210,7 @@
                 <bottom>0</bottom>
                 <unit>%</unit>
             </ipad>
-            <ipad_override>false</ipad_override>
+            <ipad_override>true</ipad_override>
             <iphonerc>
                 <left>0</left>
                 <right>0</right>
@@ -218,7 +218,7 @@
                 <bottom>0</bottom>
                 <unit>%</unit>
             </iphonerc>
-            <iphonerc_override>false</iphonerc_override>
+            <iphonerc_override>true</iphonerc_override>
             <j2me>
                 <left>0</left>
                 <right>0</right>
@@ -250,8 +250,8 @@
                 <bottom>0</bottom>
                 <unit>%</unit>
             </spaipad>
-            <spaipad_override>false</spaipad_override>
-            <spatablet_android_override>false</spatablet_android_override>
+            <spaipad_override>true</spaipad_override>
+            <spatablet_android_override>true</spatablet_android_override>
             <spatablet_windows_override>false</spatablet_windows_override>
             <symbian>
                 <left>0</left>
@@ -268,7 +268,7 @@
                 <bottom>0</bottom>
                 <unit>%</unit>
             </tabRCAndroid>
-            <tablet_rc_android_override>false</tablet_rc_android_override>
+            <tablet_rc_android_override>true</tablet_rc_android_override>
             <tabspaAndroid>
                 <left>0</left>
                 <right>0</right>
@@ -299,7 +299,7 @@
                 <bottom>0</bottom>
                 <unit>%</unit>
             </windows8>
-            <windows8_override>false</windows8_override>
+            <windows8_override>true</windows8_override>
             <winmobile>
                 <left>0</left>
                 <right>0</right>
@@ -428,6 +428,30 @@
         <headerId>None</headerId>
         <footerId>None</footerId>
         <title></title>
+        <onHide_root>
+            <evtSequence>
+                <actionList xsi:type="eventFunctionAction">
+                    <enabled>true</enabled>
+                    <name></name>
+                    <type>6</type>
+                    <functionName>None</functionName>
+                    <functionNameMap>
+                        <entry>
+                            <key>js</key>
+                            <value>func_onhide_frm_000_dataviz_view_form</value>
+                        </entry>
+                    </functionNameMap>
+                    <paramDataMap>
+                        <entry>
+                            <key>js</key>
+                            <value/>
+                        </entry>
+                    </paramDataMap>
+                </actionList>
+                <enabled>true</enabled>
+                <seqname></seqname>
+            </evtSequence>
+        </onHide_root>
         <init>
             <evtSequence>
                 <enabled>true</enabled>
@@ -624,7 +648,7 @@
         <win_fixed_items>0</win_fixed_items>
         <win_enablescreenmenu>false</win_enablescreenmenu>
         <win_autofocus>true</win_autofocus>
-        <wm_orientation>1</wm_orientation>
+        <wm_orientation>2</wm_orientation>
         <wm_maxappmenubuttons>4</wm_maxappmenubuttons>
         <win_intransition>Default</win_intransition>
         <win_outtransition>Default</win_outtransition>
@@ -652,7 +676,7 @@
             <visible>true</visible>
         </win8TitleBarData>
         <android_orientation>2</android_orientation>
-        <android_transition_effect>3</android_transition_effect>
+        <android_transition_effect>0</android_transition_effect>
         <android_isModal>false</android_isModal>
         <android_footerOverlap>false</android_footerOverlap>
         <android_headerOverlap>false</android_headerOverlap>
@@ -696,7 +720,7 @@
             <visible>true</visible>
         </androidTitleBarData>
         <android_softkeyMode>SoftInput adjust resize</android_softkeyMode>
-        <android_transition_out_effect>5</android_transition_out_effect>
+        <android_transition_out_effect>0</android_transition_out_effect>
         <android_showActionBar>true</android_showActionBar>
         <android_showActionBarIcon>true</android_showActionBarIcon>
         <android_actionBarIcon></android_actionBarIcon>
@@ -832,8 +856,8 @@
             <referenceWidth>0</referenceWidth>
             <sizeMode>constants.GRID_TYPE_FIXED</sizeMode>
         </gridviewConfig>
-        <widgetID>p2kwiet1043463898969</widgetID>
-        <createdGAVersion>5.5.0</createdGAVersion>
+        <widgetID>p2kwiet156813108543</widgetID>
+        <createdGAVersion>5.0.0</createdGAVersion>
         <location>
             <x>-1</x>
             <y>-1</y>
@@ -922,7 +946,7 @@
             </bb10>
             <bb10_override>false</bb10_override>
             <bb_override>false</bb_override>
-            <default_override>true</default_override>
+            <default_override>false</default_override>
             <defaults>
                 <left>0</left>
                 <right>0</right>
@@ -1189,7 +1213,7 @@
             </bb10>
             <bb10_override>false</bb10_override>
             <bb_override>false</bb_override>
-            <default_override>true</default_override>
+            <default_override>false</default_override>
             <defaults>
                 <left>0</left>
                 <right>0</right>
