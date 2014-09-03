@@ -1,36 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<application name="GondwanaSoft" id="GondwanaSoft">
-    <container type="dialog" id="logoHeader" displayname="Popup"/>
-    <container type="dialog" id="filterBtns" displayname="Popup"/>
-    <container type="form" id="frm105DemoSeaGrey" displayname="Form"/>
-    <container type="form" id="frmDashboard" displayname="Form"/>
-    <container type="form" id="frmGrading" displayname="Form"/>
-    <container type="form" id="frmGrowth" displayname="Form"/>
-    <container type="form" id="frmHome" displayname="Form">
-        <component type="map" id="mainMap" displayname="Map">
-            <attributes value="Google map key is not defined in application properties" platform="general" name="key" datatype="string"/>
+<application id="GondwanaSoft" name="GondwanaSoft">
+    <container displayname="Popup" id="logoHeader" type="dialog"/>
+    <container displayname="Popup" id="filterBtns" type="dialog"/>
+    <container displayname="Form" id="frm105DemoSeaGrey" type="form"/>
+    <container displayname="Form" id="frmDashboard" type="form"/>
+    <container displayname="Form" id="frmGrading" type="form"/>
+    <container displayname="Form" id="frmGrowth" type="form"/>
+    <container displayname="Form" id="frmHome" type="form">
+        <component displayname="Map" id="mainMap" type="map">
+            <attributes datatype="string" name="key" platform="general" value="Google map key is not defined in application properties"/>
         </component>
     </container>
-    <container type="form" id="frmTop" displayname="Form"/>
-    <container type="form" id="frmTrends" displayname="Form"/>
-    <container type="form" id="frmVis" displayname="Form"/>
-    <container type="dialog" id="logoHeader" displayname="Popup"/>
-    <container type="dialog" id="dateExt" displayname="Popup"/>
-    <container type="dialog" id="filterBtns" displayname="Popup"/>
-    <container type="form" id="frm105DemoSeaGrey" displayname="Form"/>
-    <container type="form" id="frmDashboard" displayname="Form"/>
-    <container type="form" id="frmGrading" displayname="Form"/>
-    <container type="form" id="frmGrowth" displayname="Form"/>
-    <container type="form" id="frmHome" displayname="Form">
-        <component type="map" id="mainMap" displayname="Map">
-            <attributes value="Google map key is not defined in application properties" platform="general" name="key" datatype="string"/>
+    <container displayname="Form" id="frmTop" type="form"/>
+    <container displayname="Form" id="frmTrends" type="form"/>
+    <container displayname="Form" id="frmVis" type="form"/>
+    <container displayname="Popup" id="logoHeader" type="dialog"/>
+    <container displayname="Popup" id="dateExt" type="dialog"/>
+    <container displayname="Popup" id="filterBtns" type="dialog"/>
+    <container displayname="Form" id="frm000DataVizViewForm" type="form"/>
+    <container displayname="Form" id="frm101DemoCG" type="form"/>
+    <container displayname="Form" id="frm103DemoCNA" type="form"/>
+    <container displayname="Form" id="frm105DemoSeaGrey" type="form"/>
+    <container displayname="Form" id="frm112DemoFinanceChartForm" type="form"/>
+    <container displayname="Form" id="frm115DemoCC" type="form"/>
+    <container displayname="Form" id="frm116DemoWhite" type="form"/>
+    <container displayname="Form" id="frm800PopUp001" type="form"/>
+    <container displayname="Form" id="frmDashboard" type="form"/>
+    <container displayname="Form" id="frmGrading" type="form"/>
+    <container displayname="Form" id="frmGrowth" type="form"/>
+    <container displayname="Form" id="frmHome" type="form">
+        <component displayname="Map" id="mainMap" type="map">
+            <attributes datatype="string" name="key" platform="general" value="Google map key is not defined in application properties"/>
         </component>
     </container>
-    <container type="form" id="frmTop" displayname="Form"/>
-    <container type="form" id="frmTrends" displayname="Form"/>
-    <container type="form" id="frmVis" displayname="Form"/>
-    <container type="dialog" id="datePopup" displayname="Popup"/>
-    <container type="dialog" id="welcomePop" displayname="Popup"/>
+    <container displayname="Form" id="frmTop" type="form"/>
+    <container displayname="Form" id="frmTrends" type="form"/>
+    <container displayname="Form" id="frmVis" type="form"/>
+    <container displayname="Popup" id="datePopup" type="dialog"/>
+    <container displayname="Popup" id="welcomePop" type="dialog"/>
     <globalsequences/>
     <skins/>
 </application>
