@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field" schema="dbo">
+	<class name="za.co.gondwana.soft.entity.customer.Customer" table="Customers">
+		<id name="customerCode" type="java.lang.String">
+			<column name="CustomerCode" />
+		</id>
+
+		<property name="companyId" type="int">
+			<column name="company_id"></column>
+		</property>
+		<property name="brick" type="java.lang.String">
+			<column name="Brick"></column>
+		</property>
+        <property name="country" type="java.lang.String">
+            <column name="Country"></column>
+        </property>
+        <property name="customerDescription" type="java.lang.String">
+            <column name="CustomerDescription"></column>
+        </property>
+        <property name="customerName" type="java.lang.String">
+            <column name="CustomerName"></column>
+        </property>
+        <property name="latitude" type="java.lang.String">
+            <column name="lat"></column>
+        </property>
+        <property name="longitude" type="java.lang.String">
+            <column name="long"></column>
+        </property>
+        <property name="region" type="java.lang.String">
+            <column name="Region"></column>
+        </property>
+        <property name="reportingBlock" type="java.lang.String">
+            <column name="Reporting_Block"></column>
+        </property>
+        <property name="service" type="java.lang.String">
+            <column name="Service"></column>
+        </property>
+        <property name="subRegion" type="java.lang.String">
+            <column name="SubRegion"></column>
+        </property>
+	</class>
+</hibernate-mapping>
+

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.arkitex.co.za/kony/1.0"
+           xmlns:tns="http://www.arkitex.co.za/kony/1.0"
+           elementFormDefault="qualified">
+
+    <xs:complexType name="SalesRepresantativeBrandsRequest">
+        <xs:sequence>
+            <xs:element name="salesRepId" type="string" minOccurs="0"></xs:element>
+            <xs:element name="startDate" type="string" minOccurs="0"></xs:element>
+            <xs:element name="endDate" type="string" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="salesRepList">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="salesRepBrandsByDate" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="SalesRepresantativeBrandsRequest" type="tns:SalesRepresantativeBrandsRequest" />
+    <xs:element name="SalesRepresantativeBrandsResponse" type="tns:salesRepList" />
+
+    <xs:complexType name="TTTransactionsByRepRequest">
+        <xs:sequence>
+            <xs:element name="salesRepId" type="string" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TTTransactionsByRepResponse">
+        <xs:sequence  minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="TTTransactionsByRepList">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="productCode" type="string" minOccurs="0"></xs:element>
+                        <xs:element name="customerCode" type="string" minOccurs="0"></xs:element>
+                        <xs:element name="providerCode" type="string" minOccurs="0"></xs:element>
+                        <xs:element name="transactionDate" type="date" minOccurs="0"></xs:element>
+                        <xs:element name="salesRep" type="string" minOccurs="0"></xs:element>
+                        <xs:element name="rating" type="string" minOccurs="0"></xs:element>
+                        <xs:element name="units" type="double" minOccurs="0"></xs:element>
+                        <xs:element name="salesValue" type="double" minOccurs="0"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="TTTransactionsByRepRequest" type="tns:TTTransactionsByRepRequest" />
+    <xs:element name="TTTransactionsByRepResponse" type="tns:TTTransactionsByRepResponse" />
+
+</xs:schema>

@@ -1,0 +1,6 @@
+<globals>
+    <dataset id="datelist" datatype="collection" value="">
+    </dataset>
+    <dataset id="productlist" datatype="collection" value="">
+    </dataset>
+</globals>

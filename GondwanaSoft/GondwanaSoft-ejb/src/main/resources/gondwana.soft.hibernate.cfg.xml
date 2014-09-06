@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+ <session-factory name="gondwana.soft.hibernate.config">
+
+     <!-- Only required when regenerating the Entities-->
+<!--
+     <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+     <property name="connection.url">jdbc:sqlserver://209.203.36.130:1433;DatabaseName=KONY_POC</property>
+     <property name="connection.username">sa</property>
+     <property name="connection.password">17093258Viper</property>
+-->
+
+  <property name="hibernate.connection.datasource">java:/gondwanaSoftDS</property>
+  
+  <property name="hibernate.cache.use_query_cache">true</property>
+  <property name="hibernate.cache.use_structured_entries">true</property>
+  <property name="hibernate.cache.region.jbc2.cfg.entity">optimistic-entity</property>
+  <property name="hibernate.cache.region.jbc2.cfg.query">local-query</property>
+  <property name="hibernate.cache.region.jbc2.query.localonly">true</property>
+  <property name="hibernate.cache.region_prefix">gondwana</property>
+  <property name="hibernate.generate_statistics">true</property>
+  <property name="show_sql">true</property>
+
+  <property name="hibernate.cache.region.factory_class">org.jboss.as.jpa.hibernate4.infinispan.InfinispanRegionFactory</property>
+  <property name="hibernate.cache.infinispan.cachemanager">java:jboss/infinispan/container/hibernate</property>
+  <property name="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.JBossTransactionManagerLookup</property>
+  <property name="hibernate.cache.use_second_level_cache">true</property>
+
+  <property name="hibernate.jdbc.use_get_generated_keys">true</property>
+   
+  <property name="dialect">org.hibernate.dialect.SQLServer2008Dialect</property>
+
+  <property name="default_schema">dbo</property>
+
+  <mapping resource="za/co/gondwana/soft/entity/customer/Customer.hbm.xml"/>
+  <mapping resource="za/co/gondwana/soft/entity/manager/Manager.hbm.xml"/>
+  <mapping resource="za/co/gondwana/soft/entity/market/Market.hbm.xml"/>
+  <mapping resource="za/co/gondwana/soft/entity/rating/Rating.hbm.xml"/>
+  <mapping resource="za/co/gondwana/soft/entity/product/Product.hbm.xml"/>
+  <mapping resource="za/co/gondwana/soft/entity/provider/Provider.hbm.xml"/>
+  <mapping resource="za/co/gondwana/soft/entity/transaction/TransactionGroup.hbm.xml"/>
+  <mapping resource="za/co/gondwana/soft/entity/transaction/TTTransaction.hbm.xml"/>
+  <mapping resource="za/co/gondwana/soft/entity/time/Time.hbm.xml"/>
+
+ </session-factory>
+ 
+</hibernate-configuration>

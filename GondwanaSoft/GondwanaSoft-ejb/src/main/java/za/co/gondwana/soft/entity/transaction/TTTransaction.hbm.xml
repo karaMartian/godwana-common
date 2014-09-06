@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field" schema="dbo">
+<class name="za.co.gondwana.soft.entity.transaction.TTTransaction" table="vw_CUBE_FACT_TT_Transactions">
+
+    <id name="productCode" type="java.lang.String">
+        <column name="ProductCode" />
+    </id>
+    <property name="customerCode" type="java.lang.String">
+        <column name="CustomerCode"></column>
+    </property>
+    <property name="providerCode" type="java.lang.String">
+        <column name="ProviderCode"></column>
+    </property>
+    <property name="transactionDate" type="java.util.Date">
+        <column name="TransactionDate"></column>
+    </property>
+    <property name="rep" type="java.lang.String">
+        <column name="Rep"></column>
+    </property>
+    <property name="rating" type="java.lang.String">
+        <column name="Rating"></column>
+    </property>
+    <property name="units" type="java.math.BigDecimal">
+        <column name="Units"></column>
+    </property>
+    <property name="salesValue" type="java.math.BigDecimal">
+        <column name="SalesValue"></column>
+    </property>
+</class>
+</hibernate-mapping>

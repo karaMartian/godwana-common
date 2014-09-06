@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field" schema="dbo">
+	<class name="za.co.gondwana.soft.entity.manager.Manager" table="vw_CUBE_Manager">
+        <id name="rep" type="int">
+            <column name="Rep" />
+        </id>
+		<property name="repName" type="java.lang.String">
+			<column name="RepName"></column>
+		</property>
+        <property name="manager" type="java.lang.String">
+            <column name="Manager"></column>
+        </property>
+        <property name="managerName" type="java.lang.String">
+            <column name="ManagerName"></column>
+        </property>
+
+	</class>
+</hibernate-mapping>
+

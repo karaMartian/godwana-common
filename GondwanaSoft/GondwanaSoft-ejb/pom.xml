@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>GondwanaSoft</artifactId>
+        <groupId>za.co.gondwana.soft</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>GondwanaSoft-ejb</artifactId>
+    <packaging>ejb</packaging>
+    <name>GondwanaSoft EJB module</name>
+
+    <dependencies>
+        <!-- Declare the APIs we depend on and need for compilation. All of
+         them are provided by JBoss AS 7 -->
+
+        <!-- Import the EJB API, we use provided scope as the API is included
+           in JBoss AS 7 -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.ejb</groupId>
+            <artifactId>jboss-ejb-api_3.1_spec</artifactId>
+        </dependency>
+
+        <!-- Import the CDI API, we use provided scope as the API is included
+           in JBoss AS 7 -->
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+        </dependency>
+
+        <!-- Import the JPA API, we use provided scope as the API is included
+           in JBoss AS 7 -->
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+        </dependency>
+
+        <!-- JSR-303 (Bean Validation) Implementation -->
+        <!-- Provides portable constraints such as @Email -->
+        <!-- Hibernate Validator is shipped in JBoss AS 7 -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+
+        <!-- JSR-000914: Java(TM) Message Service (JMS) 1.1 API -->
+        <!-- HornetQ is shipped in JBoss EAP 6 -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.jms</groupId>
+            <artifactId>jboss-jms-api_1.1_spec</artifactId>
+            <version>1.0.1.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.as</groupId>
+            <artifactId>jboss-as-arquillian-container-remote</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.junit</groupId>
+            <artifactId>arquillian-junit-container</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.protocol</groupId>
+            <artifactId>arquillian-protocol-servlet</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Project dependencies -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-infinispan</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>za.co.gondwana.soft</groupId>
+            <artifactId>GondwanaSoft-api</artifactId>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>sqljdbc4</artifactId>
+            <version>4.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>${hibernate-entity-version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate-core-version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-infinispan</artifactId>
+                <version>${hibernate-core-version}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>hibernate3-maven-plugin</artifactId>
+                <version>3.0</version>
+                <configuration>
+                    <hibernatetool>
+                        <classpath>
+                            <path location="target/classes" />
+                            <path location="src/main/resources/META-INF/" />
+                            <path location="src/main/java"/>
+                        </classpath>
+                        <jpaconfiguration persistenceunit="gondwana.soft.hibernate.config"
+                                          propertyfile="src/main/resources/META-INF/hibernate.properties"  />
+
+                        <hbm2hbmxml destdir="target/generated-sources/hibernate4">
+                            <configuration configurationfile="target/classes/gondwana.soft.hibernate.cfg.xml"/>
+                        </hbm2hbmxml>
+
+                        <hbm2cfgxml destdir="target/generated-sources/hibernate4">
+                            <configuration configurationfile="target/classes/gondwana.soft.hibernate.cfg.xml"/>
+                        </hbm2cfgxml>
+
+                        <hbm2java destdir="target/generated-sources/hibernate4" ejb3="false">
+                            <configuration configurationfile="target/classes/gondwana.soft.hibernate.cfg.xml"/>
+                        </hbm2java>
+
+                        <hbm2dao destdir="target/generated-sources/hibernate4">
+                            <configuration configurationfile="target/classes/gondwana.soft.hibernate.cfg.xml"/>
+                        </hbm2dao>
+
+                        <hbm2ddl export="true" create="true"
+                                 update="true" format="true" outputfilename="gondwana_soft.ddl"
+                                 destdir="target/generated-sources/hibernate4">
+                            <configuration configurationfile="target/classes/gondwana.soft.hibernate.cfg.xml"/>
+                        </hbm2ddl>
+                    </hibernatetool>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.hibernate</groupId>
+                        <artifactId>hibernate-tools</artifactId>
+                        <version>3.2.4.GA</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.hibernate</groupId>
+                        <artifactId>hibernate-entitymanager</artifactId>
+                        <version>3.6.10.Final</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.hibernate</groupId>
+                        <artifactId>hibernate-core</artifactId>
+                        <version>3.6.10.Final</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                        <version>1.2.14</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                        <version>1.1.1</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.microsoft.sqlserver</groupId>
+                        <artifactId>sqljdbc4</artifactId>
+                        <version>4.0</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/GondwanaSoft.iml" filepath="$PROJECT_DIR$/GondwanaSoft.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GondwanaSoft-api/GondwanaSoft-api.iml" filepath="$PROJECT_DIR$/GondwanaSoft-api/GondwanaSoft-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GondwanaSoft-ear/GondwanaSoft-ear.iml" filepath="$PROJECT_DIR$/GondwanaSoft-ear/GondwanaSoft-ear.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GondwanaSoft-ejb/GondwanaSoft-ejb.iml" filepath="$PROJECT_DIR$/GondwanaSoft-ejb/GondwanaSoft-ejb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GondwanaSoft-web/GondwanaSoft-web.iml" filepath="$PROJECT_DIR$/GondwanaSoft-web/GondwanaSoft-web.iml" />
+    </modules>
+  </component>
+</project>
+

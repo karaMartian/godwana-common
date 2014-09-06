@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <artifactId>GondwanaSoft</artifactId>
+      <groupId>za.co.gondwana.soft</groupId>
+      <version>0.0.1-SNAPSHOT</version>
+   </parent>
+
+   <artifactId>GondwanaSoft-ear</artifactId>
+   <packaging>ear</packaging>
+   <name>GondwanaSoft EAR module</name>
+
+   <dependencies>
+      <!-- Depend on the ejb module and war so that we can package them -->
+	  <dependency>
+         <groupId>za.co.gondwana.soft</groupId>
+         <artifactId>GondwanaSoft-api</artifactId>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>za.co.gondwana.soft</groupId>
+         <artifactId>GondwanaSoft-ejb</artifactId>
+         <type>ejb</type>
+      </dependency>
+       <dependency>
+           <groupId>za.co.gondwana.soft</groupId>
+           <artifactId>GondwanaSoft-web</artifactId>
+           <type>war</type>
+       </dependency>
+   </dependencies>
+
+   <build>
+      <finalName>GondwanaSoft</finalName>
+   </build>
+
+</project>

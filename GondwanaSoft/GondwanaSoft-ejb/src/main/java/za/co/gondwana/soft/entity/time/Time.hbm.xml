@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field" schema="dbo">
+    <class name="za.co.gondwana.soft.entity.time.Time" table="vw_CUBE_Times">
+
+        <id name="timesDate" type="java.util.Date">
+            <column name="Date" />
+        </id>
+        <property name="dateName" type="java.lang.String">
+            <column name="DateName"></column>
+        </property>
+        <property name="calendarMonth" type="java.lang.String">
+            <column name="Calendar_Month"></column>
+        </property>
+        <property name="calendarQuarter" type="java.lang.String">
+            <column name="Calendar_Quarter"></column>
+        </property>
+        <property name="calendarYear" type="int">
+            <column name="Calendar_Year"></column>
+        </property>
+        <property name="calendarMonthOfYear" type="int">
+            <column name="Calendar_MonthOfYear"></column>
+        </property>
+        <property name="calendarMonthOfYearName" type="java.lang.String">
+            <column name="Calendar_MonthOfYearName"></column>
+        </property>
+        <property name="calendarQuarterOfYear" type="java.lang.String">
+            <column name="Calendar_QuarterOfYear"></column>
+        </property>
+        <property name="commMonth" type="java.lang.String">
+            <column name="Comm_Month"></column>
+        </property>
+        <property name="commQuarter" type="java.lang.String">
+            <column name="Comm_Quarter"></column>
+        </property>
+        <property name="commYear" type="int">
+            <column name="Comm_Year"></column>
+        </property>
+        <property name="commMonthOfYear" type="int">
+            <column name="Comm_MonthOfYear"></column>
+        </property>
+        <property name="commMonthOfYearName" type="java.lang.String">
+            <column name="Comm_MonthOfYearName"></column>
+        </property>
+        <property name="commQuarterOfYear" type="java.lang.String">
+            <column name="Comm_QuarterOfYear"></column>
+        </property>
+        <property name="fiscalMonth" type="java.lang.String">
+            <column name="Fiscal_Month"></column>
+        </property>
+        <property name="fiscalQuarter" type="java.lang.String">
+            <column name="Fiscal_Quarter"></column>
+        </property>
+        <property name="fiscalYear" type="int">
+            <column name="Fiscal_Year"></column>
+        </property>
+        <property name="fiscalMonthOfYear" type="int">
+            <column name="Fiscal_MonthOfYear"></column>
+        </property>
+        <property name="managerName" type="java.lang.String">
+            <column name="ManagerName"></column>
+        </property>
+        <property name="fiscalMonthOfYearName" type="java.lang.String">
+            <column name="Fiscal_MonthOfYearName"></column>
+        </property>
+        <property name="fiscalQuarterOfYear" type="java.lang.String">
+            <column name="Fiscal_QuarterOfYear"></column>
+        </property>
+        <property name="tradingDay" type="boolean">
+            <column name="TradingDay"></column>
+        </property>
+    </class>
+</hibernate-mapping>

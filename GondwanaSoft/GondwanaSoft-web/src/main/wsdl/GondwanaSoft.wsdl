@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tns="http://www.arkitex.co.za/kony/1.0"
+                  targetNamespace="http://www.arkitex.co.za/kony/1.0">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.arkitex.co.za/kony/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:include schemaLocation="xsd/GondwanaSoft.xsd"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="SalesRepresantativeBrandsResponse">
+        <wsdl:part element="tns:SalesRepresantativeBrandsResponse" name="SalesRepresantativeBrandsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="SalesRepresantativeBrandsRequest">
+        <wsdl:part element="tns:SalesRepresantativeBrandsRequest" name="SalesRepresantativeBrandsRequest"/>
+    </wsdl:message>
+    <wsdl:message name="TTTransactionsByRepResponse">
+        <wsdl:part element="tns:TTTransactionsByRepResponse" name="TTTransactionsByRepResponse"/>
+    </wsdl:message>
+    <wsdl:message name="TTTransactionsByRepRequest">
+        <wsdl:part element="tns:TTTransactionsByRepRequest" name="TTTransactionsByRepRequest"/>
+    </wsdl:message>
+    <wsdl:portType name="SalesRep">
+        <wsdl:operation name="SalesRepOp">
+            <wsdl:input message="tns:SalesRepresantativeBrandsRequest" name="SalesRepresantativeBrandsRequest"/>
+            <wsdl:output message="tns:SalesRepresantativeBrandsResponse" name="SalesRepresantativeBrandsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="TTTransactionsByRepOp">
+            <wsdl:input message="tns:TTTransactionsByRepRequest" name="TTTransactionsByRepRequest"/>
+            <wsdl:output message="tns:TTTransactionsByRepResponse" name="TTTransactionsByRepResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SalesRepSoap11" type="tns:SalesRep">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="SalesRepOp">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="SalesRepresantativeBrandsRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="SalesRepresantativeBrandsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="TTTransactionsByRepOp">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="TTTransactionsByRepRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="TTTransactionsByRepResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SalesRepService">
+        <wsdl:port binding="tns:SalesRepSoap11" name="SalesRepSoap11">
+            <soap:address location="http://localhost:8080"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

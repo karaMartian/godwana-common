@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field" schema="dbo">
+    <class name="za.co.gondwana.soft.entity.provider.Provider" table="vw_CUBE_Providers">
+
+        <id name="providerCode" type="java.lang.String">
+            <column name="ProviderCode" />
+        </id>
+        <property name="provider" type="java.lang.String">
+            <column name="Provider"></column>
+        </property>
+        <property name="providerBranch" type="java.lang.String">
+            <column name="Prov_Branch"></column>
+        </property>
+        <property name="providerBranchName" type="java.lang.String">
+            <column name="Prov_Branch_Name"></column>
+        </property>
+        <property name="providerGroup" type="java.lang.String">
+            <column name="ProviderGroup"></column>
+        </property>
+        <property name="medPagesChannel" type="java.lang.String">
+            <column name="MedpagesChannel"></column>
+        </property>
+        <property name="providerMainGroup" type="java.lang.String">
+            <column name="ProviderMainGroup"></column>
+        </property>
+    </class>
+</hibernate-mapping>

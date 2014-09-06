@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field" schema="dbo">
+    <class name="za.co.gondwana.soft.entity.product.Product" table="vw_CUBE_Products">
+
+        <id name="providerCode" type="java.lang.String">
+            <column name="ProviderCode" />
+        </id>
+        <property name="productDescription" type="java.lang.String">
+            <column name="ProductDescription"></column>
+        </property>
+        <property name="nappi9" type="java.lang.String">
+            <column name="Nappi9"></column>
+        </property>
+        <property name="nappi9Description" type="java.lang.String">
+            <column name="Nappi9Description"></column>
+        </property>
+        <property name="brand" type="java.lang.String">
+            <column name="Brand"></column>
+        </property>
+        <property name="businessUnit" type="java.lang.String">
+            <column name="BusinessUnit"></column>
+        </property>
+        <property name="productManager" type="java.lang.String">
+            <column name="ProductManager"></column>
+        </property>
+        <property name="countingUnits" type="int">
+            <column name="CountingUnits"></column>
+        </property>
+
+    </class>
+</hibernate-mapping>
