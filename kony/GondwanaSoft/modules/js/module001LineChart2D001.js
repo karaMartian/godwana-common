@@ -1,15 +1,66 @@
 datelist = new Array()
 productlist = new Array()
+chartServiceData = new Object();
+function getSalesTrendDataService() {
+	var inputparam = {};
+    inputparam["serviceID"] = "getSalesTrendData";
+    inputparam["repId"] = "0008";
+    inputparam["date"] = "2013";
+    
+    appmiddlewareinvokerasync(inputparam, getSalesTrendDataCallback);
+}
 
+function getSalesTrendDataCallback(status, getSalesTrendData) {
+	if (status == 400) {
+		//alert("-------> Data " + JSON.stringify(getSalesTrendData["data"]));
+        if (getSalesTrendData["data"] != null) {
+			var dataItems = getSalesTrendData["data"];
+			var length = dataItems.length;
+			
+        	for (var index = 0; index< length; index++) {
+        		var dataItem = dataItems[index]["itemData"];
+				var brandName;
+				var saleValues = new Array();
+				//alert("---># " + JSON.stringify(dataItem));
+				var itemLen = dataItem.length;
+				for(var i = 0; i<itemLen; i++) {					
+					if(i==0) {
+						brandName = dataItem[i]["brandName"];
+					}else {
+						if(dataItem[i]["salesValues"] != null && dataItem[i]["salesValues"] != "") {
+							saleValues.push(parseInt(dataItem[i]["salesValues"]));
+						}						
+					}
+				}
+				//var dataRecord = {};
+				//dataRecord[brandName] = saleValues;
+				//chartServiceData.push(dataRecord);
+				chartServiceData[brandName] = saleValues;
+				
+        	}            
+            alert("-----> Global vars chart Data " + JSON.stringify(chartServiceData));
+            
+        } else {
+            var alert_seq5_act0 = kony.ui.Alert({
+                "message": "Chart Data service failed.",
+                "alertType": constants.ALERT_TYPE_ERROR,
+                "alertTitle": "Error",
+                "yesLabel": "Ok",
+                "noLabel": "",
+                "alertIcon": "",
+                "alertHandler": null
+            }, {});
+        }
+    }
+}
 
-function getBrandsByDateService() {
+function getBrandsByRepByDateService() {
 	var inputparam = {};
     inputparam["serviceID"] = "getBrandsByDate";
     inputparam["repId"] = "0008";
     inputparam["date"] = "2013";
-
     
-    appmiddlewareinvokerasync(inputparam, getBrandsByDateCallback);
+    appmiddlewareinvokerasync(inputparam, getBrandsByRepByDateCallback);
 }
 
 function getDateFilterService() {
@@ -19,14 +70,14 @@ function getDateFilterService() {
     appmiddlewareinvokerasync(inputparam, getDateFilterCallback);
 }
 
-function getBrandsByDateCallback(status, getBrandsByDate) {
+function getBrandsByRepByDateCallback(status, getBrandsByRepByDate) {
     if (status == 400) {
-        if (getBrandsByDate["brands"] != null && getBrandsByDate["brands"].length > 0) {
-        	var columnValues = getBrandsByDate["brands"];
+        if (getBrandsByRepByDate["products"] != null && getBrandsByRepByDate["products"].length > 0) {
+        	var columnValues = getBrandsByRepByDate["products"];
         	var length = columnValues.length;
         	
         	for (var index = 0; index< length; index++) {
-        		productlist.push(columnValues[index]["product"]);
+        		productlist.push(columnValues[index]["item"]);
         	}            
             kony.print("-----> Global vars productlist " + JSON.stringify(productlist));
             
@@ -48,7 +99,7 @@ function getBrandsByDateCallback(status, getBrandsByDate) {
 
 function getDateFilterCallback(status, getDateFilter) {
     if (status == 400) {
-  //  	alert("date filter : " + JSON.stringify(getDateFilter["date"]));
+    	alert("date filter : " + JSON.stringify(getDateFilter["date"]));
         if (getDateFilter["date"] != null && getDateFilter["date"].length > 0) {
         
         	var rowValues = getDateFilter["date"];
@@ -86,52 +137,109 @@ function func_init_frm_001_line_chart_001() {
 //    var demoViewForm = k_dv.dataviz.app.frm.demoFormSeaGrey();
 	var demoViewForm = frmTrends;
     // assign
-	var usecase_array = [];
+    var usecase_array = [];
     var index = -1;
     usecase_array[++index] = k_dv_dataviz_linechart_demo_sample_1;
     //    usecase_array[++index] = k_dv_dataviz_linechart_demo_sample_2;
     //    usecase_array[++index] = k_dv_dataviz_linechart_demo_sample_3;
     // execute
     k_dv.dataviz.app.showDemosOnForm(demoIndex, demoViewForm, usecase_array);
-
-	
-//	frmTrends.add(konyDVWidget);
-//	frmTrends.show();
-
     // swipe gesture
     k_dv.dataviz.app.installSwipeGestureOnForm(demoViewForm);
-};
+}; 
 // /////////////
 // //////////// Doc purpose //////////////////////
 var k_dv_dataviz_linechart_demo_sample_1 = function() {
         /////// chart data
+        // --------------------------
+        //		var countcollection = 5;
+        //		var yearcollection = 12;
+        //		brandlist = new Array();
+        ////		for (var jk = 0; jk < countcollection; jk++) {
+        ////			brandlist[jk] = " " + jk;
+        ////		}
+        //
+        //		brandlist[0] = "Product 2";
+        //		brandlist[1] = "Product 3";
+        //		brandlist[2] = "Product 7";
+        //		brandlist[3] = "Product 9";
+        //		brandlist[4] = "Product 34";
+        //		
+        //		
+        //		periodlist = new Array();
+        ////		for (var ck = 0; ck < yearcollection; ck++){
+        ////			periodlist[ck] = " " + ck;
+        ////		}
+        //		periodlist[0] = "Jan 1990";
+        //		periodlist[1] = "Feb 1990";
+        //		periodlist[2] = "Mar 1990";
+        //		periodlist[3] = "Apr 1990";
+        //		periodlist[4] = "May 1990";
+        //		periodlist[5] = "Jun 1990";
+        //		periodlist[6] = "Jul 1990";
+        //		periodlist[7] = "Aug 1990";
+        //		periodlist[8] = "Sep 1990";
+        //		periodlist[9] = "Aug 1990";
+        //		periodlist[10] = "Nov 1990";
+        //		periodlist[11] = "Dec 1990";
+        //		var tempbrandlist = new Array();
+        //		var tempperiodlist = new Array();
+        //		
+        //		for (var cb = 0; cb < brandlist.length; cb++) {
+        //			tempbrandlist.push(brandlist[cb]);
+        //		}
+        //
+        //		alert(tempbrandlist);
+        // --------------------- end --------------------------
         ////////// funtion begin getChartData()
         var getChartData = function() {
-//        		alert("---> Row Data : " + datelist);
-//        		alert("---> Column Data : " + productlist);
+ //       		alert("---> ### Row Data : " + datelist);
+ //       		alert("---> ### Column Data : " + productlist);
+        		kony.print("---> ### chart data service : " + JSON.stringify(chartServiceData));
                 /////// data
                 var chartData = {
                     "rowNames": {
+                        //"values": ["Jan 2008", "Feb 2008", "Mar 2008", "Apr 2008", "May 2008", "Jun 2008", "Jul 2008", "Aug 2008", "Sep 2008", "Aug 2008", "Nov 2008", "Dec 2008"]
                         "values": datelist
-				//		"values": ["jan 2013","feb 2013","jan 2013","jan 2013","jan 2013","jan 2013","jan 2013","jan 2013","jan 2013","jan 2013","jan 2013","jan 2013"]
                     },
                     "columnNames": {
+                        //   "values": ["Deposit", "Cash", "Credit", "Target", "Achieved"]
+                        //"values": ["Product 2", "Product 6", "Product 7", "Product 11", "Product 12"]
                         "values": productlist
-				//		"values": ["Product 2","Product 2","Product 2","Product 2", "Product 2"]
+						//"values": ["Product 2", "Product 6", "Product 11", "Product 12", "Product 13", "Product 14", "Product 22", "Product 23", "Product 28"]
                     },
-                    "data": {
-                    
-                        "Product 11": [234, 236, 224, 244, 240, 218, 256, 254, 248, 226, 234, 228],
-                        "Product 12": [524, 512, 514, 526, 534, 536, 522, 544, 342, 318, 328, 324],
-                        "Product 13": [344, 335, 336, 334, 332, 324, 322, 425, 444, 446, 448, 446],
-                        "Product 14": [78, 79, 67, 87, 76, 54, 34, 90, 87, 88, 59, 45],
-                        "Product 2": [120, 125, 135, 155, 170, 128, 67, 169, 215, 190, 145, 180],
-                        "Product 22": [224, 400, 224, 547, 325, 218, 600, 254, 436, 600, 234, 100],
-                        "Product 23": [20, 437, 12, 526, 32, 536, 459, 544, 431, 318, 600, 324],
-                        "Product 28": [344, 100, 336, 250, 332, 230, 322, 125, 444, 231, 448, 109],
-                        "Product 6": [78, 79, 67, 87, 76, 54, 34, 90, 87, 88, 59, 45],
-                        "Product 7": [120, 125, 135, 155, 170, 128, 67, 169, 215, 190, 145, 180]
-                    }
+                   // "data": {
+//                    	"Product 11":[30130.0,36354.0,43036.0,44671.0,42809.0,46562.0,49497.0,51792.0,63894.0,56917.0,38917.0,62077.0],
+//						"Product 12":[5088.0,79.0,285.0,551.0,423.0,5858.0,6713.0,4187.0,9342.0],
+//						"Product 13":[7632.0,123.0,72.0,97.0,180.0,2166.0,1854.0,1481.0,4058.0],
+//						"Product 14":[5088.0,80.0,336.0,383.0,4022.0,2094.0,3803.0,6833.0],
+//						"Product 2":[1864.0,1341.0,1582.0,2602.0,3645.0,2468.0,2893.0,1347.0,2683.0,6153.0,7323.0,7387.0],
+//						"Product 22":[4990.0,1453.0,884.0,4832.0,72158.0,124010.0,170070.0,142110.0],
+//						"Product 23":[4789.0,2873.0,4789.0,5959.0,4898.0,4222.0,5066.0,3209.0,4560.0,4391.0,4222.0,4062.0],
+//						"Product 28":[6660.0,7697.0,8065.0,7711.0,8853.0,6586.0,9566.0,7762.0,18047.0,9389.0,13646.0,11166.0],
+//						"Product 6":[75600.0,179745.0,243887.0,344293.0,383120.0,401383.0,207471.0,177936.0,201773.0,279520.0,144425.0,130313.0]
+                    	//"Product 11":[30130,36354,43036,44671,42809,46562,49497,51792,63894,56917,38917,62077],
+//						"Product 12":[5088,79,285,551,423,5858,6713,4187,9342],
+//						"Product 13":[7632,123,72,97,180,2166,1854,1481,4058],
+//						"Product 14":[5088,80,336,383,4022,2094,3803,6833],
+//						"Product 2":[1864,1341,1582,2602,3645,2468,2893,1347,2683,6153,7323,7387],
+//						"Product 22":[4990,1453,884,4832,72158,124010,170070,142110],
+//						"Product 23":[4789,2873,4789,5959,4898,4222,5066,3209,4560,4391,4222,4062],
+//						"Product 28":[6660,7697,8065,7711,8853,6586,9566,7762,18047,9389,13646,11166],
+//						"Product 6":[75600,179745,243887,344293,383120,401383,207471,177936,201773,279520,144425,130313]
+					 //}                   
+                    "data": chartServiceData//{
+//                        //                        "Deposit": [234, 236, 224, 244, 240, 218, 256, 254, 248, 226, 234, 228, 234, 236, 224, 344, 340, 318, 356, 324, 344, 340, 318, 356],
+//                        //                        "Cash": [524, 512, 514, 526, 534, 536, 522, 544, 342, 318, 328, 324, 324, 312, 314, 326, 434, 436, 422, 455, 426, 434, 436, 422],
+//                        //                        "Credit": [344, 335, 336, 334, 332, 324, 322, 425, 444, 446, 448, 446, 444, 435, 436, 434, 532, 524, 522, 536, 534, 532, 524, 522],
+//                        //                        "Achieved": [78, 79, 67, 87, 76, 54, 34, 90, 87, 88, 59, 45, 78, 80, 80, 35, 68, 78, 75, 70, 75, 83, 78, 75, 70, 75, 83],
+//                        //                        "Target": [120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120],
+//                        "Product 2": [234, 236, 224, 244, 240, 218, 256, 254, 248, 226, 234, 228],
+//                        "Product 6": [524, 512, 514, 526, 534, 536, 522, 544, 342, 318, 328, 324],
+//                        "Product 7": [344, 335, 336, 334, 332, 324, 322, 425, 444, 446, 448, 446],
+//                        "Product 11": [78, 79, 67, 87, 76, 54, 34, 90, 87, 88, 59, 45],
+//                        "Product 12": [120, 125, 135, 155, 170, 128, 67, 169, 215, 190, 145, 180]
+//                    }
                 };
                 return chartData;
             };
@@ -665,9 +773,9 @@ var k_dv_dataviz_linechart_demo_sample_1 = function() {
                 chartProperties.layerArea.background.color = ["0xffffffff"];
                 ///////// linechart - config
                 // multiseries
-                chartProperties.lineChart.columnId = [0, 1, 2, 4, 5, 6, 7, 8];
+                chartProperties.lineChart.columnId = [0, 1, 2, 4];
                 chartProperties.lineChart.lineType = "normal";
-                chartProperties.lineChart.line.color = ["0x9fd500ff", "0x22b8dbff", "0x0D0664ff", "0x949094FF", "0x9fe300ee", "0x22b9dbee", "0x0D0364ee", "0x949194ee"];
+                chartProperties.lineChart.line.color = ["0x9fd500ff", "0x22b8dbff", "0x0D0664ff", "0x949094FF"];
                 chartProperties.lineChart.plotPoints.visible = false;
                 chartProperties.lineChart.plotPoints.color = ["0xa9e200ff", "0x22b8dbff", "0xf7d700ff"];
                 chartProperties.lineChart.plotPoints.marker.type = ["bubble", "bubble", "bubble"];
@@ -719,7 +827,7 @@ var k_dv_dataviz_linechart_demo_sample_1 = function() {
                 chartProperties.legend.visible = true;
                 chartProperties.legend.indicators = ["marker", "textLabel"];
                 chartProperties.legend.marker.type = "colorBox";
-                chartProperties.legend.marker.color = ["0x9fd500ff", "0x22b8dbff", "0x0D0664ff", "0x949094FF", "0x9fe500ff", "0x22b9dbff", "0x0D0364ff", "0x949194FF"];
+                chartProperties.legend.marker.color = ["0x9fd500ff", "0x22b8dbff", "0x0D0664ff", "0x949094FF"];
  //               chartProperties.legend.textLabel.text = ["Product 2", "Product 6", "Product 7", "Product 11"];
    				chartProperties.legend.textLabel.text = productlist;
                 chartProperties.legend.textLabel.color = ["0x9fd500ff", "0x22b8dbff", "0x0D0664ff", "0x949094FF"];
