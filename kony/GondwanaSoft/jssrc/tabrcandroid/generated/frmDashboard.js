@@ -1,6 +1,6 @@
 //Form JS File
-function frmDashboard_frmDashboard_init_seq0(eventobject, neworientation) {
-    datePopup.show();
+function frmDashboard_frmDashboard_preshow_seq0(eventobject, neworientation) {
+    getBrandsByDateService.call(this);
 };
 
 function frmDashboard_hboxMap_onClick_seq0(eventobject) {
@@ -12,11 +12,52 @@ function frmDashboard_hboxGrade_onClick_seq0(eventobject) {
 };
 
 function frmDashboard_hboxTop_onClick_seq0(eventobject) {
-    frmTop.show();
+    var getMyTop25Customers_inputparam = {};
+    getMyTop25Customers_inputparam["serviceID"] = "getMyTop25Customers";
+    getMyTop25Customers_inputparam["repId"] = "0008";
+    getMyTop25Customers_inputparam["date"] = "2013";
+    getMyTop25Customers_inputparam["httpheaders"] = {};
+    getMyTop25Customers_inputparam["httpconfig"] = {};
+    getMyTop25Customers = appmiddlewareinvoker(getMyTop25Customers_inputparam, false);
+    if (getMyTop25Customers["return"].length > 0) {
+        if (getMyTop25Customers != null && getMyTop25Customers != undefined && getMyTop25Customers["return"] != null && getMyTop25Customers["return"] != undefined) {
+            var frmTop25Customers_segInfo_temp = [];
+            for (var i1 = 0; i1 < getMyTop25Customers["return"].length; i1++) {
+                frmTop25Customers_segInfo_temp.push({
+                    "lblBrick": getMyTop25Customers["return"][i1]["brick"],
+                    "lblValue": getMyTop25Customers["return"][i1]["values"],
+                    "lblCustomerName": getMyTop25Customers["return"][i1]["name"]
+                })
+            }
+            frmTop25Customers.segInfo.setData(frmTop25Customers_segInfo_temp);
+        }
+        if (getMyTop25Customers != null && getMyTop25Customers != undefined && getMyTop25Customers["return"] != null && getMyTop25Customers["return"] != undefined) {
+            var frmTop25Customers_segInfo_temp = [];
+            for (var i1 = 0; i1 < getMyTop25Customers["return"].length; i1++) {
+                frmTop25Customers_segInfo_temp.push({
+                    "lblBrick": getMyTop25Customers["return"][i1]["brick"],
+                    "lblValue": getMyTop25Customers["return"][i1]["values"],
+                    "lblCustomerName": getMyTop25Customers["return"][i1]["name"]
+                })
+            }
+            frmTop25Customers.segInfo.setData(frmTop25Customers_segInfo_temp);
+        }
+        frmTop25Customers.show();
+    } else {
+        var alert_seq2_act0 = kony.ui.Alert({
+            "message": "Service Failed!",
+            "alertType": constants.ALERT_TYPE_ERROR,
+            "alertTitle": "",
+            "yesLabel": "Ok",
+            "noLabel": "",
+            "alertIcon": "",
+            "alertHandler": null
+        }, {});
+    }
 };
 
 function frmDashboard_hboxTrend_onClick_seq0(eventobject) {
-    func_init_frm_001_line_chart_001.call(this);
+    frmTrends.show();
 };
 
 function frmDashboard_hboxVis_onClick_seq0(eventobject) {
@@ -317,7 +358,7 @@ function frmDashboardGlobals() {
         "headers": [hboxLogo, hboxHInfo],
         "enabledForIdleTimeout": false,
         "skin": "frmBlkBack",
-        "init": frmDashboard_frmDashboard_init_seq0,
+        "preShow": frmDashboard_frmDashboard_preshow_seq0,
         "addWidgets": addWidgetsfrmDashboard
     }, {
         "padding": [0, 0, 0, 0],

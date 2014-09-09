@@ -6,6 +6,11 @@ function appmenuitemid3_callback_seq0() {
 function appmenuitemid4_callback_seq0() {
     frmDashboard.show();
 };
+
+function GondwanaSoftpostappinit_seq0(params) {
+    datelist = new Array();
+    productlist = new Array();
+};
 var globalhttpheaders = {};
 var appConfig = {
     appId: "GondwanaSoft",
@@ -30,14 +35,24 @@ function appInit(params) {
     initializedateExt();
     initializefilterBtns();
     datePopupGlobals();
+    frm000DataVizViewFormGlobals();
+    frm101DemoCGGlobals();
+    frm103DemoCNAGlobals();
     frm105DemoSeaGreyGlobals();
+    frm112DemoFinanceChartFormGlobals();
+    frm115DemoCCGlobals();
+    frm116DemoWhiteGlobals();
+    frm800PopUp001Globals();
     frmDashboardGlobals();
     frmGradingGlobals();
     frmGrowthGlobals();
     frmHomeGlobals();
     frmTopGlobals();
+    frmTop25CustomersGlobals();
     frmTrendsGlobals();
+    frmTrendsBkpGlobals();
     frmVisGlobals();
+    popupfilterGlobals();
     welcomePopGlobals();
     setAppBehaviors();
 };
@@ -52,8 +67,9 @@ function themeCallBack() {
     callAppMenu();
     kony.application.setApplicationInitializationEvents({
         init: appInit,
+        postappinit: GondwanaSoftpostappinit_seq0,
         showstartupform: function() {
-            frmHome.show();
+            frmDashboard.show();
         }
     });
 };

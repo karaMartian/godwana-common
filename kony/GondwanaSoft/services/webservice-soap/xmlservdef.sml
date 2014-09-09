@@ -10,7 +10,7 @@
             <wsdlservice>
                 <authenticationMode>basic</authenticationMode>
                 <loaded>true</loaded>
-                <name>SalesDataFilter</name>
+                <name>SalesRepresentativeService</name>
                 <ntlmDomain></ntlmDomain>
                 <ntlmHost></ntlmHost>
                 <password></password>
@@ -51,11 +51,11 @@
                     <smsenabled>false</smsenabled>
                     <soapaction></soapaction>
                     <timeout></timeout>
-                    <url>http://209.203.36.130:8081/com/arkitex/mobile</url>
+                    <url>http://209.203.36.130:8080/com/arkitex/mobile</url>
                     <urlprovider></urlprovider>
                     <userid></userid>
                     <version>1.1</version>
-                    <wsdlurl>http://209.203.36.130:8081/com/arkitex/mobile?wsdl</wsdlurl>
+                    <wsdlurl>http://209.203.36.130:8080/com/arkitex/mobile?wsdl</wsdlurl>
                 </soapservice>
                 <soapservice>
                     <authenticationMode>basic</authenticationMode>
@@ -65,7 +65,7 @@
                     <dcResponse/>
                     <encryptPwd>true</encryptPwd>
                     <escapeXML>false</escapeXML>
-                    <id>getBrandsByRepByDate</id>
+                    <id>getBrandsByDate</id>
                     <ignoreProxy>false</ignoreProxy>
                     <inparam>
                         <category></category>
@@ -97,7 +97,7 @@
                         <encode>true</encode>
                         <format>None</format>
                         <formatvalue></formatvalue>
-                        <id>startDate</id>
+                        <id>date</id>
                         <invalue></invalue>
                         <name></name>
                         <order></order>
@@ -108,48 +108,25 @@
                         <srcformatvalue></srcformatvalue>
                         <target></target>
                         <targetdatatype></targetdatatype>
-                        <testvalue>2013-01-01</testvalue>
-                        <value></value>
-                    </inparam>
-                    <inparam>
-                        <category></category>
-                        <datatype>string</datatype>
-                        <defaultvalue></defaultvalue>
-                        <description></description>
-                        <encode>true</encode>
-                        <format>None</format>
-                        <formatvalue></formatvalue>
-                        <id>endDate</id>
-                        <invalue></invalue>
-                        <name></name>
-                        <order></order>
-                        <passNull>false</passNull>
-                        <recordid></recordid>
-                        <smsname></smsname>
-                        <source></source>
-                        <srcformatvalue></srcformatvalue>
-                        <target></target>
-                        <targetdatatype></targetdatatype>
-                        <testvalue>2013-06-30</testvalue>
+                        <testvalue>2013</testvalue>
                         <value></value>
                     </inparam>
                     <intemplate>&lt;soapenv:Envelope xmlns:int="http://interfaces.ws.gondwana.mobile.arkitex.co.za/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
    &lt;soapenv:Header/&gt;
    &lt;soapenv:Body&gt;
-      &lt;int:getBrandsByRepByDate&gt;
+      &lt;int:getBrandsByDate&gt;
          &lt;repId&gt;0008&lt;/repId&gt;
-         &lt;startDate&gt;2013-01-01&lt;/startDate&gt;
-         &lt;endDate&gt;2013-06-30&lt;/endDate&gt;
-      &lt;/int:getBrandsByRepByDate&gt;
+         &lt;date&gt;2013&lt;/date&gt;
+      &lt;/int:getBrandsByDate&gt;
    &lt;/soapenv:Body&gt;
 &lt;/soapenv:Envelope&gt;
 </intemplate>
                     <ntlmDomain></ntlmDomain>
                     <ntlmHost></ntlmHost>
-                    <operationname>getBrandsByRepByDate</operationname>
+                    <operationname>getBrandsByDate</operationname>
                     <outtemplate>&lt;S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"&gt;
    &lt;S:Body&gt;
-      &lt;ns2:getBrandsByRepByDateResponse xmlns:ns2="http://interfaces.ws.gondwana.mobile.arkitex.co.za/"&gt;
+      &lt;ns2:getBrandsByDateResponse xmlns:ns2="http://interfaces.ws.gondwana.mobile.arkitex.co.za/"&gt;
          &lt;return&gt;
             &lt;item&gt;Product 11&lt;/item&gt;
             &lt;item&gt;Product 12&lt;/item&gt;
@@ -162,11 +139,13 @@
             &lt;item&gt;Product 6&lt;/item&gt;
             &lt;item&gt;Product 7&lt;/item&gt;
          &lt;/return&gt;
-      &lt;/ns2:getBrandsByRepByDateResponse&gt;
+      &lt;/ns2:getBrandsByDateResponse&gt;
    &lt;/S:Body&gt;
 &lt;/S:Envelope&gt;
 </outtemplate>
-                    <outTemplateHeader></outTemplateHeader>
+                    <outTemplateHeader>Transfer-encoding: chunked
+Content-type: text/xml;charset="utf-8"
+</outTemplateHeader>
                     <outparam>
                         <category></category>
                         <datatype>string</datatype>
@@ -175,7 +154,7 @@
                         <encode>true</encode>
                         <format>None</format>
                         <formatvalue></formatvalue>
-                        <id>products</id>
+                        <id>period</id>
                         <invalue></invalue>
                         <name></name>
                         <order></order>
@@ -206,10 +185,10 @@
                         <smsname></smsname>
                         <source>item</source>
                         <srcformatvalue></srcformatvalue>
-                        <target></target>
+                        <target>response</target>
                         <targetdatatype></targetdatatype>
                         <testvalue></testvalue>
-                        <value>products</value>
+                        <value>period</value>
                     </outparam>
                     <password></password>
                     <postclassname></postclassname>
@@ -224,11 +203,55 @@
                     <smsenabled>false</smsenabled>
                     <soapaction></soapaction>
                     <timeout></timeout>
-                    <url>http://209.203.36.130:8081/com/arkitex/mobile</url>
+                    <url>http://209.203.36.130:8080/com/arkitex/mobile</url>
                     <urlprovider></urlprovider>
                     <userid></userid>
                     <version>1.1</version>
-                    <wsdlurl>http://209.203.36.130:8081/com/arkitex/mobile?wsdl</wsdlurl>
+                    <wsdlurl>http://209.203.36.130:8080/com/arkitex/mobile?wsdl</wsdlurl>
+                </soapservice>
+                <soapservice>
+                    <authenticationMode>basic</authenticationMode>
+                    <cacheduration></cacheduration>
+                    <cacheable>false</cacheable>
+                    <dataprovider></dataprovider>
+                    <dcResponse/>
+                    <encryptPwd>true</encryptPwd>
+                    <escapeXML>false</escapeXML>
+                    <id>getSalesTrendDataByProduct</id>
+                    <ignoreProxy>false</ignoreProxy>
+                    <intemplate>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://interfaces.ws.gondwana.mobile.arkitex.co.za/"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;int:getSalesTrendDataByProduct&gt;
+         &lt;repId&gt;?&lt;/repId&gt;
+         &lt;product&gt;?&lt;/product&gt;
+         &lt;date&gt;?&lt;/date&gt;
+      &lt;/int:getSalesTrendDataByProduct&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</intemplate>
+                    <ntlmDomain></ntlmDomain>
+                    <ntlmHost></ntlmHost>
+                    <operationname>getSalesTrendDataByProduct</operationname>
+                    <outtemplate></outtemplate>
+                    <outTemplateHeader></outTemplateHeader>
+                    <password></password>
+                    <postclassname></postclassname>
+                    <preclassname></preclassname>
+                    <proxyname></proxyname>
+                    <proxyport></proxyport>
+                    <proxypwd></proxypwd>
+                    <proxyuserid></proxyuserid>
+                    <responseencoding>UTF-8</responseencoding>
+                    <sharePoint>false</sharePoint>
+                    <smscode></smscode>
+                    <smsenabled>false</smsenabled>
+                    <soapaction></soapaction>
+                    <timeout></timeout>
+                    <url>http://209.203.36.130:8080/com/arkitex/mobile</url>
+                    <urlprovider></urlprovider>
+                    <userid></userid>
+                    <version>1.1</version>
+                    <wsdlurl>http://209.203.36.130:8080/com/arkitex/mobile?wsdl</wsdlurl>
                 </soapservice>
                 <soapservice>
                     <authenticationMode>basic</authenticationMode>
@@ -244,14 +267,8 @@
    &lt;soapenv:Header/&gt;
    &lt;soapenv:Body&gt;
       &lt;int:getSalesTrendData&gt;
-         &lt;months&gt;
-            &lt;!--Zero or more repetitions:--&gt;
-            &lt;item&gt;?&lt;/item&gt;
-         &lt;/months&gt;
-         &lt;brands&gt;
-            &lt;!--Zero or more repetitions:--&gt;
-            &lt;item/&gt;
-         &lt;/brands&gt;
+         &lt;repId&gt;?&lt;/repId&gt;
+         &lt;date&gt;?&lt;/date&gt;
       &lt;/int:getSalesTrendData&gt;
    &lt;/soapenv:Body&gt;
 &lt;/soapenv:Envelope&gt;</intemplate>
@@ -273,15 +290,101 @@
                     <smsenabled>false</smsenabled>
                     <soapaction></soapaction>
                     <timeout></timeout>
-                    <url>http://209.203.36.130:8081/com/arkitex/mobile</url>
+                    <url>http://209.203.36.130:8080/com/arkitex/mobile</url>
                     <urlprovider></urlprovider>
                     <userid></userid>
                     <version>1.1</version>
-                    <wsdlurl>http://209.203.36.130:8081/com/arkitex/mobile?wsdl</wsdlurl>
+                    <wsdlurl>http://209.203.36.130:8080/com/arkitex/mobile?wsdl</wsdlurl>
+                </soapservice>
+                <soapservice>
+                    <authenticationMode>basic</authenticationMode>
+                    <cacheduration></cacheduration>
+                    <cacheable>false</cacheable>
+                    <dataprovider></dataprovider>
+                    <dcResponse/>
+                    <encryptPwd>true</encryptPwd>
+                    <escapeXML>false</escapeXML>
+                    <id>getMyTop25Customers</id>
+                    <ignoreProxy>false</ignoreProxy>
+                    <intemplate>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://interfaces.ws.gondwana.mobile.arkitex.co.za/"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;int:getMyTop25Customers&gt;
+         &lt;repId&gt;?&lt;/repId&gt;
+         &lt;date&gt;?&lt;/date&gt;
+      &lt;/int:getMyTop25Customers&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</intemplate>
+                    <ntlmDomain></ntlmDomain>
+                    <ntlmHost></ntlmHost>
+                    <operationname>getMyTop25Customers</operationname>
+                    <outtemplate></outtemplate>
+                    <outTemplateHeader></outTemplateHeader>
+                    <password></password>
+                    <postclassname></postclassname>
+                    <preclassname></preclassname>
+                    <proxyname></proxyname>
+                    <proxyport></proxyport>
+                    <proxypwd></proxypwd>
+                    <proxyuserid></proxyuserid>
+                    <responseencoding>UTF-8</responseencoding>
+                    <sharePoint>false</sharePoint>
+                    <smscode></smscode>
+                    <smsenabled>false</smsenabled>
+                    <soapaction></soapaction>
+                    <timeout></timeout>
+                    <url>http://209.203.36.130:8080/com/arkitex/mobile</url>
+                    <urlprovider></urlprovider>
+                    <userid></userid>
+                    <version>1.1</version>
+                    <wsdlurl>http://209.203.36.130:8080/com/arkitex/mobile?wsdl</wsdlurl>
+                </soapservice>
+                <soapservice>
+                    <authenticationMode>basic</authenticationMode>
+                    <cacheduration></cacheduration>
+                    <cacheable>false</cacheable>
+                    <dataprovider></dataprovider>
+                    <dcResponse/>
+                    <encryptPwd>true</encryptPwd>
+                    <escapeXML>false</escapeXML>
+                    <id>getMySalesVisualized</id>
+                    <ignoreProxy>false</ignoreProxy>
+                    <intemplate>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://interfaces.ws.gondwana.mobile.arkitex.co.za/"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;int:getMySalesVisualized&gt;
+         &lt;repId&gt;?&lt;/repId&gt;
+         &lt;date&gt;?&lt;/date&gt;
+      &lt;/int:getMySalesVisualized&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</intemplate>
+                    <ntlmDomain></ntlmDomain>
+                    <ntlmHost></ntlmHost>
+                    <operationname>getMySalesVisualized</operationname>
+                    <outtemplate></outtemplate>
+                    <outTemplateHeader></outTemplateHeader>
+                    <password></password>
+                    <postclassname></postclassname>
+                    <preclassname></preclassname>
+                    <proxyname></proxyname>
+                    <proxyport></proxyport>
+                    <proxypwd></proxypwd>
+                    <proxyuserid></proxyuserid>
+                    <responseencoding>UTF-8</responseencoding>
+                    <sharePoint>false</sharePoint>
+                    <smscode></smscode>
+                    <smsenabled>false</smsenabled>
+                    <soapaction></soapaction>
+                    <timeout></timeout>
+                    <url>http://209.203.36.130:8080/com/arkitex/mobile</url>
+                    <urlprovider></urlprovider>
+                    <userid></userid>
+                    <version>1.1</version>
+                    <wsdlurl>http://209.203.36.130:8080/com/arkitex/mobile?wsdl</wsdlurl>
                 </soapservice>
                 <sharePoint>false</sharePoint>
                 <userName></userName>
-                <wsdlurl>http://209.203.36.130:8081/com/arkitex/mobile?wsdl</wsdlurl>
+                <wsdlurl>http://209.203.36.130:8080/com/arkitex/mobile?wsdl</wsdlurl>
             </wsdlservice>
         </wsdltree>
     </wsdlroot>

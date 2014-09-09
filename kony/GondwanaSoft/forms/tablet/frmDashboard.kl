@@ -27,7 +27,7 @@
     <platform>0</platform>
     <mode>0</mode>
     <formCategory>100</formCategory>
-    <toList></toList>
+    <toList>frmTop25Customers</toList>
     <fromList></fromList>
     <headersrcList></headersrcList>
     <footersrcList></footersrcList>
@@ -89,6 +89,7 @@
             <rc_winmobile>true</rc_winmobile>
             <rc_winmobile6x>true</rc_winmobile6x>
             <rc_winphone8>true</rc_winphone8>
+            <rc_winphone81s>true</rc_winphone81s>
             <tabspa_ipad>true</tabspa_ipad>
             <tabspa_windows>true</tabspa_windows>
             <tabspaspa_android>true</tabspaspa_android>
@@ -132,6 +133,7 @@
             <rc_winmobile>true</rc_winmobile>
             <rc_winmobile6x>true</rc_winmobile6x>
             <rc_winphone8>true</rc_winphone8>
+            <rc_winphone81s>true</rc_winphone81s>
             <tabspa_ipad>true</tabspa_ipad>
             <tabspa_windows>true</tabspa_windows>
             <tabspaspa_android>true</tabspaspa_android>
@@ -438,12 +440,20 @@
                     <functionNameMap>
                         <entry>
                             <key>js</key>
-                            <value>getBrandsByRepByDateService</value>
+                            <value>getBrandsByDateService</value>
+                        </entry>
+                        <entry>
+                            <key>lua</key>
+                            <value>None</value>
                         </entry>
                     </functionNameMap>
                     <paramDataMap>
                         <entry>
                             <key>js</key>
+                            <value/>
+                        </entry>
+                        <entry>
+                            <key>lua</key>
                             <value/>
                         </entry>
                     </paramDataMap>
@@ -765,6 +775,12 @@
                 <seqname></seqname>
             </evtSequence>
         </spa_onOrientation_root>
+        <spa_onDeviceBack>
+            <evtSequence>
+                <enabled>true</enabled>
+                <seqname></seqname>
+            </evtSequence>
+        </spa_onDeviceBack>
         <pb_submitsecure>false</pb_submitsecure>
         <pb_titleBar>true</pb_titleBar>
         <pb_capture_gps>false</pb_capture_gps>
@@ -840,6 +856,7 @@
                 <rc_winmobile>true</rc_winmobile>
                 <rc_winmobile6x>true</rc_winmobile6x>
                 <rc_winphone8>true</rc_winphone8>
+                <rc_winphone81s>true</rc_winphone81s>
                 <tabspa_ipad>true</tabspa_ipad>
                 <tabspa_windows>true</tabspa_windows>
                 <tabspaspa_android>true</tabspaspa_android>
@@ -1496,6 +1513,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -2126,6 +2144,7 @@
                         <rc_winmobile>true</rc_winmobile>
                         <rc_winmobile6x>true</rc_winmobile6x>
                         <rc_winphone8>true</rc_winphone8>
+                        <rc_winphone81s>true</rc_winphone81s>
                         <tabspa_ipad>true</tabspa_ipad>
                         <tabspa_windows>true</tabspa_windows>
                         <tabspaspa_android>true</tabspaspa_android>
@@ -2749,6 +2768,20 @@
                         </evtSequence>
                     </desktopweb_onRightClick>
                     <winphone8_position>0</winphone8_position>
+                    <containerWeight>0</containerWeight>
+                    <projectState>0</projectState>
+                    <a11yConfig>
+                        <a11yHidden>false</a11yHidden>
+                        <a11yHint></a11yHint>
+                        <a11yLabel></a11yLabel>
+                        <a11yValue></a11yValue>
+                    </a11yConfig>
+                    <onHover>
+                        <evtSequence>
+                            <enabled>true</enabled>
+                            <seqname></seqname>
+                        </evtSequence>
+                    </onHover>
                 </children>
                 <children xsi:type="khBox">
                     <ID>hboxTwoHold</ID>
@@ -2803,6 +2836,7 @@
                         <rc_winmobile>true</rc_winmobile>
                         <rc_winmobile6x>true</rc_winmobile6x>
                         <rc_winphone8>true</rc_winphone8>
+                        <rc_winphone81s>true</rc_winphone81s>
                         <tabspa_ipad>true</tabspa_ipad>
                         <tabspa_windows>true</tabspa_windows>
                         <tabspaspa_android>true</tabspaspa_android>
@@ -3459,6 +3493,7 @@
                             <rc_winmobile>true</rc_winmobile>
                             <rc_winmobile6x>true</rc_winmobile6x>
                             <rc_winphone8>true</rc_winphone8>
+                            <rc_winphone81s>true</rc_winphone81s>
                             <tabspa_ipad>true</tabspa_ipad>
                             <tabspa_windows>true</tabspa_windows>
                             <tabspaspa_android>true</tabspaspa_android>
@@ -4089,6 +4124,7 @@
                                 <rc_winmobile>true</rc_winmobile>
                                 <rc_winmobile6x>true</rc_winmobile6x>
                                 <rc_winphone8>true</rc_winphone8>
+                                <rc_winphone81s>true</rc_winphone81s>
                                 <tabspa_ipad>true</tabspa_ipad>
                                 <tabspa_windows>true</tabspa_windows>
                                 <tabspaspa_android>true</tabspaspa_android>
@@ -4712,6 +4748,20 @@
                                 </evtSequence>
                             </desktopweb_onRightClick>
                             <winphone8_position>0</winphone8_position>
+                            <containerWeight>0</containerWeight>
+                            <projectState>0</projectState>
+                            <a11yConfig>
+                                <a11yHidden>false</a11yHidden>
+                                <a11yHint></a11yHint>
+                                <a11yLabel></a11yLabel>
+                                <a11yValue></a11yValue>
+                            </a11yConfig>
+                            <onHover>
+                                <evtSequence>
+                                    <enabled>true</enabled>
+                                    <seqname></seqname>
+                                </evtSequence>
+                            </onHover>
                         </children>
                         <desktopweb_onRightClick>
                             <evtSequence>
@@ -4720,6 +4770,20 @@
                             </evtSequence>
                         </desktopweb_onRightClick>
                         <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                        <containerWeight>0</containerWeight>
+                        <projectState>0</projectState>
+                        <a11yConfig>
+                            <a11yHidden>false</a11yHidden>
+                            <a11yHint></a11yHint>
+                            <a11yLabel></a11yLabel>
+                            <a11yValue></a11yValue>
+                        </a11yConfig>
+                        <onHover>
+                            <evtSequence>
+                                <enabled>true</enabled>
+                                <seqname></seqname>
+                            </evtSequence>
+                        </onHover>
                     </children>
                     <children xsi:type="kvBox">
                         <ID>vboxbtn2</ID>
@@ -4779,6 +4843,7 @@
                             <rc_winmobile>true</rc_winmobile>
                             <rc_winmobile6x>true</rc_winmobile6x>
                             <rc_winphone8>true</rc_winphone8>
+                            <rc_winphone81s>true</rc_winphone81s>
                             <tabspa_ipad>true</tabspa_ipad>
                             <tabspa_windows>true</tabspa_windows>
                             <tabspaspa_android>true</tabspaspa_android>
@@ -5409,6 +5474,7 @@
                                 <rc_winmobile>true</rc_winmobile>
                                 <rc_winmobile6x>true</rc_winmobile6x>
                                 <rc_winphone8>true</rc_winphone8>
+                                <rc_winphone81s>true</rc_winphone81s>
                                 <tabspa_ipad>true</tabspa_ipad>
                                 <tabspa_windows>true</tabspa_windows>
                                 <tabspaspa_android>true</tabspaspa_android>
@@ -5970,16 +6036,170 @@
                             <orientation>constants.BOX_LAYOUT_HORIZONTAL</orientation>
                             <tc_onClick_root>
                                 <evtSequence>
-                                    <actionList xsi:type="eventFormAction">
+                                    <actionList xsi:type="eventInvokeServiceAction">
                                         <enabled>true</enabled>
                                         <name></name>
-                                        <type>1</type>
-                                        <destType>0</destType>
-                                        <navigateFrom>frmDashboard</navigateFrom>
-                                        <navigateTo>frmTop</navigateTo>
-                                        <newOutputMapping/>
-                                        <outputMapping/>
-                                        <platform>0</platform>
+                                        <type>7</type>
+                                        <blocking>false</blocking>
+                                        <httpConfigs>
+                                            <name>timeout</name>
+                                            <valType>0</valType>
+                                            <value></value>
+                                        </httpConfigs>
+                                        <inputMapping/>
+                                        <isAsynchronous>false</isAsynchronous>
+                                        <isOffline>false</isOffline>
+                                        <newInputMapping>
+                                            <mapping srctype="expression" srcdatatype="expression" srcwidgettype="" srcmode="" src="&quot;0008&quot;" msrcprefix="" msrcplatform="0" mdestprefix="" mdestplatform="0" desttype="service" destdatatype="string" destwidgettype="" destplatform="" destmode="" dest="getMyTop25Customers.repId">
+                                                <srcMap>
+                                                    <entry>
+                                                        <key>js</key>
+                                                        <value>"0008"</value>
+                                                    </entry>
+                                                </srcMap>
+                                            </mapping>
+                                            <mapping srctype="expression" srcdatatype="expression" srcwidgettype="" srcmode="" src="&quot;2013&quot;" msrcprefix="" msrcplatform="0" mdestprefix="" mdestplatform="0" desttype="service" destdatatype="string" destwidgettype="" destplatform="" destmode="" dest="getMyTop25Customers.date">
+                                                <srcMap>
+                                                    <entry>
+                                                        <key>js</key>
+                                                        <value>"2013"</value>
+                                                    </entry>
+                                                </srcMap>
+                                            </mapping>
+                                        </newInputMapping>
+                                        <secure>false</secure>
+                                        <serviceId>getMyTop25Customers</serviceId>
+                                        <srcForm>frmDashboard</srcForm>
+                                    </actionList>
+                                    <actionList xsi:type="eventDecisionAction">
+                                        <mainaction>
+                                            <mainaction xsi:type="eventMappingAction">
+                                                <enabled>true</enabled>
+                                                <name></name>
+                                                <type>11</type>
+                                                <newOutputMapping>
+                                                    <collection srctype="service" srcwidgettype="" srcmode="" src="getMyTop25Customers.return" msrcprefix="" msrcplatform="0" mdestprefix="" mdestplatform="0" desttype="widget" destwidgettype="Segment2" destplatform="" destmode="" dest="frmTop25Customers.segInfo.Common.masterdatamap" append="false">
+                                                        <mapping srctype="service" srcdatatype="string" srcwidgettype="" srcmode="" src="getMyTop25Customers.return.name" msrcprefix="" msrcplatform="0" mdestprefix="" mdestplatform="0" desttype="widget" destdatatype="string" destwidgettype="Label" destplatform="general" destmode="" dest="frmTop25Customers.segInfo.Common.masterdatamap.lblCustomerName.Common.text">
+                                                            <srcMap>
+                                                                <entry>
+                                                                    <key>js</key>
+                                                                    <value>getMyTop25Customers.return.name</value>
+                                                                </entry>
+                                                            </srcMap>
+                                                        </mapping>
+                                                        <mapping srctype="service" srcdatatype="string" srcwidgettype="" srcmode="" src="getMyTop25Customers.return.brick" msrcprefix="" msrcplatform="0" mdestprefix="" mdestplatform="0" desttype="widget" destdatatype="string" destwidgettype="Label" destplatform="general" destmode="" dest="frmTop25Customers.segInfo.Common.masterdatamap.lblBrick.Common.text">
+                                                            <srcMap>
+                                                                <entry>
+                                                                    <key>js</key>
+                                                                    <value>getMyTop25Customers.return.brick</value>
+                                                                </entry>
+                                                            </srcMap>
+                                                        </mapping>
+                                                        <mapping srctype="service" srcdatatype="string" srcwidgettype="" srcmode="" src="getMyTop25Customers.return.values" msrcprefix="" msrcplatform="0" mdestprefix="" mdestplatform="0" desttype="widget" destdatatype="string" destwidgettype="Label" destplatform="general" destmode="" dest="frmTop25Customers.segInfo.Common.masterdatamap.lblValue.Common.text">
+                                                            <srcMap>
+                                                                <entry>
+                                                                    <key>js</key>
+                                                                    <value>getMyTop25Customers.return.values</value>
+                                                                </entry>
+                                                            </srcMap>
+                                                        </mapping>
+                                                        <srcMap>
+                                                            <entry>
+                                                                <key>js</key>
+                                                                <value>getMyTop25Customers.return</value>
+                                                            </entry>
+                                                        </srcMap>
+                                                    </collection>
+                                                </newOutputMapping>
+                                                <outputMapping/>
+                                            </mainaction>
+                                            <mainaction xsi:type="eventFormAction">
+                                                <enabled>true</enabled>
+                                                <name></name>
+                                                <type>1</type>
+                                                <destType>0</destType>
+                                                <navigateFrom>frmDashboard</navigateFrom>
+                                                <navigateTo>frmTop25Customers</navigateTo>
+                                                <newOutputMapping>
+                                                    <collection srctype="service" srcwidgettype="" srcmode="" src="getMyTop25Customers.return" msrcprefix="" msrcplatform="0" mdestprefix="" mdestplatform="0" desttype="widget" destwidgettype="Segment2" destplatform="" destmode="" dest="frmTop25Customers.segInfo.Common.masterdatamap" append="false">
+                                                        <mapping srctype="service" srcdatatype="string" srcwidgettype="" srcmode="" src="getMyTop25Customers.return.name" msrcprefix="" msrcplatform="0" mdestprefix="" mdestplatform="0" desttype="widget" destdatatype="string" destwidgettype="Label" destplatform="general" destmode="" dest="frmTop25Customers.segInfo.Common.masterdatamap.lblCustomerName.Common.text">
+                                                            <srcMap>
+                                                                <entry>
+                                                                    <key>js</key>
+                                                                    <value>getMyTop25Customers.return.name</value>
+                                                                </entry>
+                                                            </srcMap>
+                                                        </mapping>
+                                                        <mapping srctype="service" srcdatatype="string" srcwidgettype="" srcmode="" src="getMyTop25Customers.return.brick" msrcprefix="" msrcplatform="0" mdestprefix="" mdestplatform="0" desttype="widget" destdatatype="string" destwidgettype="Label" destplatform="general" destmode="" dest="frmTop25Customers.segInfo.Common.masterdatamap.lblBrick.Common.text">
+                                                            <srcMap>
+                                                                <entry>
+                                                                    <key>js</key>
+                                                                    <value>getMyTop25Customers.return.brick</value>
+                                                                </entry>
+                                                            </srcMap>
+                                                        </mapping>
+                                                        <mapping srctype="service" srcdatatype="string" srcwidgettype="" srcmode="" src="getMyTop25Customers.return.values" msrcprefix="" msrcplatform="0" mdestprefix="" mdestplatform="0" desttype="widget" destdatatype="string" destwidgettype="Label" destplatform="general" destmode="" dest="frmTop25Customers.segInfo.Common.masterdatamap.lblValue.Common.text">
+                                                            <srcMap>
+                                                                <entry>
+                                                                    <key>js</key>
+                                                                    <value>getMyTop25Customers.return.values</value>
+                                                                </entry>
+                                                            </srcMap>
+                                                        </mapping>
+                                                        <srcMap>
+                                                            <entry>
+                                                                <key>js</key>
+                                                                <value>getMyTop25Customers.return</value>
+                                                            </entry>
+                                                        </srcMap>
+                                                    </collection>
+                                                </newOutputMapping>
+                                                <outputMapping/>
+                                                <platform>0</platform>
+                                            </mainaction>
+                                            <enabled>true</enabled>
+                                            <name>true</name>
+                                            <type>0</type>
+                                        </mainaction>
+                                        <mainaction>
+                                            <mainaction xsi:type="eventAlertAction">
+                                                <mainaction>
+                                                    <enabled>true</enabled>
+                                                    <name>true</name>
+                                                    <type>0</type>
+                                                </mainaction>
+                                                <enabled>true</enabled>
+                                                <name></name>
+                                                <type>2</type>
+                                                <alertID>None</alertID>
+                                                <alertIcon></alertIcon>
+                                                <alertType>0</alertType>
+                                                <i18nMessage>None</i18nMessage>
+                                                <i18nNoLabel>None</i18nNoLabel>
+                                                <i18nTitle>None</i18nTitle>
+                                                <i18nYesLabel>None</i18nYesLabel>
+                                                <message>Service Failed!</message>
+                                                <messageAlignment>0</messageAlignment>
+                                                <messageMap/>
+                                                <messageType>0</messageType>
+                                                <noLabel>No</noLabel>
+                                                <title></title>
+                                                <yesLabel>Ok</yesLabel>
+                                            </mainaction>
+                                            <enabled>true</enabled>
+                                            <name>false</name>
+                                            <type>0</type>
+                                        </mainaction>
+                                        <enabled>true</enabled>
+                                        <name></name>
+                                        <type>3</type>
+                                        <expr></expr>
+                                        <exprMap>
+                                            <entry>
+                                                <key>js</key>
+                                                <value> getMyTop25Customers["return"].length &gt; 0</value>
+                                            </entry>
+                                        </exprMap>
                                     </actionList>
                                     <enabled>true</enabled>
                                     <seqname></seqname>
@@ -6032,6 +6252,20 @@
                                 </evtSequence>
                             </desktopweb_onRightClick>
                             <winphone8_position>0</winphone8_position>
+                            <containerWeight>0</containerWeight>
+                            <projectState>0</projectState>
+                            <a11yConfig>
+                                <a11yHidden>false</a11yHidden>
+                                <a11yHint></a11yHint>
+                                <a11yLabel></a11yLabel>
+                                <a11yValue></a11yValue>
+                            </a11yConfig>
+                            <onHover>
+                                <evtSequence>
+                                    <enabled>true</enabled>
+                                    <seqname></seqname>
+                                </evtSequence>
+                            </onHover>
                         </children>
                         <desktopweb_onRightClick>
                             <evtSequence>
@@ -6040,6 +6274,20 @@
                             </evtSequence>
                         </desktopweb_onRightClick>
                         <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                        <containerWeight>0</containerWeight>
+                        <projectState>0</projectState>
+                        <a11yConfig>
+                            <a11yHidden>false</a11yHidden>
+                            <a11yHint></a11yHint>
+                            <a11yLabel></a11yLabel>
+                            <a11yValue></a11yValue>
+                        </a11yConfig>
+                        <onHover>
+                            <evtSequence>
+                                <enabled>true</enabled>
+                                <seqname></seqname>
+                            </evtSequence>
+                        </onHover>
                     </children>
                     <general_contextMenu>None</general_contextMenu>
                     <desktopweb_onRightClick>
@@ -6049,6 +6297,20 @@
                         </evtSequence>
                     </desktopweb_onRightClick>
                     <winphone8_position>0</winphone8_position>
+                    <containerWeight>0</containerWeight>
+                    <projectState>0</projectState>
+                    <a11yConfig>
+                        <a11yHidden>false</a11yHidden>
+                        <a11yHint></a11yHint>
+                        <a11yLabel></a11yLabel>
+                        <a11yValue></a11yValue>
+                    </a11yConfig>
+                    <onHover>
+                        <evtSequence>
+                            <enabled>true</enabled>
+                            <seqname></seqname>
+                        </evtSequence>
+                    </onHover>
                 </children>
                 <desktopweb_onRightClick>
                     <evtSequence>
@@ -6057,6 +6319,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <children xsi:type="kvBox">
                 <ID>vboxSecond</ID>
@@ -6116,6 +6392,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -6746,6 +7023,7 @@
                         <rc_winmobile>true</rc_winmobile>
                         <rc_winmobile6x>true</rc_winmobile6x>
                         <rc_winphone8>true</rc_winphone8>
+                        <rc_winphone81s>true</rc_winphone81s>
                         <tabspa_ipad>true</tabspa_ipad>
                         <tabspa_windows>true</tabspa_windows>
                         <tabspaspa_android>true</tabspaspa_android>
@@ -7307,23 +7585,16 @@
                     <orientation>constants.BOX_LAYOUT_HORIZONTAL</orientation>
                     <tc_onClick_root>
                         <evtSequence>
-                            <actionList xsi:type="eventFunctionAction">
+                            <actionList xsi:type="eventFormAction">
                                 <enabled>true</enabled>
                                 <name></name>
-                                <type>6</type>
-                                <functionName>None</functionName>
-                                <functionNameMap>
-                                    <entry>
-                                        <key>js</key>
-                                        <value>func_init_frm_001_line_chart_001</value>
-                                    </entry>
-                                </functionNameMap>
-                                <paramDataMap>
-                                    <entry>
-                                        <key>js</key>
-                                        <value/>
-                                    </entry>
-                                </paramDataMap>
+                                <type>1</type>
+                                <destType>0</destType>
+                                <navigateFrom>frmDashboard</navigateFrom>
+                                <navigateTo>frmTrends</navigateTo>
+                                <newOutputMapping/>
+                                <outputMapping/>
+                                <platform>0</platform>
                             </actionList>
                             <enabled>true</enabled>
                             <seqname></seqname>
@@ -7376,6 +7647,20 @@
                         </evtSequence>
                     </desktopweb_onRightClick>
                     <winphone8_position>0</winphone8_position>
+                    <containerWeight>0</containerWeight>
+                    <projectState>0</projectState>
+                    <a11yConfig>
+                        <a11yHidden>false</a11yHidden>
+                        <a11yHint></a11yHint>
+                        <a11yLabel></a11yLabel>
+                        <a11yValue></a11yValue>
+                    </a11yConfig>
+                    <onHover>
+                        <evtSequence>
+                            <enabled>true</enabled>
+                            <seqname></seqname>
+                        </evtSequence>
+                    </onHover>
                 </children>
                 <children xsi:type="khBox">
                     <ID>hboxSecTwoHold</ID>
@@ -7430,6 +7715,7 @@
                         <rc_winmobile>true</rc_winmobile>
                         <rc_winmobile6x>true</rc_winmobile6x>
                         <rc_winphone8>true</rc_winphone8>
+                        <rc_winphone81s>true</rc_winphone81s>
                         <tabspa_ipad>true</tabspa_ipad>
                         <tabspa_windows>true</tabspa_windows>
                         <tabspaspa_android>true</tabspaspa_android>
@@ -8086,6 +8372,7 @@
                             <rc_winmobile>true</rc_winmobile>
                             <rc_winmobile6x>true</rc_winmobile6x>
                             <rc_winphone8>true</rc_winphone8>
+                            <rc_winphone81s>true</rc_winphone81s>
                             <tabspa_ipad>true</tabspa_ipad>
                             <tabspa_windows>true</tabspa_windows>
                             <tabspaspa_android>true</tabspaspa_android>
@@ -8716,6 +9003,7 @@
                                 <rc_winmobile>true</rc_winmobile>
                                 <rc_winmobile6x>true</rc_winmobile6x>
                                 <rc_winphone8>true</rc_winphone8>
+                                <rc_winphone81s>true</rc_winphone81s>
                                 <tabspa_ipad>true</tabspa_ipad>
                                 <tabspa_windows>true</tabspa_windows>
                                 <tabspaspa_android>true</tabspaspa_android>
@@ -9339,6 +9627,20 @@
                                 </evtSequence>
                             </desktopweb_onRightClick>
                             <winphone8_position>0</winphone8_position>
+                            <containerWeight>0</containerWeight>
+                            <projectState>0</projectState>
+                            <a11yConfig>
+                                <a11yHidden>false</a11yHidden>
+                                <a11yHint></a11yHint>
+                                <a11yLabel></a11yLabel>
+                                <a11yValue></a11yValue>
+                            </a11yConfig>
+                            <onHover>
+                                <evtSequence>
+                                    <enabled>true</enabled>
+                                    <seqname></seqname>
+                                </evtSequence>
+                            </onHover>
                         </children>
                         <desktopweb_onRightClick>
                             <evtSequence>
@@ -9347,6 +9649,20 @@
                             </evtSequence>
                         </desktopweb_onRightClick>
                         <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                        <containerWeight>0</containerWeight>
+                        <projectState>0</projectState>
+                        <a11yConfig>
+                            <a11yHidden>false</a11yHidden>
+                            <a11yHint></a11yHint>
+                            <a11yLabel></a11yLabel>
+                            <a11yValue></a11yValue>
+                        </a11yConfig>
+                        <onHover>
+                            <evtSequence>
+                                <enabled>true</enabled>
+                                <seqname></seqname>
+                            </evtSequence>
+                        </onHover>
                     </children>
                     <children xsi:type="kvBox">
                         <ID>vboxbtn4</ID>
@@ -9406,6 +9722,7 @@
                             <rc_winmobile>true</rc_winmobile>
                             <rc_winmobile6x>true</rc_winmobile6x>
                             <rc_winphone8>true</rc_winphone8>
+                            <rc_winphone81s>true</rc_winphone81s>
                             <tabspa_ipad>true</tabspa_ipad>
                             <tabspa_windows>true</tabspa_windows>
                             <tabspaspa_android>true</tabspaspa_android>
@@ -10036,6 +10353,7 @@
                                 <rc_winmobile>true</rc_winmobile>
                                 <rc_winmobile6x>true</rc_winmobile6x>
                                 <rc_winphone8>true</rc_winphone8>
+                                <rc_winphone81s>true</rc_winphone81s>
                                 <tabspa_ipad>true</tabspa_ipad>
                                 <tabspa_windows>true</tabspa_windows>
                                 <tabspaspa_android>true</tabspaspa_android>
@@ -10659,6 +10977,20 @@
                                 </evtSequence>
                             </desktopweb_onRightClick>
                             <winphone8_position>0</winphone8_position>
+                            <containerWeight>0</containerWeight>
+                            <projectState>0</projectState>
+                            <a11yConfig>
+                                <a11yHidden>false</a11yHidden>
+                                <a11yHint></a11yHint>
+                                <a11yLabel></a11yLabel>
+                                <a11yValue></a11yValue>
+                            </a11yConfig>
+                            <onHover>
+                                <evtSequence>
+                                    <enabled>true</enabled>
+                                    <seqname></seqname>
+                                </evtSequence>
+                            </onHover>
                         </children>
                         <desktopweb_onRightClick>
                             <evtSequence>
@@ -10667,6 +10999,20 @@
                             </evtSequence>
                         </desktopweb_onRightClick>
                         <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                        <containerWeight>0</containerWeight>
+                        <projectState>0</projectState>
+                        <a11yConfig>
+                            <a11yHidden>false</a11yHidden>
+                            <a11yHint></a11yHint>
+                            <a11yLabel></a11yLabel>
+                            <a11yValue></a11yValue>
+                        </a11yConfig>
+                        <onHover>
+                            <evtSequence>
+                                <enabled>true</enabled>
+                                <seqname></seqname>
+                            </evtSequence>
+                        </onHover>
                     </children>
                     <general_contextMenu>None</general_contextMenu>
                     <desktopweb_onRightClick>
@@ -10676,6 +11022,20 @@
                         </evtSequence>
                     </desktopweb_onRightClick>
                     <winphone8_position>0</winphone8_position>
+                    <containerWeight>0</containerWeight>
+                    <projectState>0</projectState>
+                    <a11yConfig>
+                        <a11yHidden>false</a11yHidden>
+                        <a11yHint></a11yHint>
+                        <a11yLabel></a11yLabel>
+                        <a11yValue></a11yValue>
+                    </a11yConfig>
+                    <onHover>
+                        <evtSequence>
+                            <enabled>true</enabled>
+                            <seqname></seqname>
+                        </evtSequence>
+                    </onHover>
                 </children>
                 <desktopweb_onRightClick>
                     <evtSequence>
@@ -10684,6 +11044,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <general_contextMenu>None</general_contextMenu>
             <desktopweb_onRightClick>
@@ -10693,6 +11067,20 @@
                 </evtSequence>
             </desktopweb_onRightClick>
             <winphone8_position>0</winphone8_position>
+            <containerWeight>0</containerWeight>
+            <projectState>0</projectState>
+            <a11yConfig>
+                <a11yHidden>false</a11yHidden>
+                <a11yHint></a11yHint>
+                <a11yLabel></a11yLabel>
+                <a11yValue></a11yValue>
+            </a11yConfig>
+            <onHover>
+                <evtSequence>
+                    <enabled>true</enabled>
+                    <seqname></seqname>
+                </evtSequence>
+            </onHover>
         </children>
         <overrideProperties>KForm.ipad_Orientation</overrideProperties>
         <winphone8_intransition>Default</winphone8_intransition>
@@ -10744,6 +11132,28 @@
         <bb10_softkeyMode>FORM_ADJUST_RESIZE</bb10_softkeyMode>
         <bb10_showbottomactionbar>true</bb10_showbottomactionbar>
         <bb10_enablepeekgesture>true</bb10_enablepeekgesture>
+        <iphone_extendTop>false</iphone_extendTop>
+        <ipad_extendTop>false</ipad_extendTop>
+        <iphone_extendBottom>false</iphone_extendBottom>
+        <ipad_extendBottom>false</ipad_extendBottom>
+        <iphone_statusBarStyle>STATUS_BAR_STYLE_DEFAULT</iphone_statusBarStyle>
+        <ipad_statusBarStyle>STATUS_BAR_STYLE_DEFAULT</ipad_statusBarStyle>
+        <iphone_configureExtendTop>false</iphone_configureExtendTop>
+        <iphone_configureExtendBottom>false</iphone_configureExtendBottom>
+        <iphone_configureStatusBarStyle>false</iphone_configureStatusBarStyle>
+        <ipad_configureExtendTop>false</ipad_configureExtendTop>
+        <ipad_configureExtendBottom>false</ipad_configureExtendBottom>
+        <ipad_configureStatusBarStyle>false</ipad_configureStatusBarStyle>
+        <containerWeight>0</containerWeight>
+        <projectState>0</projectState>
+        <a11yConfig>
+            <a11yHidden>false</a11yHidden>
+            <a11yHint></a11yHint>
+            <a11yLabel></a11yLabel>
+            <a11yValue></a11yValue>
+        </a11yConfig>
+        <general_containerHeight></general_containerHeight>
+        <general_containerHeightReference>CONTAINER_HEIGHT_BY_FORM_REFERENCE</general_containerHeightReference>
     </children>
     <children xsi:type="kMenuContainer" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ID></ID>
@@ -10807,6 +11217,7 @@
             <rc_winmobile>true</rc_winmobile>
             <rc_winmobile6x>true</rc_winmobile6x>
             <rc_winphone8>true</rc_winphone8>
+            <rc_winphone81s>true</rc_winphone81s>
             <tabspa_ipad>true</tabspa_ipad>
             <tabspa_windows>true</tabspa_windows>
             <tabspaspa_android>true</tabspaspa_android>
@@ -11365,6 +11776,8 @@
         </paddings>
         <tooltip></tooltip>
         <contentAlign>0</contentAlign>
+        <containerWeight>0</containerWeight>
+        <projectState>0</projectState>
     </children>
     <contentAlign>0</contentAlign>
     <gridviewConfig>
@@ -11372,4 +11785,6 @@
         <referenceWidth>0</referenceWidth>
         <sizeMode>constants.GRID_TYPE_FIXED</sizeMode>
     </gridviewConfig>
+    <containerWeight>0</containerWeight>
+    <projectState>0</projectState>
 </kPage>

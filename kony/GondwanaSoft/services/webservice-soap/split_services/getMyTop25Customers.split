@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xsObject>
+    <appSmsCode></appSmsCode>
+    <soapservice>
+        <authenticationMode>basic</authenticationMode>
+        <cacheduration></cacheduration>
+        <cacheable>false</cacheable>
+        <dataprovider></dataprovider>
+        <dcResponse/>
+        <encryptPwd>true</encryptPwd>
+        <escapeXML>false</escapeXML>
+        <id>getMyTop25Customers</id>
+        <ignoreProxy>false</ignoreProxy>
+        <inparam>
+            <category></category>
+            <datatype>string</datatype>
+            <defaultvalue></defaultvalue>
+            <description></description>
+            <encode>true</encode>
+            <format>None</format>
+            <formatvalue></formatvalue>
+            <id>repId</id>
+            <invalue></invalue>
+            <name></name>
+            <order></order>
+            <passNull>false</passNull>
+            <recordid></recordid>
+            <smsname></smsname>
+            <source></source>
+            <srcformatvalue></srcformatvalue>
+            <target></target>
+            <targetdatatype></targetdatatype>
+            <testvalue>0008</testvalue>
+            <value></value>
+        </inparam>
+        <inparam>
+            <category></category>
+            <datatype>string</datatype>
+            <defaultvalue></defaultvalue>
+            <description></description>
+            <encode>true</encode>
+            <format>None</format>
+            <formatvalue></formatvalue>
+            <id>date</id>
+            <invalue></invalue>
+            <name></name>
+            <order></order>
+            <passNull>false</passNull>
+            <recordid></recordid>
+            <smsname></smsname>
+            <source></source>
+            <srcformatvalue></srcformatvalue>
+            <target></target>
+            <targetdatatype></targetdatatype>
+            <testvalue>2013</testvalue>
+            <value></value>
+        </inparam>
+        <intemplate>&lt;soapenv:Envelope xmlns:int="http://interfaces.ws.gondwana.mobile.arkitex.co.za/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;int:getMyTop25Customers&gt;
+         &lt;repId&gt;0008&lt;/repId&gt;
+         &lt;date&gt;2013&lt;/date&gt;
+      &lt;/int:getMyTop25Customers&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;
+</intemplate>
+        <ntlmDomain></ntlmDomain>
+        <ntlmHost></ntlmHost>
+        <operationname>getMyTop25Customers</operationname>
+        <outtemplate>&lt;S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+   &lt;S:Body&gt;
+      &lt;ns2:getMyTop25CustomersResponse xmlns:ns2="http://interfaces.ws.gondwana.mobile.arkitex.co.za/"&gt;
+         &lt;return&gt;
+            &lt;item&gt;
+               &lt;brick&gt;VREDELUST +S - 2621&lt;/brick&gt;
+               &lt;name&gt;M-Kem Medicine City - 2621 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;372523.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;BELLVILLE +S - 2361&lt;/brick&gt;
+               &lt;name&gt;Dis-Chem Tygervalley Pharmacy - 2361 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;285892.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;STELLENB/FRANS - 2921&lt;/brick&gt;
+               &lt;name&gt;Die Boord Apteek - 2921 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;283311.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;PAARL +S - 3481&lt;/brick&gt;
+               &lt;name&gt;Dis-Chem Paarl Mall Pharmacy - 3481 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;229574.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;SOMRSET W/GRAB - 2001&lt;/brick&gt;
+               &lt;name&gt;Dis-Chem Somerset Mall Pharmacy - 2001 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;206812.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;BELLVILLE +S - 2361&lt;/brick&gt;
+               &lt;name&gt;Durbell Pharmacy - Tygervalley - 2361 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;200331.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;KUILSRIVIER +S - 2341&lt;/brick&gt;
+               &lt;name&gt;Essential Health Pharmacy - Kuils River - 2341 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;177928.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;KENRIDGE +S - 3421&lt;/brick&gt;
+               &lt;name&gt;Durbell - Oude Hof Pharmacy - 3421 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;137236.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;BRACKENFELL 1 - 2261&lt;/brick&gt;
+               &lt;name&gt;Essential Health Pharmacy - Brackenfell - 2261 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;125351.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;BRACKENFELL 1 - 2261&lt;/brick&gt;
+               &lt;name&gt;Essential Health Pharmacy - Protea Heights - 2261 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;125172.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;DURBANVILLE - 2881&lt;/brick&gt;
+               &lt;name&gt;Durbell - Palm Grove Apteek - 2881 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;121278.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;PAROW CNT +S - 3141&lt;/brick&gt;
+               &lt;name&gt;Parow Family Pharmacy - 3141 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;113870.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;KENRIDGE +S - 3421&lt;/brick&gt;
+               &lt;name&gt;Clicks Pharmacy - Intercare Tyger Valley - 3421 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;110499.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;STELLENBCH CNT - 2941&lt;/brick&gt;
+               &lt;name&gt;Clicks Pharmacy - Stellenbosch - 2941 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;103555.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;AMANDA GLEN +S - 2861&lt;/brick&gt;
+               &lt;name&gt;Clicks Pharmacy - Cobble Walk - 2861 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;95968.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;MONTE VISTA +S - 2081&lt;/brick&gt;
+               &lt;name&gt;Clicks Pharmacy - Edgemead - 2081 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;95235.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;STRAND +S - 2141&lt;/brick&gt;
+               &lt;name&gt;Bay-Kem Pharmacy - 2141 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;94819.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;KUILSRIVIER +S - 2341&lt;/brick&gt;
+               &lt;name&gt;Clicks Pharmacy - Soneike - 2341 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;93015.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;BRACKENFELL 1 - 2261&lt;/brick&gt;
+               &lt;name&gt;Clicks Pharmacy - Cape Gate - 2261 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;91575.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;KENRIDGE +S - 3421&lt;/brick&gt;
+               &lt;name&gt;Clicks Pharmacy - Tygervalley - 3421 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;89728.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;SOMRSET W/GRAB - 2001&lt;/brick&gt;
+               &lt;name&gt;Waterstone Alpha Pharmacy - 2001 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;88836.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;WELLINGTN N +S - 3261&lt;/brick&gt;
+               &lt;name&gt;Bergrivier Pharmacy - 3261 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;88545.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;KUILSRIVIER +S - 2341&lt;/brick&gt;
+               &lt;name&gt;Clicks Pharmacy - Zevenwacht - 2341 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;87226.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;BRACKENFELL 1 - 2261&lt;/brick&gt;
+               &lt;name&gt;Medi-Rite Pharmacy - Brackenfell - 2261 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;86427.0&lt;/values&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brick&gt;MALMESBURY +S - 2101&lt;/brick&gt;
+               &lt;name&gt;Geard Apteek - 2101 - Pharmacies - Retail&lt;/name&gt;
+               &lt;values&gt;83893.0&lt;/values&gt;
+            &lt;/item&gt;
+         &lt;/return&gt;
+      &lt;/ns2:getMyTop25CustomersResponse&gt;
+   &lt;/S:Body&gt;
+&lt;/S:Envelope&gt;
+</outtemplate>
+        <outTemplateHeader>Transfer-encoding: chunked
+Content-type: text/xml;charset="utf-8"
+</outTemplateHeader>
+        <outparam>
+            <category></category>
+            <datatype>string</datatype>
+            <defaultvalue></defaultvalue>
+            <description></description>
+            <encode>true</encode>
+            <format>None</format>
+            <formatvalue></formatvalue>
+            <id>return</id>
+            <invalue></invalue>
+            <name></name>
+            <order></order>
+            <passNull>false</passNull>
+            <recordid></recordid>
+            <smsname></smsname>
+            <source>//return</source>
+            <srcformatvalue></srcformatvalue>
+            <target></target>
+            <targetdatatype></targetdatatype>
+            <testvalue></testvalue>
+            <value></value>
+        </outparam>
+        <outparam>
+            <category></category>
+            <datatype>string</datatype>
+            <defaultvalue></defaultvalue>
+            <description></description>
+            <encode>true</encode>
+            <format>None</format>
+            <formatvalue></formatvalue>
+            <id>name</id>
+            <invalue></invalue>
+            <name></name>
+            <order></order>
+            <passNull>false</passNull>
+            <recordid></recordid>
+            <smsname></smsname>
+            <source>item/name</source>
+            <srcformatvalue></srcformatvalue>
+            <target></target>
+            <targetdatatype></targetdatatype>
+            <testvalue></testvalue>
+            <value>return</value>
+        </outparam>
+        <outparam>
+            <category></category>
+            <datatype>string</datatype>
+            <defaultvalue></defaultvalue>
+            <description></description>
+            <encode>true</encode>
+            <format>None</format>
+            <formatvalue></formatvalue>
+            <id>brick</id>
+            <invalue></invalue>
+            <name></name>
+            <order></order>
+            <passNull>false</passNull>
+            <recordid></recordid>
+            <smsname></smsname>
+            <source>item/brick</source>
+            <srcformatvalue></srcformatvalue>
+            <target></target>
+            <targetdatatype></targetdatatype>
+            <testvalue></testvalue>
+            <value>return</value>
+        </outparam>
+        <outparam>
+            <category></category>
+            <datatype>string</datatype>
+            <defaultvalue></defaultvalue>
+            <description></description>
+            <encode>true</encode>
+            <format>None</format>
+            <formatvalue></formatvalue>
+            <id>values</id>
+            <invalue></invalue>
+            <name></name>
+            <order></order>
+            <passNull>false</passNull>
+            <recordid></recordid>
+            <smsname></smsname>
+            <source>item/values</source>
+            <srcformatvalue></srcformatvalue>
+            <target></target>
+            <targetdatatype></targetdatatype>
+            <testvalue></testvalue>
+            <value>return</value>
+        </outparam>
+        <password></password>
+        <postclassname></postclassname>
+        <preclassname></preclassname>
+        <proxyname></proxyname>
+        <proxyport></proxyport>
+        <proxypwd></proxypwd>
+        <proxyuserid></proxyuserid>
+        <responseencoding>UTF-8</responseencoding>
+        <sharePoint>false</sharePoint>
+        <smscode></smscode>
+        <smsenabled>false</smsenabled>
+        <soapaction></soapaction>
+        <timeout></timeout>
+        <url>http://209.203.36.130:8080/com/arkitex/mobile</url>
+        <urlprovider></urlprovider>
+        <userid></userid>
+        <version>1.1</version>
+        <wsdlurl>http://209.203.36.130:8080/com/arkitex/mobile?wsdl</wsdlurl>
+    </soapservice>
+    <sharePointRoot>
+        <name>SharePoint Servers</name>
+    </sharePointRoot>
+    <wsdlroot>
+        <wsdltree>
+            <name>Web Services</name>
+        </wsdltree>
+    </wsdlroot>
+</xsObject>

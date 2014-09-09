@@ -14,7 +14,7 @@
     <attributes name="winenablecrashlogkey" value="false"/>
     <attributes name="wp8packagepublisheridkey" value=""/>
     <attributes name="PERSISTENT_ACTIVITY" value="false"/>
-    <attributes name="andminsdkkey" value="4.0"/>
+    <attributes name="andminsdkkey" value="3.0"/>
     <attributes name="READ_SMS" value="false"/>
     <attributes name="applepushfunc" value="None"/>
     <attributes name="Internet(Client)" value="true"/>
@@ -95,7 +95,7 @@
     <attributes name="SELECTED_THEME" value="default"/>
     <attributes name="GET_TASKS" value="false"/>
     <attributes name="Music_Library" value="true"/>
-    <attributes name="tabletstartupformkey" value="frmHome"/>
+    <attributes name="tabletstartupformkey" value="frmDashboard"/>
     <attributes name="tciphonebasefontsize" value="12"/>
     <attributes name="pathpatternkey" value=""/>
     <attributes name="bb10keystorepassword" value=""/>

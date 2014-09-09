@@ -1,14 +1,15 @@
 datelist = new Array()
 productlist = new Array()
 
-function getBrandsByRepByDateService() {
+
+function getBrandsByDateService() {
 	var inputparam = {};
-    inputparam["serviceID"] = "getBrandsByRepByDate";
+    inputparam["serviceID"] = "getBrandsByDate";
     inputparam["repId"] = "0008";
-    inputparam["startDate"] = "2013-01-01";
-    inputparam["endDate"] = "2013-06-30";
+    inputparam["date"] = "2013";
+
     
-    appmiddlewareinvokerasync(inputparam, getBrandsByRepByDateCallback);
+    appmiddlewareinvokerasync(inputparam, getBrandsByDateCallback);
 }
 
 function getDateFilterService() {
@@ -18,14 +19,14 @@ function getDateFilterService() {
     appmiddlewareinvokerasync(inputparam, getDateFilterCallback);
 }
 
-function getBrandsByRepByDateCallback(status, getBrandsByRepByDate) {
+function getBrandsByDateCallback(status, getBrandsByDate) {
     if (status == 400) {
-        if (getBrandsByRepByDate["products"] != null && getBrandsByRepByDate["products"].length > 0) {
-        	var columnValues = getBrandsByRepByDate["products"];
+        if (getBrandsByDate["brands"] != null && getBrandsByDate["brands"].length > 0) {
+        	var columnValues = getBrandsByDate["brands"];
         	var length = columnValues.length;
         	
         	for (var index = 0; index< length; index++) {
-        		productlist.push(columnValues[index]["item"]);
+        		productlist.push(columnValues[index]["product"]);
         	}            
             kony.print("-----> Global vars productlist " + JSON.stringify(productlist));
             
@@ -47,7 +48,7 @@ function getBrandsByRepByDateCallback(status, getBrandsByRepByDate) {
 
 function getDateFilterCallback(status, getDateFilter) {
     if (status == 400) {
-    	alert("date filter : " + JSON.stringify(getDateFilter["date"]));
+  //  	alert("date filter : " + JSON.stringify(getDateFilter["date"]));
         if (getDateFilter["date"] != null && getDateFilter["date"].length > 0) {
         
         	var rowValues = getDateFilter["date"];
@@ -82,15 +83,21 @@ function getDateFilterCallback(status, getDateFilter) {
 ///////////////
 function func_init_frm_001_line_chart_001() {
     var demoIndex = 0;
-    var demoViewForm = k_dv.dataviz.app.frm.demoFormSeaGrey();
+//    var demoViewForm = k_dv.dataviz.app.frm.demoFormSeaGrey();
+	var demoViewForm = frmTrends;
     // assign
-    var usecase_array = [];
+	var usecase_array = [];
     var index = -1;
     usecase_array[++index] = k_dv_dataviz_linechart_demo_sample_1;
     //    usecase_array[++index] = k_dv_dataviz_linechart_demo_sample_2;
     //    usecase_array[++index] = k_dv_dataviz_linechart_demo_sample_3;
     // execute
     k_dv.dataviz.app.showDemosOnForm(demoIndex, demoViewForm, usecase_array);
+
+	
+//	frmTrends.add(konyDVWidget);
+//	frmTrends.show();
+
     // swipe gesture
     k_dv.dataviz.app.installSwipeGestureOnForm(demoViewForm);
 };
@@ -98,72 +105,32 @@ function func_init_frm_001_line_chart_001() {
 // //////////// Doc purpose //////////////////////
 var k_dv_dataviz_linechart_demo_sample_1 = function() {
         /////// chart data
-        // --------------------------
-        //		var countcollection = 5;
-        //		var yearcollection = 12;
-        //		brandlist = new Array();
-        ////		for (var jk = 0; jk < countcollection; jk++) {
-        ////			brandlist[jk] = " " + jk;
-        ////		}
-        //
-        //		brandlist[0] = "Product 2";
-        //		brandlist[1] = "Product 3";
-        //		brandlist[2] = "Product 7";
-        //		brandlist[3] = "Product 9";
-        //		brandlist[4] = "Product 34";
-        //		
-        //		
-        //		periodlist = new Array();
-        ////		for (var ck = 0; ck < yearcollection; ck++){
-        ////			periodlist[ck] = " " + ck;
-        ////		}
-        //		periodlist[0] = "Jan 1990";
-        //		periodlist[1] = "Feb 1990";
-        //		periodlist[2] = "Mar 1990";
-        //		periodlist[3] = "Apr 1990";
-        //		periodlist[4] = "May 1990";
-        //		periodlist[5] = "Jun 1990";
-        //		periodlist[6] = "Jul 1990";
-        //		periodlist[7] = "Aug 1990";
-        //		periodlist[8] = "Sep 1990";
-        //		periodlist[9] = "Aug 1990";
-        //		periodlist[10] = "Nov 1990";
-        //		periodlist[11] = "Dec 1990";
-        //		var tempbrandlist = new Array();
-        //		var tempperiodlist = new Array();
-        //		
-        //		for (var cb = 0; cb < brandlist.length; cb++) {
-        //			tempbrandlist.push(brandlist[cb]);
-        //		}
-        //
-        //		alert(tempbrandlist);
-        // --------------------- end --------------------------
         ////////// funtion begin getChartData()
         var getChartData = function() {
-        		alert("---> Row Data : " + datelist);
-        		alert("---> Column Data : " + productlist);
+//        		alert("---> Row Data : " + datelist);
+//        		alert("---> Column Data : " + productlist);
                 /////// data
                 var chartData = {
                     "rowNames": {
-                        //"values": ["Jan 2008", "Feb 2008", "Mar 2008", "Apr 2008", "May 2008", "Jun 2008", "Jul 2008", "Aug 2008", "Sep 2008", "Aug 2008", "Nov 2008", "Dec 2008"]
                         "values": datelist
+				//		"values": ["jan 2013","feb 2013","jan 2013","jan 2013","jan 2013","jan 2013","jan 2013","jan 2013","jan 2013","jan 2013","jan 2013","jan 2013"]
                     },
                     "columnNames": {
-                        //   "values": ["Deposit", "Cash", "Credit", "Target", "Achieved"]
-                        //"values": ["Product 2", "Product 6", "Product 7", "Product 11", "Product 12"]
                         "values": productlist
+				//		"values": ["Product 2","Product 2","Product 2","Product 2", "Product 2"]
                     },
                     "data": {
-                        //                        "Deposit": [234, 236, 224, 244, 240, 218, 256, 254, 248, 226, 234, 228, 234, 236, 224, 344, 340, 318, 356, 324, 344, 340, 318, 356],
-                        //                        "Cash": [524, 512, 514, 526, 534, 536, 522, 544, 342, 318, 328, 324, 324, 312, 314, 326, 434, 436, 422, 455, 426, 434, 436, 422],
-                        //                        "Credit": [344, 335, 336, 334, 332, 324, 322, 425, 444, 446, 448, 446, 444, 435, 436, 434, 532, 524, 522, 536, 534, 532, 524, 522],
-                        //                        "Achieved": [78, 79, 67, 87, 76, 54, 34, 90, 87, 88, 59, 45, 78, 80, 80, 35, 68, 78, 75, 70, 75, 83, 78, 75, 70, 75, 83],
-                        //                        "Target": [120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120],
-                        "Product 2": [234, 236, 224, 244, 240, 218, 256, 254, 248, 226, 234, 228],
-                        "Product 6": [524, 512, 514, 526, 534, 536, 522, 544, 342, 318, 328, 324],
-                        "Product 7": [344, 335, 336, 334, 332, 324, 322, 425, 444, 446, 448, 446],
-                        "Product 11": [78, 79, 67, 87, 76, 54, 34, 90, 87, 88, 59, 45],
-                        "Product 12": [120, 125, 135, 155, 170, 128, 67, 169, 215, 190, 145, 180]
+                    
+                        "Product 11": [234, 236, 224, 244, 240, 218, 256, 254, 248, 226, 234, 228],
+                        "Product 12": [524, 512, 514, 526, 534, 536, 522, 544, 342, 318, 328, 324],
+                        "Product 13": [344, 335, 336, 334, 332, 324, 322, 425, 444, 446, 448, 446],
+                        "Product 14": [78, 79, 67, 87, 76, 54, 34, 90, 87, 88, 59, 45],
+                        "Product 2": [120, 125, 135, 155, 170, 128, 67, 169, 215, 190, 145, 180],
+                        "Product 22": [224, 400, 224, 547, 325, 218, 600, 254, 436, 600, 234, 100],
+                        "Product 23": [20, 437, 12, 526, 32, 536, 459, 544, 431, 318, 600, 324],
+                        "Product 28": [344, 100, 336, 250, 332, 230, 322, 125, 444, 231, 448, 109],
+                        "Product 6": [78, 79, 67, 87, 76, 54, 34, 90, 87, 88, 59, 45],
+                        "Product 7": [120, 125, 135, 155, 170, 128, 67, 169, 215, 190, 145, 180]
                     }
                 };
                 return chartData;
@@ -698,9 +665,9 @@ var k_dv_dataviz_linechart_demo_sample_1 = function() {
                 chartProperties.layerArea.background.color = ["0xffffffff"];
                 ///////// linechart - config
                 // multiseries
-                chartProperties.lineChart.columnId = [0, 1, 2, 4];
+                chartProperties.lineChart.columnId = [0, 1, 2, 4, 5, 6, 7, 8];
                 chartProperties.lineChart.lineType = "normal";
-                chartProperties.lineChart.line.color = ["0x9fd500ff", "0x22b8dbff", "0x0D0664ff", "0x949094FF"];
+                chartProperties.lineChart.line.color = ["0x9fd500ff", "0x22b8dbff", "0x0D0664ff", "0x949094FF", "0x9fe300ee", "0x22b9dbee", "0x0D0364ee", "0x949194ee"];
                 chartProperties.lineChart.plotPoints.visible = false;
                 chartProperties.lineChart.plotPoints.color = ["0xa9e200ff", "0x22b8dbff", "0xf7d700ff"];
                 chartProperties.lineChart.plotPoints.marker.type = ["bubble", "bubble", "bubble"];
@@ -752,7 +719,7 @@ var k_dv_dataviz_linechart_demo_sample_1 = function() {
                 chartProperties.legend.visible = true;
                 chartProperties.legend.indicators = ["marker", "textLabel"];
                 chartProperties.legend.marker.type = "colorBox";
-                chartProperties.legend.marker.color = ["0x9fd500ff", "0x22b8dbff", "0x0D0664ff", "0x949094FF"];
+                chartProperties.legend.marker.color = ["0x9fd500ff", "0x22b8dbff", "0x0D0664ff", "0x949094FF", "0x9fe500ff", "0x22b9dbff", "0x0D0364ff", "0x949194FF"];
  //               chartProperties.legend.textLabel.text = ["Product 2", "Product 6", "Product 7", "Product 11"];
    				chartProperties.legend.textLabel.text = productlist;
                 chartProperties.legend.textLabel.color = ["0x9fd500ff", "0x22b8dbff", "0x0D0664ff", "0x949094FF"];

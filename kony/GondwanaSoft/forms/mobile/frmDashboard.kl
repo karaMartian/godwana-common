@@ -89,6 +89,7 @@
             <rc_winmobile>true</rc_winmobile>
             <rc_winmobile6x>true</rc_winmobile6x>
             <rc_winphone8>true</rc_winphone8>
+            <rc_winphone81s>true</rc_winphone81s>
             <tabspa_ipad>true</tabspa_ipad>
             <tabspa_windows>true</tabspa_windows>
             <tabspaspa_android>true</tabspaspa_android>
@@ -132,6 +133,7 @@
             <rc_winmobile>true</rc_winmobile>
             <rc_winmobile6x>true</rc_winmobile6x>
             <rc_winphone8>true</rc_winphone8>
+            <rc_winphone81s>true</rc_winphone81s>
             <tabspa_ipad>true</tabspa_ipad>
             <tabspa_windows>true</tabspa_windows>
             <tabspaspa_android>true</tabspaspa_android>
@@ -773,6 +775,12 @@
                 <seqname></seqname>
             </evtSequence>
         </spa_onOrientation_root>
+        <spa_onDeviceBack>
+            <evtSequence>
+                <enabled>true</enabled>
+                <seqname></seqname>
+            </evtSequence>
+        </spa_onDeviceBack>
         <pb_submitsecure>false</pb_submitsecure>
         <pb_titleBar>true</pb_titleBar>
         <pb_capture_gps>false</pb_capture_gps>
@@ -848,6 +856,7 @@
                 <rc_winmobile>true</rc_winmobile>
                 <rc_winmobile6x>true</rc_winmobile6x>
                 <rc_winphone8>true</rc_winphone8>
+                <rc_winphone81s>true</rc_winphone81s>
                 <tabspa_ipad>true</tabspa_ipad>
                 <tabspa_windows>true</tabspa_windows>
                 <tabspaspa_android>true</tabspaspa_android>
@@ -1504,6 +1513,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -2150,6 +2160,7 @@
                         <rc_winmobile>true</rc_winmobile>
                         <rc_winmobile6x>true</rc_winmobile6x>
                         <rc_winphone8>true</rc_winphone8>
+                        <rc_winphone81s>true</rc_winphone81s>
                         <tabspa_ipad>true</tabspa_ipad>
                         <tabspa_windows>true</tabspa_windows>
                         <tabspaspa_android>true</tabspaspa_android>
@@ -2797,6 +2808,14 @@
                     <winphone8_contentalign>middle-center</winphone8_contentalign>
                     <bb10_contentalignment>1</bb10_contentalignment>
                     <bb10displaytext>true</bb10displaytext>
+                    <containerWeight>0</containerWeight>
+                    <projectState>0</projectState>
+                    <a11yConfig>
+                        <a11yHidden>false</a11yHidden>
+                        <a11yHint></a11yHint>
+                        <a11yLabel></a11yLabel>
+                        <a11yValue></a11yValue>
+                    </a11yConfig>
                 </children>
                 <desktopweb_onRightClick>
                     <evtSequence>
@@ -2805,6 +2824,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <children xsi:type="kvBox">
                 <ID>vboxTwo</ID>
@@ -2864,6 +2897,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -3510,6 +3544,7 @@
                         <rc_winmobile>true</rc_winmobile>
                         <rc_winmobile6x>true</rc_winmobile6x>
                         <rc_winphone8>true</rc_winphone8>
+                        <rc_winphone81s>true</rc_winphone81s>
                         <tabspa_ipad>true</tabspa_ipad>
                         <tabspa_windows>true</tabspa_windows>
                         <tabspaspa_android>true</tabspaspa_android>
@@ -4172,6 +4207,14 @@
                     <winphone8_contentalign>middle-center</winphone8_contentalign>
                     <bb10_contentalignment>1</bb10_contentalignment>
                     <bb10displaytext>true</bb10displaytext>
+                    <containerWeight>0</containerWeight>
+                    <projectState>0</projectState>
+                    <a11yConfig>
+                        <a11yHidden>false</a11yHidden>
+                        <a11yHint></a11yHint>
+                        <a11yLabel></a11yLabel>
+                        <a11yValue></a11yValue>
+                    </a11yConfig>
                 </children>
                 <desktopweb_onRightClick>
                     <evtSequence>
@@ -4180,6 +4223,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <children xsi:type="kvBox">
                 <ID>space1</ID>
@@ -4239,6 +4296,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -4823,6 +4881,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <general_contextMenu>None</general_contextMenu>
             <desktopweb_onRightClick>
@@ -4832,6 +4904,20 @@
                 </evtSequence>
             </desktopweb_onRightClick>
             <winphone8_position>0</winphone8_position>
+            <containerWeight>0</containerWeight>
+            <projectState>0</projectState>
+            <a11yConfig>
+                <a11yHidden>false</a11yHidden>
+                <a11yHint></a11yHint>
+                <a11yLabel></a11yLabel>
+                <a11yValue></a11yValue>
+            </a11yConfig>
+            <onHover>
+                <evtSequence>
+                    <enabled>true</enabled>
+                    <seqname></seqname>
+                </evtSequence>
+            </onHover>
         </children>
         <children xsi:type="khBox">
             <ID>hboxRow2</ID>
@@ -4886,6 +4972,7 @@
                 <rc_winmobile>true</rc_winmobile>
                 <rc_winmobile6x>true</rc_winmobile6x>
                 <rc_winphone8>true</rc_winphone8>
+                <rc_winphone81s>true</rc_winphone81s>
                 <tabspa_ipad>true</tabspa_ipad>
                 <tabspa_windows>true</tabspa_windows>
                 <tabspaspa_android>true</tabspaspa_android>
@@ -5542,6 +5629,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -6188,6 +6276,7 @@
                         <rc_winmobile>true</rc_winmobile>
                         <rc_winmobile6x>true</rc_winmobile6x>
                         <rc_winphone8>true</rc_winphone8>
+                        <rc_winphone81s>true</rc_winphone81s>
                         <tabspa_ipad>true</tabspa_ipad>
                         <tabspa_windows>true</tabspa_windows>
                         <tabspaspa_android>true</tabspaspa_android>
@@ -6835,6 +6924,14 @@
                     <winphone8_contentalign>middle-center</winphone8_contentalign>
                     <bb10_contentalignment>1</bb10_contentalignment>
                     <bb10displaytext>true</bb10displaytext>
+                    <containerWeight>0</containerWeight>
+                    <projectState>0</projectState>
+                    <a11yConfig>
+                        <a11yHidden>false</a11yHidden>
+                        <a11yHint></a11yHint>
+                        <a11yLabel></a11yLabel>
+                        <a11yValue></a11yValue>
+                    </a11yConfig>
                 </children>
                 <desktopweb_onRightClick>
                     <evtSequence>
@@ -6843,6 +6940,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <children xsi:type="kvBox">
                 <ID>vboxFour</ID>
@@ -6902,6 +7013,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -7548,6 +7660,7 @@
                         <rc_winmobile>true</rc_winmobile>
                         <rc_winmobile6x>true</rc_winmobile6x>
                         <rc_winphone8>true</rc_winphone8>
+                        <rc_winphone81s>true</rc_winphone81s>
                         <tabspa_ipad>true</tabspa_ipad>
                         <tabspa_windows>true</tabspa_windows>
                         <tabspaspa_android>true</tabspaspa_android>
@@ -8195,6 +8308,14 @@
                     <winphone8_contentalign>middle-center</winphone8_contentalign>
                     <bb10_contentalignment>1</bb10_contentalignment>
                     <bb10displaytext>true</bb10displaytext>
+                    <containerWeight>0</containerWeight>
+                    <projectState>0</projectState>
+                    <a11yConfig>
+                        <a11yHidden>false</a11yHidden>
+                        <a11yHint></a11yHint>
+                        <a11yLabel></a11yLabel>
+                        <a11yValue></a11yValue>
+                    </a11yConfig>
                 </children>
                 <desktopweb_onRightClick>
                     <evtSequence>
@@ -8203,6 +8324,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <children xsi:type="kvBox">
                 <ID>space2</ID>
@@ -8262,6 +8397,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -8846,6 +8982,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <general_contextMenu>None</general_contextMenu>
             <desktopweb_onRightClick>
@@ -8855,6 +9005,20 @@
                 </evtSequence>
             </desktopweb_onRightClick>
             <winphone8_position>0</winphone8_position>
+            <containerWeight>0</containerWeight>
+            <projectState>0</projectState>
+            <a11yConfig>
+                <a11yHidden>false</a11yHidden>
+                <a11yHint></a11yHint>
+                <a11yLabel></a11yLabel>
+                <a11yValue></a11yValue>
+            </a11yConfig>
+            <onHover>
+                <evtSequence>
+                    <enabled>true</enabled>
+                    <seqname></seqname>
+                </evtSequence>
+            </onHover>
         </children>
         <children xsi:type="khBox">
             <ID>hboxRow3</ID>
@@ -8909,6 +9073,7 @@
                 <rc_winmobile>true</rc_winmobile>
                 <rc_winmobile6x>true</rc_winmobile6x>
                 <rc_winphone8>true</rc_winphone8>
+                <rc_winphone81s>true</rc_winphone81s>
                 <tabspa_ipad>true</tabspa_ipad>
                 <tabspa_windows>true</tabspa_windows>
                 <tabspaspa_android>true</tabspaspa_android>
@@ -9565,6 +9730,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -10211,6 +10377,7 @@
                         <rc_winmobile>true</rc_winmobile>
                         <rc_winmobile6x>true</rc_winmobile6x>
                         <rc_winphone8>true</rc_winphone8>
+                        <rc_winphone81s>true</rc_winphone81s>
                         <tabspa_ipad>true</tabspa_ipad>
                         <tabspa_windows>true</tabspa_windows>
                         <tabspaspa_android>true</tabspaspa_android>
@@ -10858,6 +11025,14 @@
                     <winphone8_contentalign>middle-center</winphone8_contentalign>
                     <bb10_contentalignment>1</bb10_contentalignment>
                     <bb10displaytext>true</bb10displaytext>
+                    <containerWeight>0</containerWeight>
+                    <projectState>0</projectState>
+                    <a11yConfig>
+                        <a11yHidden>false</a11yHidden>
+                        <a11yHint></a11yHint>
+                        <a11yLabel></a11yLabel>
+                        <a11yValue></a11yValue>
+                    </a11yConfig>
                 </children>
                 <desktopweb_onRightClick>
                     <evtSequence>
@@ -10866,6 +11041,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <children xsi:type="kvBox">
                 <ID>vboxSix</ID>
@@ -10925,6 +11114,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -11571,6 +11761,7 @@
                         <rc_winmobile>true</rc_winmobile>
                         <rc_winmobile6x>true</rc_winmobile6x>
                         <rc_winphone8>true</rc_winphone8>
+                        <rc_winphone81s>true</rc_winphone81s>
                         <tabspa_ipad>true</tabspa_ipad>
                         <tabspa_windows>true</tabspa_windows>
                         <tabspaspa_android>true</tabspaspa_android>
@@ -12218,6 +12409,14 @@
                     <winphone8_contentalign>middle-center</winphone8_contentalign>
                     <bb10_contentalignment>1</bb10_contentalignment>
                     <bb10displaytext>true</bb10displaytext>
+                    <containerWeight>0</containerWeight>
+                    <projectState>0</projectState>
+                    <a11yConfig>
+                        <a11yHidden>false</a11yHidden>
+                        <a11yHint></a11yHint>
+                        <a11yLabel></a11yLabel>
+                        <a11yValue></a11yValue>
+                    </a11yConfig>
                 </children>
                 <desktopweb_onRightClick>
                     <evtSequence>
@@ -12226,6 +12425,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <children xsi:type="kvBox">
                 <ID>space3</ID>
@@ -12285,6 +12498,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -12869,6 +13083,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <general_contextMenu>None</general_contextMenu>
             <desktopweb_onRightClick>
@@ -12878,6 +13106,20 @@
                 </evtSequence>
             </desktopweb_onRightClick>
             <winphone8_position>0</winphone8_position>
+            <containerWeight>0</containerWeight>
+            <projectState>0</projectState>
+            <a11yConfig>
+                <a11yHidden>false</a11yHidden>
+                <a11yHint></a11yHint>
+                <a11yLabel></a11yLabel>
+                <a11yValue></a11yValue>
+            </a11yConfig>
+            <onHover>
+                <evtSequence>
+                    <enabled>true</enabled>
+                    <seqname></seqname>
+                </evtSequence>
+            </onHover>
         </children>
         <children xsi:type="khBox">
             <ID>hboxtxt1</ID>
@@ -12932,6 +13174,7 @@
                 <rc_winmobile>true</rc_winmobile>
                 <rc_winmobile6x>true</rc_winmobile6x>
                 <rc_winphone8>true</rc_winphone8>
+                <rc_winphone81s>true</rc_winphone81s>
                 <tabspa_ipad>true</tabspa_ipad>
                 <tabspa_windows>true</tabspa_windows>
                 <tabspaspa_android>true</tabspaspa_android>
@@ -13588,6 +13831,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -14234,6 +14478,7 @@
                         <rc_winmobile>true</rc_winmobile>
                         <rc_winmobile6x>true</rc_winmobile6x>
                         <rc_winphone8>true</rc_winphone8>
+                        <rc_winphone81s>true</rc_winphone81s>
                         <tabspa_ipad>true</tabspa_ipad>
                         <tabspa_windows>true</tabspa_windows>
                         <tabspaspa_android>true</tabspaspa_android>
@@ -14827,6 +15072,20 @@
                     <windows8_hoverskin>Skin Defaults</windows8_hoverskin>
                     <winphone8_contentalign>middle-left</winphone8_contentalign>
                     <bb10_contentalignment>0</bb10_contentalignment>
+                    <containerWeight>0</containerWeight>
+                    <projectState>0</projectState>
+                    <a11yConfig>
+                        <a11yHidden>false</a11yHidden>
+                        <a11yHint></a11yHint>
+                        <a11yLabel></a11yLabel>
+                        <a11yValue></a11yValue>
+                    </a11yConfig>
+                    <iphone_textcopyable>false</iphone_textcopyable>
+                    <ipad_textcopyable>false</ipad_textcopyable>
+                    <android_textcopyable>false</android_textcopyable>
+                    <spa_textcopyable>false</spa_textcopyable>
+                    <iphone_pasteboardType>PASTE_BOARD_TYPE_SYSTEM_LEVEL</iphone_pasteboardType>
+                    <ipad_pasteboardType>PASTE_BOARD_TYPE_SYSTEM_LEVEL</ipad_pasteboardType>
                 </children>
                 <desktopweb_onRightClick>
                     <evtSequence>
@@ -14835,6 +15094,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <children xsi:type="kvBox">
                 <ID>vboxtxt2</ID>
@@ -14894,6 +15167,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -15540,6 +15814,7 @@
                         <rc_winmobile>true</rc_winmobile>
                         <rc_winmobile6x>true</rc_winmobile6x>
                         <rc_winphone8>true</rc_winphone8>
+                        <rc_winphone81s>true</rc_winphone81s>
                         <tabspa_ipad>true</tabspa_ipad>
                         <tabspa_windows>true</tabspa_windows>
                         <tabspaspa_android>true</tabspaspa_android>
@@ -16133,6 +16408,20 @@
                     <windows8_hoverskin>Skin Defaults</windows8_hoverskin>
                     <winphone8_contentalign>middle-left</winphone8_contentalign>
                     <bb10_contentalignment>0</bb10_contentalignment>
+                    <containerWeight>0</containerWeight>
+                    <projectState>0</projectState>
+                    <a11yConfig>
+                        <a11yHidden>false</a11yHidden>
+                        <a11yHint></a11yHint>
+                        <a11yLabel></a11yLabel>
+                        <a11yValue></a11yValue>
+                    </a11yConfig>
+                    <iphone_textcopyable>false</iphone_textcopyable>
+                    <ipad_textcopyable>false</ipad_textcopyable>
+                    <android_textcopyable>false</android_textcopyable>
+                    <spa_textcopyable>false</spa_textcopyable>
+                    <iphone_pasteboardType>PASTE_BOARD_TYPE_SYSTEM_LEVEL</iphone_pasteboardType>
+                    <ipad_pasteboardType>PASTE_BOARD_TYPE_SYSTEM_LEVEL</ipad_pasteboardType>
                 </children>
                 <desktopweb_onRightClick>
                     <evtSequence>
@@ -16141,6 +16430,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <children xsi:type="kvBox">
                 <ID>space4</ID>
@@ -16200,6 +16503,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -16784,6 +17088,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <general_contextMenu>None</general_contextMenu>
             <desktopweb_onRightClick>
@@ -16793,6 +17111,20 @@
                 </evtSequence>
             </desktopweb_onRightClick>
             <winphone8_position>0</winphone8_position>
+            <containerWeight>0</containerWeight>
+            <projectState>0</projectState>
+            <a11yConfig>
+                <a11yHidden>false</a11yHidden>
+                <a11yHint></a11yHint>
+                <a11yLabel></a11yLabel>
+                <a11yValue></a11yValue>
+            </a11yConfig>
+            <onHover>
+                <evtSequence>
+                    <enabled>true</enabled>
+                    <seqname></seqname>
+                </evtSequence>
+            </onHover>
         </children>
         <children xsi:type="khBox">
             <ID>hboxtxt2</ID>
@@ -16847,6 +17179,7 @@
                 <rc_winmobile>true</rc_winmobile>
                 <rc_winmobile6x>true</rc_winmobile6x>
                 <rc_winphone8>true</rc_winphone8>
+                <rc_winphone81s>true</rc_winphone81s>
                 <tabspa_ipad>true</tabspa_ipad>
                 <tabspa_windows>true</tabspa_windows>
                 <tabspaspa_android>true</tabspaspa_android>
@@ -17503,6 +17836,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -18149,6 +18483,7 @@
                         <rc_winmobile>true</rc_winmobile>
                         <rc_winmobile6x>true</rc_winmobile6x>
                         <rc_winphone8>true</rc_winphone8>
+                        <rc_winphone81s>true</rc_winphone81s>
                         <tabspa_ipad>true</tabspa_ipad>
                         <tabspa_windows>true</tabspa_windows>
                         <tabspaspa_android>true</tabspaspa_android>
@@ -18742,6 +19077,20 @@
                     <windows8_hoverskin>Skin Defaults</windows8_hoverskin>
                     <winphone8_contentalign>middle-left</winphone8_contentalign>
                     <bb10_contentalignment>0</bb10_contentalignment>
+                    <containerWeight>0</containerWeight>
+                    <projectState>0</projectState>
+                    <a11yConfig>
+                        <a11yHidden>false</a11yHidden>
+                        <a11yHint></a11yHint>
+                        <a11yLabel></a11yLabel>
+                        <a11yValue></a11yValue>
+                    </a11yConfig>
+                    <iphone_textcopyable>false</iphone_textcopyable>
+                    <ipad_textcopyable>false</ipad_textcopyable>
+                    <android_textcopyable>false</android_textcopyable>
+                    <spa_textcopyable>false</spa_textcopyable>
+                    <iphone_pasteboardType>PASTE_BOARD_TYPE_SYSTEM_LEVEL</iphone_pasteboardType>
+                    <ipad_pasteboardType>PASTE_BOARD_TYPE_SYSTEM_LEVEL</ipad_pasteboardType>
                 </children>
                 <desktopweb_onRightClick>
                     <evtSequence>
@@ -18750,6 +19099,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <children xsi:type="kvBox">
                 <ID>vboxtxt4</ID>
@@ -18809,6 +19172,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -19455,6 +19819,7 @@
                         <rc_winmobile>true</rc_winmobile>
                         <rc_winmobile6x>true</rc_winmobile6x>
                         <rc_winphone8>true</rc_winphone8>
+                        <rc_winphone81s>true</rc_winphone81s>
                         <tabspa_ipad>true</tabspa_ipad>
                         <tabspa_windows>true</tabspa_windows>
                         <tabspaspa_android>true</tabspaspa_android>
@@ -20048,6 +20413,20 @@
                     <windows8_hoverskin>Skin Defaults</windows8_hoverskin>
                     <winphone8_contentalign>middle-left</winphone8_contentalign>
                     <bb10_contentalignment>0</bb10_contentalignment>
+                    <containerWeight>0</containerWeight>
+                    <projectState>0</projectState>
+                    <a11yConfig>
+                        <a11yHidden>false</a11yHidden>
+                        <a11yHint></a11yHint>
+                        <a11yLabel></a11yLabel>
+                        <a11yValue></a11yValue>
+                    </a11yConfig>
+                    <iphone_textcopyable>false</iphone_textcopyable>
+                    <ipad_textcopyable>false</ipad_textcopyable>
+                    <android_textcopyable>false</android_textcopyable>
+                    <spa_textcopyable>false</spa_textcopyable>
+                    <iphone_pasteboardType>PASTE_BOARD_TYPE_SYSTEM_LEVEL</iphone_pasteboardType>
+                    <ipad_pasteboardType>PASTE_BOARD_TYPE_SYSTEM_LEVEL</ipad_pasteboardType>
                 </children>
                 <desktopweb_onRightClick>
                     <evtSequence>
@@ -20056,6 +20435,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <children xsi:type="kvBox">
                 <ID>space5</ID>
@@ -20115,6 +20508,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -20699,6 +21093,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <general_contextMenu>None</general_contextMenu>
             <desktopweb_onRightClick>
@@ -20708,6 +21116,20 @@
                 </evtSequence>
             </desktopweb_onRightClick>
             <winphone8_position>0</winphone8_position>
+            <containerWeight>0</containerWeight>
+            <projectState>0</projectState>
+            <a11yConfig>
+                <a11yHidden>false</a11yHidden>
+                <a11yHint></a11yHint>
+                <a11yLabel></a11yLabel>
+                <a11yValue></a11yValue>
+            </a11yConfig>
+            <onHover>
+                <evtSequence>
+                    <enabled>true</enabled>
+                    <seqname></seqname>
+                </evtSequence>
+            </onHover>
         </children>
         <children xsi:type="khBox">
             <ID>hboxtxt3</ID>
@@ -20762,6 +21184,7 @@
                 <rc_winmobile>true</rc_winmobile>
                 <rc_winmobile6x>true</rc_winmobile6x>
                 <rc_winphone8>true</rc_winphone8>
+                <rc_winphone81s>true</rc_winphone81s>
                 <tabspa_ipad>true</tabspa_ipad>
                 <tabspa_windows>true</tabspa_windows>
                 <tabspaspa_android>true</tabspaspa_android>
@@ -21418,6 +21841,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -22064,6 +22488,7 @@
                         <rc_winmobile>true</rc_winmobile>
                         <rc_winmobile6x>true</rc_winmobile6x>
                         <rc_winphone8>true</rc_winphone8>
+                        <rc_winphone81s>true</rc_winphone81s>
                         <tabspa_ipad>true</tabspa_ipad>
                         <tabspa_windows>true</tabspa_windows>
                         <tabspaspa_android>true</tabspaspa_android>
@@ -22657,6 +23082,20 @@
                     <windows8_hoverskin>Skin Defaults</windows8_hoverskin>
                     <winphone8_contentalign>middle-left</winphone8_contentalign>
                     <bb10_contentalignment>0</bb10_contentalignment>
+                    <containerWeight>0</containerWeight>
+                    <projectState>0</projectState>
+                    <a11yConfig>
+                        <a11yHidden>false</a11yHidden>
+                        <a11yHint></a11yHint>
+                        <a11yLabel></a11yLabel>
+                        <a11yValue></a11yValue>
+                    </a11yConfig>
+                    <iphone_textcopyable>false</iphone_textcopyable>
+                    <ipad_textcopyable>false</ipad_textcopyable>
+                    <android_textcopyable>false</android_textcopyable>
+                    <spa_textcopyable>false</spa_textcopyable>
+                    <iphone_pasteboardType>PASTE_BOARD_TYPE_SYSTEM_LEVEL</iphone_pasteboardType>
+                    <ipad_pasteboardType>PASTE_BOARD_TYPE_SYSTEM_LEVEL</ipad_pasteboardType>
                 </children>
                 <desktopweb_onRightClick>
                     <evtSequence>
@@ -22665,6 +23104,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <children xsi:type="kvBox">
                 <ID>vboxtxt6</ID>
@@ -22724,6 +23177,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -23370,6 +23824,7 @@
                         <rc_winmobile>true</rc_winmobile>
                         <rc_winmobile6x>true</rc_winmobile6x>
                         <rc_winphone8>true</rc_winphone8>
+                        <rc_winphone81s>true</rc_winphone81s>
                         <tabspa_ipad>true</tabspa_ipad>
                         <tabspa_windows>true</tabspa_windows>
                         <tabspaspa_android>true</tabspaspa_android>
@@ -23963,6 +24418,20 @@
                     <windows8_hoverskin>Skin Defaults</windows8_hoverskin>
                     <winphone8_contentalign>middle-left</winphone8_contentalign>
                     <bb10_contentalignment>0</bb10_contentalignment>
+                    <containerWeight>0</containerWeight>
+                    <projectState>0</projectState>
+                    <a11yConfig>
+                        <a11yHidden>false</a11yHidden>
+                        <a11yHint></a11yHint>
+                        <a11yLabel></a11yLabel>
+                        <a11yValue></a11yValue>
+                    </a11yConfig>
+                    <iphone_textcopyable>false</iphone_textcopyable>
+                    <ipad_textcopyable>false</ipad_textcopyable>
+                    <android_textcopyable>false</android_textcopyable>
+                    <spa_textcopyable>false</spa_textcopyable>
+                    <iphone_pasteboardType>PASTE_BOARD_TYPE_SYSTEM_LEVEL</iphone_pasteboardType>
+                    <ipad_pasteboardType>PASTE_BOARD_TYPE_SYSTEM_LEVEL</ipad_pasteboardType>
                 </children>
                 <desktopweb_onRightClick>
                     <evtSequence>
@@ -23971,6 +24440,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <children xsi:type="kvBox">
                 <ID>space6</ID>
@@ -24030,6 +24513,7 @@
                     <rc_winmobile>true</rc_winmobile>
                     <rc_winmobile6x>true</rc_winmobile6x>
                     <rc_winphone8>true</rc_winphone8>
+                    <rc_winphone81s>true</rc_winphone81s>
                     <tabspa_ipad>true</tabspa_ipad>
                     <tabspa_windows>true</tabspa_windows>
                     <tabspaspa_android>true</tabspaspa_android>
@@ -24614,6 +25098,20 @@
                     </evtSequence>
                 </desktopweb_onRightClick>
                 <desktopweb_contextMenu>None</desktopweb_contextMenu>
+                <containerWeight>0</containerWeight>
+                <projectState>0</projectState>
+                <a11yConfig>
+                    <a11yHidden>false</a11yHidden>
+                    <a11yHint></a11yHint>
+                    <a11yLabel></a11yLabel>
+                    <a11yValue></a11yValue>
+                </a11yConfig>
+                <onHover>
+                    <evtSequence>
+                        <enabled>true</enabled>
+                        <seqname></seqname>
+                    </evtSequence>
+                </onHover>
             </children>
             <general_contextMenu>None</general_contextMenu>
             <desktopweb_onRightClick>
@@ -24623,6 +25121,20 @@
                 </evtSequence>
             </desktopweb_onRightClick>
             <winphone8_position>0</winphone8_position>
+            <containerWeight>0</containerWeight>
+            <projectState>0</projectState>
+            <a11yConfig>
+                <a11yHidden>false</a11yHidden>
+                <a11yHint></a11yHint>
+                <a11yLabel></a11yLabel>
+                <a11yValue></a11yValue>
+            </a11yConfig>
+            <onHover>
+                <evtSequence>
+                    <enabled>true</enabled>
+                    <seqname></seqname>
+                </evtSequence>
+            </onHover>
         </children>
         <winphone8_intransition>Default</winphone8_intransition>
         <winphone8_outtransition>Default</winphone8_outtransition>
@@ -24673,6 +25185,28 @@
         <bb10_softkeyMode>FORM_ADJUST_RESIZE</bb10_softkeyMode>
         <bb10_showbottomactionbar>true</bb10_showbottomactionbar>
         <bb10_enablepeekgesture>true</bb10_enablepeekgesture>
+        <iphone_extendTop>false</iphone_extendTop>
+        <ipad_extendTop>false</ipad_extendTop>
+        <iphone_extendBottom>false</iphone_extendBottom>
+        <ipad_extendBottom>false</ipad_extendBottom>
+        <iphone_statusBarStyle>STATUS_BAR_STYLE_DEFAULT</iphone_statusBarStyle>
+        <ipad_statusBarStyle>STATUS_BAR_STYLE_DEFAULT</ipad_statusBarStyle>
+        <iphone_configureExtendTop>false</iphone_configureExtendTop>
+        <iphone_configureExtendBottom>false</iphone_configureExtendBottom>
+        <iphone_configureStatusBarStyle>false</iphone_configureStatusBarStyle>
+        <ipad_configureExtendTop>false</ipad_configureExtendTop>
+        <ipad_configureExtendBottom>false</ipad_configureExtendBottom>
+        <ipad_configureStatusBarStyle>false</ipad_configureStatusBarStyle>
+        <containerWeight>0</containerWeight>
+        <projectState>0</projectState>
+        <a11yConfig>
+            <a11yHidden>false</a11yHidden>
+            <a11yHint></a11yHint>
+            <a11yLabel></a11yLabel>
+            <a11yValue></a11yValue>
+        </a11yConfig>
+        <general_containerHeight></general_containerHeight>
+        <general_containerHeightReference>CONTAINER_HEIGHT_BY_FORM_REFERENCE</general_containerHeightReference>
     </children>
     <children xsi:type="kMenuContainer" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ID></ID>
@@ -24736,6 +25270,7 @@
             <rc_winmobile>true</rc_winmobile>
             <rc_winmobile6x>true</rc_winmobile6x>
             <rc_winphone8>true</rc_winphone8>
+            <rc_winphone81s>true</rc_winphone81s>
             <tabspa_ipad>true</tabspa_ipad>
             <tabspa_windows>true</tabspa_windows>
             <tabspaspa_android>true</tabspaspa_android>
@@ -25294,6 +25829,8 @@
         </paddings>
         <tooltip></tooltip>
         <contentAlign>0</contentAlign>
+        <containerWeight>0</containerWeight>
+        <projectState>0</projectState>
     </children>
     <contentAlign>0</contentAlign>
     <gridviewConfig>
@@ -25301,4 +25838,6 @@
         <referenceWidth>0</referenceWidth>
         <sizeMode>constants.GRID_TYPE_FIXED</sizeMode>
     </gridviewConfig>
+    <containerWeight>0</containerWeight>
+    <projectState>0</projectState>
 </kPage>

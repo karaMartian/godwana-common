@@ -9,7 +9,7 @@
         <dcResponse/>
         <encryptPwd>true</encryptPwd>
         <escapeXML>false</escapeXML>
-        <id>getBrandsByRepByDate</id>
+        <id>getBrandsByDate</id>
         <ignoreProxy>false</ignoreProxy>
         <inparam>
             <category></category>
@@ -41,7 +41,7 @@
             <encode>true</encode>
             <format>None</format>
             <formatvalue></formatvalue>
-            <id>startDate</id>
+            <id>date</id>
             <invalue></invalue>
             <name></name>
             <order></order>
@@ -52,48 +52,25 @@
             <srcformatvalue></srcformatvalue>
             <target></target>
             <targetdatatype></targetdatatype>
-            <testvalue>2013-01-01</testvalue>
-            <value></value>
-        </inparam>
-        <inparam>
-            <category></category>
-            <datatype>string</datatype>
-            <defaultvalue></defaultvalue>
-            <description></description>
-            <encode>true</encode>
-            <format>None</format>
-            <formatvalue></formatvalue>
-            <id>endDate</id>
-            <invalue></invalue>
-            <name></name>
-            <order></order>
-            <passNull>false</passNull>
-            <recordid></recordid>
-            <smsname></smsname>
-            <source></source>
-            <srcformatvalue></srcformatvalue>
-            <target></target>
-            <targetdatatype></targetdatatype>
-            <testvalue>2013-06-30</testvalue>
+            <testvalue>2013</testvalue>
             <value></value>
         </inparam>
         <intemplate>&lt;soapenv:Envelope xmlns:int="http://interfaces.ws.gondwana.mobile.arkitex.co.za/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
    &lt;soapenv:Header/&gt;
    &lt;soapenv:Body&gt;
-      &lt;int:getBrandsByRepByDate&gt;
+      &lt;int:getBrandsByDate&gt;
          &lt;repId&gt;0008&lt;/repId&gt;
-         &lt;startDate&gt;2013-01-01&lt;/startDate&gt;
-         &lt;endDate&gt;2013-06-30&lt;/endDate&gt;
-      &lt;/int:getBrandsByRepByDate&gt;
+         &lt;date&gt;2013&lt;/date&gt;
+      &lt;/int:getBrandsByDate&gt;
    &lt;/soapenv:Body&gt;
 &lt;/soapenv:Envelope&gt;
 </intemplate>
         <ntlmDomain></ntlmDomain>
         <ntlmHost></ntlmHost>
-        <operationname>getBrandsByRepByDate</operationname>
+        <operationname>getBrandsByDate</operationname>
         <outtemplate>&lt;S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"&gt;
    &lt;S:Body&gt;
-      &lt;ns2:getBrandsByRepByDateResponse xmlns:ns2="http://interfaces.ws.gondwana.mobile.arkitex.co.za/"&gt;
+      &lt;ns2:getBrandsByDateResponse xmlns:ns2="http://interfaces.ws.gondwana.mobile.arkitex.co.za/"&gt;
          &lt;return&gt;
             &lt;item&gt;Product 11&lt;/item&gt;
             &lt;item&gt;Product 12&lt;/item&gt;
@@ -106,7 +83,7 @@
             &lt;item&gt;Product 6&lt;/item&gt;
             &lt;item&gt;Product 7&lt;/item&gt;
          &lt;/return&gt;
-      &lt;/ns2:getBrandsByRepByDateResponse&gt;
+      &lt;/ns2:getBrandsByDateResponse&gt;
    &lt;/S:Body&gt;
 &lt;/S:Envelope&gt;
 </outtemplate>
@@ -121,7 +98,7 @@ Content-type: text/xml;charset="utf-8"
             <encode>true</encode>
             <format>None</format>
             <formatvalue></formatvalue>
-            <id>products</id>
+            <id>brands</id>
             <invalue></invalue>
             <name></name>
             <order></order>
@@ -143,7 +120,7 @@ Content-type: text/xml;charset="utf-8"
             <encode>true</encode>
             <format>None</format>
             <formatvalue></formatvalue>
-            <id>item</id>
+            <id>product</id>
             <invalue></invalue>
             <name></name>
             <order></order>
@@ -155,7 +132,7 @@ Content-type: text/xml;charset="utf-8"
             <target>response</target>
             <targetdatatype></targetdatatype>
             <testvalue></testvalue>
-            <value>products</value>
+            <value>brands</value>
         </outparam>
         <password></password>
         <postclassname></postclassname>
@@ -174,7 +151,7 @@ Content-type: text/xml;charset="utf-8"
         <urlprovider></urlprovider>
         <userid></userid>
         <version>1.1</version>
-        <wsdlurl>http://209.203.36.130:8081/com/arkitex/mobile?wsdl</wsdlurl>
+        <wsdlurl>http://209.203.36.130:8080/com/arkitex/mobile?wsdl</wsdlurl>
     </soapservice>
     <sharePointRoot>
         <name>SharePoint Servers</name>

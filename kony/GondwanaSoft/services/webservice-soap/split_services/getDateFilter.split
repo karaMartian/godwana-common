@@ -108,7 +108,7 @@ Content-type: text/xml;charset="utf-8"
             <smsname></smsname>
             <source>item</source>
             <srcformatvalue></srcformatvalue>
-            <target>response</target>
+            <target></target>
             <targetdatatype></targetdatatype>
             <testvalue></testvalue>
             <value>date</value>
@@ -130,7 +130,7 @@ Content-type: text/xml;charset="utf-8"
         <urlprovider></urlprovider>
         <userid></userid>
         <version>1.1</version>
-        <wsdlurl>http://209.203.36.130:8081/com/arkitex/mobile?wsdl</wsdlurl>
+        <wsdlurl>http://209.203.36.130:8080/com/arkitex/mobile?wsdl</wsdlurl>
     </soapservice>
     <sharePointRoot>
         <name>SharePoint Servers</name>

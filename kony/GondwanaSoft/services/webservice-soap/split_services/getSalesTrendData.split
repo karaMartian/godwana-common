@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xsObject>
+    <appSmsCode></appSmsCode>
+    <soapservice>
+        <authenticationMode>basic</authenticationMode>
+        <cacheduration></cacheduration>
+        <cacheable>false</cacheable>
+        <dataprovider></dataprovider>
+        <dcResponse/>
+        <encryptPwd>true</encryptPwd>
+        <escapeXML>false</escapeXML>
+        <id>getSalesTrendData</id>
+        <ignoreProxy>false</ignoreProxy>
+        <inparam>
+            <category></category>
+            <datatype>string</datatype>
+            <defaultvalue></defaultvalue>
+            <description></description>
+            <encode>true</encode>
+            <format>None</format>
+            <formatvalue></formatvalue>
+            <id>repId</id>
+            <invalue></invalue>
+            <name></name>
+            <order></order>
+            <passNull>false</passNull>
+            <recordid></recordid>
+            <smsname></smsname>
+            <source></source>
+            <srcformatvalue></srcformatvalue>
+            <target></target>
+            <targetdatatype></targetdatatype>
+            <testvalue>0008</testvalue>
+            <value></value>
+        </inparam>
+        <inparam>
+            <category></category>
+            <datatype>string</datatype>
+            <defaultvalue></defaultvalue>
+            <description></description>
+            <encode>true</encode>
+            <format>None</format>
+            <formatvalue></formatvalue>
+            <id>date</id>
+            <invalue></invalue>
+            <name></name>
+            <order></order>
+            <passNull>false</passNull>
+            <recordid></recordid>
+            <smsname></smsname>
+            <source></source>
+            <srcformatvalue></srcformatvalue>
+            <target></target>
+            <targetdatatype></targetdatatype>
+            <testvalue>2013</testvalue>
+            <value></value>
+        </inparam>
+        <intemplate>&lt;soapenv:Envelope xmlns:int="http://interfaces.ws.gondwana.mobile.arkitex.co.za/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;int:getSalesTrendData&gt;
+         &lt;repId&gt;0008&lt;/repId&gt;
+         &lt;date&gt;2013&lt;/date&gt;
+      &lt;/int:getSalesTrendData&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;
+</intemplate>
+        <ntlmDomain></ntlmDomain>
+        <ntlmHost></ntlmHost>
+        <operationname>getSalesTrendData</operationname>
+        <outtemplate>&lt;S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+   &lt;S:Body&gt;
+      &lt;ns2:getSalesTrendDataResponse xmlns:ns2="http://interfaces.ws.gondwana.mobile.arkitex.co.za/"&gt;
+         &lt;return&gt;
+            &lt;item&gt;
+               &lt;brandName&gt;Product 11&lt;/brandName&gt;
+               &lt;monthlySalesValues&gt;30130.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;36354.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;43036.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;44671.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;42809.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;46562.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;49497.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;51792.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;63894.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;56917.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;38917.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;62077.0&lt;/monthlySalesValues&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brandName&gt;Product 12&lt;/brandName&gt;
+               &lt;monthlySalesValues&gt;5088.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;79.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;285.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;551.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;423.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;5858.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;6713.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;4187.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;9342.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/&gt;
+               &lt;monthlySalesValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/&gt;
+               &lt;monthlySalesValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brandName&gt;Product 13&lt;/brandName&gt;
+               &lt;monthlySalesValues&gt;7632.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;123.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;72.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;97.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;180.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;2166.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;1854.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;1481.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;4058.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/&gt;
+               &lt;monthlySalesValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/&gt;
+               &lt;monthlySalesValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brandName&gt;Product 14&lt;/brandName&gt;
+               &lt;monthlySalesValues&gt;5088.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;80.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;336.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;383.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;4022.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;2094.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;3803.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;6833.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/&gt;
+               &lt;monthlySalesValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/&gt;
+               &lt;monthlySalesValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/&gt;
+               &lt;monthlySalesValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brandName&gt;Product 2&lt;/brandName&gt;
+               &lt;monthlySalesValues&gt;1864.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;1341.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;1582.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;2602.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;3645.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;2468.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;2893.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;1347.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;2683.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;6153.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;7323.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;7387.0&lt;/monthlySalesValues&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brandName&gt;Product 22&lt;/brandName&gt;
+               &lt;monthlySalesValues&gt;4990.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;1453.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;884.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;4832.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;72158.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;124010.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;170070.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;142110.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/&gt;
+               &lt;monthlySalesValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/&gt;
+               &lt;monthlySalesValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/&gt;
+               &lt;monthlySalesValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brandName&gt;Product 23&lt;/brandName&gt;
+               &lt;monthlySalesValues&gt;4789.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;2873.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;4789.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;5959.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;4898.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;4222.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;5066.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;3209.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;4560.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;4391.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;4222.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;4062.0&lt;/monthlySalesValues&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brandName&gt;Product 28&lt;/brandName&gt;
+               &lt;monthlySalesValues&gt;6660.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;7697.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;8065.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;7711.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;8853.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;6586.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;9566.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;7762.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;18047.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;9389.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;13646.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;11166.0&lt;/monthlySalesValues&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+               &lt;brandName&gt;Product 6&lt;/brandName&gt;
+               &lt;monthlySalesValues&gt;75600.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;179745.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;243887.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;344293.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;383120.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;401383.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;207471.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;177936.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;201773.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;279520.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;144425.0&lt;/monthlySalesValues&gt;
+               &lt;monthlySalesValues&gt;130313.0&lt;/monthlySalesValues&gt;
+            &lt;/item&gt;
+            &lt;item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/&gt;
+         &lt;/return&gt;
+      &lt;/ns2:getSalesTrendDataResponse&gt;
+   &lt;/S:Body&gt;
+&lt;/S:Envelope&gt;
+</outtemplate>
+        <outTemplateHeader>Transfer-encoding: chunked
+Content-type: text/xml;charset="utf-8"
+</outTemplateHeader>
+        <outparam>
+            <category></category>
+            <datatype>string</datatype>
+            <defaultvalue></defaultvalue>
+            <description></description>
+            <encode>true</encode>
+            <format>None</format>
+            <formatvalue></formatvalue>
+            <id>data</id>
+            <invalue></invalue>
+            <name></name>
+            <order></order>
+            <passNull>false</passNull>
+            <recordid></recordid>
+            <smsname></smsname>
+            <source>//return</source>
+            <srcformatvalue></srcformatvalue>
+            <target></target>
+            <targetdatatype></targetdatatype>
+            <testvalue></testvalue>
+            <value></value>
+        </outparam>
+        <outparam>
+            <category></category>
+            <datatype>string</datatype>
+            <defaultvalue></defaultvalue>
+            <description></description>
+            <encode>true</encode>
+            <format>None</format>
+            <formatvalue></formatvalue>
+            <id>product</id>
+            <invalue></invalue>
+            <name></name>
+            <order></order>
+            <passNull>false</passNull>
+            <recordid></recordid>
+            <smsname></smsname>
+            <source>item/brandName</source>
+            <srcformatvalue></srcformatvalue>
+            <target></target>
+            <targetdatatype></targetdatatype>
+            <testvalue></testvalue>
+            <value>data</value>
+        </outparam>
+        <outparam>
+            <category></category>
+            <datatype>string</datatype>
+            <defaultvalue></defaultvalue>
+            <description></description>
+            <encode>true</encode>
+            <format>None</format>
+            <formatvalue></formatvalue>
+            <id>month</id>
+            <invalue></invalue>
+            <name></name>
+            <order></order>
+            <passNull>false</passNull>
+            <recordid></recordid>
+            <smsname></smsname>
+            <source>item/monthlySalesValues</source>
+            <srcformatvalue></srcformatvalue>
+            <target></target>
+            <targetdatatype></targetdatatype>
+            <testvalue></testvalue>
+            <value>data</value>
+        </outparam>
+        <password></password>
+        <postclassname></postclassname>
+        <preclassname></preclassname>
+        <proxyname></proxyname>
+        <proxyport></proxyport>
+        <proxypwd></proxypwd>
+        <proxyuserid></proxyuserid>
+        <responseencoding>UTF-8</responseencoding>
+        <sharePoint>false</sharePoint>
+        <smscode></smscode>
+        <smsenabled>false</smsenabled>
+        <soapaction></soapaction>
+        <timeout></timeout>
+        <url>http://209.203.36.130:8080/com/arkitex/mobile</url>
+        <urlprovider></urlprovider>
+        <userid></userid>
+        <version>1.1</version>
+        <wsdlurl>http://209.203.36.130:8080/com/arkitex/mobile?wsdl</wsdlurl>
+    </soapservice>
+    <sharePointRoot>
+        <name>SharePoint Servers</name>
+    </sharePointRoot>
+    <wsdlroot>
+        <wsdltree>
+            <name>Web Services</name>
+        </wsdltree>
+    </wsdlroot>
+</xsObject>

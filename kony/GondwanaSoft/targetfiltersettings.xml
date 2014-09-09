@@ -7,7 +7,7 @@
 	<item value="false" key="mixedAndroidTab"/>
 	<item value="true" key="android"/>
 	<item value="false" key="spaandroid"/>
-	<item value="false" key="ipad"/>
+	<item value="true" key="ipad"/>
 	<item value="false" key="desktopweb"/>
 	<item value="false" key="wrapperBB"/>
 	<item value="false" key="xhtmladvandroid"/>
@@ -28,7 +28,7 @@
 	<item value="false" key="xhtmladvnth"/>
 	<item value="false" key="desktop_kiosk"/>
 	<item value="false" key="xhtmladvpalm"/>
-	<item value="false" key="iphone"/>
+	<item value="true" key="iphone"/>
 	<item value="false" key="palm"/>
 	<item value="false" key="blackberry"/>
 	<item value="false" key="xhtmladviphone"/>
@@ -40,5 +40,6 @@
 	<item value="false" key="spabbnth"/>
 	<item value="false" key="xhtmladvbb"/>
 	<item value="false" key="xhtmlnormal"/>
+	<item value="true" key="windowphone81s"/>
 	<item value="false" key="blackberry10"/>
 </section>

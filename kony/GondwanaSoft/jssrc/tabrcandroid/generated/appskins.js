@@ -78,4 +78,12 @@ function skinsInit() {
     popUpSkin = "popUpSkin";
     popUpTxtSkin = "popUpTxtSkin";
     popUpSkin2 = "popUpSkin2";
+    btnSk = "btnSk";
+    skncombobox = "skncombobox";
+    btnSkin = "btnSkin";
+    filterButtonSkin = "filterButtonSkin";
+    labelSkin = "labelSkin";
+    hBoxSkin = "hBoxSkin";
+    segSkin = "segSkin";
+    sknLabelHeader = "sknLabelHeader";
 };
