@@ -6,14 +6,22 @@ import java.util.HashMap;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 
+import za.co.arkitex.mobile.domain.CustomerLocation;
 import za.co.arkitex.mobile.domain.MonthFilter;
 import za.co.arkitex.mobile.domain.QuarterFilter;
 import za.co.arkitex.mobile.domain.SalesTrendData;
+import za.co.arkitex.mobile.domain.SalesVisualizedModel;
 import za.co.arkitex.mobile.domain.YearFilter;
 import za.co.arkitex.mobile.gondwana.db.AggregatedSalesValueQuery;
+import za.co.arkitex.mobile.gondwana.db.AuthenticateQuery;
 import za.co.arkitex.mobile.gondwana.db.BrandQuery;
+import za.co.arkitex.mobile.gondwana.db.CustomerCoordinatesQuery;
+import za.co.arkitex.mobile.gondwana.db.FilterQuery;
 import za.co.arkitex.mobile.gondwana.db.ProxyCustomer;
+import za.co.arkitex.mobile.gondwana.db.ProxySalesGrading;
+import za.co.arkitex.mobile.gondwana.db.SalesGradingCustomersQuery;
 import za.co.arkitex.mobile.gondwana.db.SalesValueQuery;
+import za.co.arkitex.mobile.gondwana.db.SalesVisualizedQuery;
 import za.co.arkitex.mobile.gondwana.db.Top25CustomersQuery;
 import za.co.arkitex.mobile.gondwana.exceptions.WrongStringLengthException;
 import za.co.arkitex.mobile.gondwana.ws.interfaces.SalesRepresentativeServiceContract;
@@ -23,8 +31,25 @@ import za.co.arkitex.mobile.gondwana.ws.interfaces.SalesRepresentativeServiceCon
 public class SalesRepresentativeServiceImpl implements
 		SalesRepresentativeServiceContract {
 
+	private static final CustomerLocation[] CustomerLocation = null;
 	private ArrayList<String> brandList;
 	private ArrayList<Integer> salesList;
+	private ArrayList<CustomerLocation> customerMapList;
+	
+	
+	@Override
+	@WebResult(name="aunthenticate", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public boolean aunthenticate(String imei) {
+		boolean aunthenticatated  = false;
+		AuthenticateQuery query = new AuthenticateQuery();
+//		query.aunthenticate("358904053464104");
+		
+		aunthenticatated = query.aunthenticate(imei);
+		
+		System.out.println(aunthenticatated);
+		
+		return aunthenticatated;
+	}
 	
 	
 	@Override
@@ -270,10 +295,269 @@ public class SalesRepresentativeServiceImpl implements
 	}
 
 	@Override
-	public String[] getMySalesVisualized(String repId, String date) {
-
-		return null;
+	public SalesVisualizedModel[] getMySalesVisualized(String repId, String date) {
+		SalesVisualizedQuery query = new SalesVisualizedQuery();
+		
+		ArrayList<SalesVisualizedModel> modelList = query.queryCommYear(repId, date);
+		
+		SalesVisualizedModel[] response = new SalesVisualizedModel[modelList.size()];
+		
+		response = modelList.toArray(response);
+		
+		return response;
 	}
+
+	@Override
+	@WebResult(name="getCustomerLocation", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public CustomerLocation[] getCustomerLocation(String repId) {
+		
+		customerMapList = new ArrayList<CustomerLocation>();
+		CustomerCoordinatesQuery query = new CustomerCoordinatesQuery(); 
+		
+		customerMapList = query.queryCustomerLocation(repId);
+		
+		CustomerLocation[] response = new CustomerLocation[customerMapList.size()];
+		
+		response = customerMapList.toArray(response);
+		System.out.println(customerMapList);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getCustomerLocationWithRating", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public CustomerLocation[] getCustomerLocationWithRating(String repId, String rating) {
+		customerMapList = new ArrayList<CustomerLocation>();
+		CustomerCoordinatesQuery query = new CustomerCoordinatesQuery(); 
+		
+		customerMapList = query.queryCustomerLocation(repId, rating);
+		
+		CustomerLocation[] response = new CustomerLocation[customerMapList.size()];
+		
+		response = customerMapList.toArray(response);
+		System.out.println(customerMapList);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getCustomerLocationWithRatingAndRange", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public CustomerLocation[] getCustomerLocationWithRatingAndRange(String repId, String rating,
+			String range) {
+		customerMapList = new ArrayList<CustomerLocation>();
+		CustomerCoordinatesQuery query = new CustomerCoordinatesQuery(); 
+		
+		customerMapList = query.queryCustomerLocation(repId, rating, range);
+		
+		CustomerLocation[] response = new CustomerLocation[customerMapList.size()];
+		
+		response = customerMapList.toArray(response);
+		System.out.println(customerMapList);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getSalesGradingByYear", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public ProxySalesGrading[] getSalesGradingByYear(String repId, String date) {
+		
+		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
+		ProxySalesGrading[] response = query.getYearValues(repId, date);
+		
+		System.out.println(response);
+		
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getSalesGradingByQuarter", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public ProxySalesGrading[] getSalesGradingByQuarter(String repId,
+			String date) {
+		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
+		ProxySalesGrading[] response = query.getQuaterlyValues(repId,date);
+		
+		System.out.println(response);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getSalesGradingByMonth", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public ProxySalesGrading[] getSalesGradingByMonth(String repId, String date) {
+	
+		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
+		ProxySalesGrading[] response = query.getMothlyValues(repId,date);
+		System.out.println(response);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getSalesGradingByBrickByYear", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public ProxySalesGrading[] getSalesGradingByBrickByYear(String repId,
+			String date, String brick) {
+	
+		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
+		ProxySalesGrading[] response = query.getYearValuesByBrick(repId,date,brick);
+
+		System.out.println(response);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getSalesGradingByBrickByQuarter", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public ProxySalesGrading[] getSalesGradingByBrickByQuarter(String repId,
+			String date, String brick) {
+		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
+		ProxySalesGrading[] response = query.getQuaterlyValuesByBrick(repId,date,brick);
+
+		System.out.println(response);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getSalesGradingByBrickByMonth", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public ProxySalesGrading[] getSalesGradingByBrickByMonth(String repId,
+			String date, String brick) {
+		
+		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
+		ProxySalesGrading[] response = query.getMothlyValuesByBrick(repId, date, brick);
+		
+
+		System.out.println(response);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getSalesGradingByYearByBrand", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public ProxySalesGrading[] getSalesGradingByYearByBrand(String repId,
+			String date, String brand) {
+		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
+		ProxySalesGrading[] response = query.getYearValuesByBrand(repId, date, brand);
+
+		System.out.println(response);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getSalesGradingByQuarterByBrand", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public ProxySalesGrading[] getSalesGradingByQuarterByBrand(String repId,
+			String date, String brand) {
+		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
+		ProxySalesGrading[] response = query.getQuaterlyValuesByBrand(repId, date, brand);
+
+		System.out.println(response);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getSalesGradingByMonthByBrand", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public ProxySalesGrading[] getSalesGradingByMonthByBrand(String repId,
+			String date, String brand) {
+		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
+		ProxySalesGrading[] response = query.getMothlyValuesByBrand(repId, date, brand);
+
+		System.out.println(response);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getSalesGradingByRatingByYear", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public ProxySalesGrading[] getSalesGradingByRatingByYear(String repId,
+			String date, String rating) {
+		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
+		ProxySalesGrading[] response = query.getYearValuesByRating(repId, date, rating);
+
+		System.out.println(response);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getSalesGradingByRatingByQuarter", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public ProxySalesGrading[] getSalesGradingByRatingByQuarter(String repId,
+			String date, String rating) {
+		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
+		ProxySalesGrading[] response = query.getQuaterlyValuesByRating(repId, date, rating);
+
+		System.out.println(response);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getSalesGradingByRatingByMonth", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public ProxySalesGrading[] getSalesGradingByRatingByMonth(String repId,
+			String date, String rating) {
+		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
+		ProxySalesGrading[] response = query.getMothlyValuesByRating(repId, date, rating);
+
+		System.out.println(response);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getDBFilterForQuarter", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public String[] getDBFilterForQuarter() {
+		FilterQuery query = new FilterQuery();
+		String[] response = query.filerByQuater();
+		
+		System.out.println(response);
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getDBFilterForBrand", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public String[] getDBFilterForBrand() {
+		FilterQuery query = new FilterQuery();
+		String[] response = query.filerByBrand();
+		
+		System.out.println(response);
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getDBFilterForRating", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public String[] getDBFilterForRating() {
+		FilterQuery query = new FilterQuery();
+		String[] response = query.filerRating();
+		
+		System.out.println(response);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getDBFilterForBrick", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public String[] getDBFilterForBrick() {
+		FilterQuery query = new FilterQuery();
+		String[] response = query.filerBrick();
+		
+		System.out.println(response);
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getDBFilterForRepId", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public String[] getDBFilterForRepId() {
+		FilterQuery query = new FilterQuery();
+		String[] response = query.filerRepID();
+		
+		System.out.println(response);
+		
+		return response;
+		
+	}
+
+
 
 	
 }
