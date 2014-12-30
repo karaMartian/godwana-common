@@ -6,6 +6,8 @@ public class CustomerLocation {
 	private String rating;
 	private String latitude;
 	private String longitude;
+	private String reportingBlock;
+	
 	
 	public String getName() {
 		return name;
@@ -32,7 +34,14 @@ public class CustomerLocation {
 		this.longitude = longitude;
 	}
 	
+	
+	public String getReportingBlock() {
+		return reportingBlock;
+	}
+	public void setReportingBlock(String reportingBlock) {
+		this.reportingBlock = reportingBlock;
+	}
 	public String toString() {
-		return name + " " + rating + " " + latitude + " " + longitude;
+		return name + " " + rating + " " + latitude + " " + longitude + " " + reportingBlock;
 	}
 }

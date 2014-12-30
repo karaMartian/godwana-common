@@ -3,7 +3,7 @@ package za.co.arkitex.mobile.gondwana.db;
 public class ProxyCustomer {
 	
 	private String brick;
-	private double values;
+	private String values;
 	private String name;
 	
 	public String getName() {
@@ -23,15 +23,15 @@ public class ProxyCustomer {
 		this.brick = brick;
 	}
 
-	public double getValues() {
+	public String getValues() {
 		return values;
 	}
 
-	public void setValues(double values) {
+	public void setValues(String values) {
 		this.values = values;
 	}
 
 	public String toString() {
-		return name + "------ " + values  + ":";
+		return name + "- " + values;
 	}
 }

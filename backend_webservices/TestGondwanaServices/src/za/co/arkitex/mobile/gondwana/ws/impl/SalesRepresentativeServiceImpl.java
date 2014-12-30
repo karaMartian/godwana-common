@@ -1,18 +1,28 @@
 package za.co.arkitex.mobile.gondwana.ws.impl;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Date;
 
 import javax.jws.WebResult;
 import javax.jws.WebService;
 
 import za.co.arkitex.mobile.domain.CustomerLocation;
 import za.co.arkitex.mobile.domain.MonthFilter;
+import za.co.arkitex.mobile.domain.ProductSalesValue;
 import za.co.arkitex.mobile.domain.QuarterFilter;
+import za.co.arkitex.mobile.domain.Rep;
 import za.co.arkitex.mobile.domain.SalesTrendData;
 import za.co.arkitex.mobile.domain.SalesVisualizedModel;
+import za.co.arkitex.mobile.domain.SortMonth;
+import za.co.arkitex.mobile.domain.TokenizeString;
 import za.co.arkitex.mobile.domain.YearFilter;
+import za.co.arkitex.mobile.domain.growth.CompiledModel;
+import za.co.arkitex.mobile.domain.growth.GrowthConstantsV2;
+import za.co.arkitex.mobile.domain.growth.MashBrands;
+import za.co.arkitex.mobile.domain.growth.ProcessGrowthV2;
+import za.co.arkitex.mobile.domain.growth.SalesGrowth;
 import za.co.arkitex.mobile.gondwana.db.AggregatedSalesValueQuery;
+import za.co.arkitex.mobile.gondwana.db.AggregatedSalesValueQueryV2;
 import za.co.arkitex.mobile.gondwana.db.AuthenticateQuery;
 import za.co.arkitex.mobile.gondwana.db.BrandQuery;
 import za.co.arkitex.mobile.gondwana.db.CustomerCoordinatesQuery;
@@ -20,10 +30,15 @@ import za.co.arkitex.mobile.gondwana.db.FilterQuery;
 import za.co.arkitex.mobile.gondwana.db.ProxyCustomer;
 import za.co.arkitex.mobile.gondwana.db.ProxySalesGrading;
 import za.co.arkitex.mobile.gondwana.db.SalesGradingCustomersQuery;
+import za.co.arkitex.mobile.gondwana.db.SalesGradingCustomersQueryV2;
+import za.co.arkitex.mobile.gondwana.db.SalesGrowthQuery;
 import za.co.arkitex.mobile.gondwana.db.SalesValueQuery;
 import za.co.arkitex.mobile.gondwana.db.SalesVisualizedQuery;
+import za.co.arkitex.mobile.gondwana.db.Top25CustomerBrickQuery;
 import za.co.arkitex.mobile.gondwana.db.Top25CustomersQuery;
+import za.co.arkitex.mobile.gondwana.db.ValidateUser;
 import za.co.arkitex.mobile.gondwana.exceptions.WrongStringLengthException;
+import za.co.arkitex.mobile.domain.growth.GrowthLabelName;
 import za.co.arkitex.mobile.gondwana.ws.interfaces.SalesRepresentativeServiceContract;
 
 @WebService(endpointInterface = "za.co.arkitex.mobile.gondwana.ws.interfaces.SalesRepresentativeServiceContract",
@@ -51,7 +66,16 @@ public class SalesRepresentativeServiceImpl implements
 		return aunthenticatated;
 	}
 	
-	
+	@Override
+	@WebResult(name="authorize", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public Rep authorize(String imei) {
+		AuthenticateQuery query = new AuthenticateQuery();
+		Rep rep = query.auntheticateRep(imei);
+		System.out.println(rep);
+		System.out.println(new Date());
+		
+		return rep;
+	}
 	@Override
 	@WebResult(name="getDateFilter", targetNamespace="http://gondwana.mobile.arkitex.com/")
 	public String[] getDateFilter(String date) {
@@ -69,8 +93,9 @@ public class SalesRepresentativeServiceImpl implements
 			QuarterFilter quarter = new QuarterFilter();
 			quarter.filter(date);
 			// lack of better wording
-			String[] response = new String[2];
+			String[] response = new String[3];
 			
+			response = quarter.getMonthList().toArray(response);
 			return response;
 		} else if (date.length() == 4) {
 			// call year filter
@@ -102,8 +127,8 @@ public class SalesRepresentativeServiceImpl implements
 		BrandQuery query;
 		// fetch for year
 		 if (date.length() == 4) {
-			 query = new BrandQuery(repId, date);
-			 query.queryCommYear();
+			 query = new BrandQuery();
+			 query.queryCommYear(repId, date);
 			 
 			 System.out.println(query.getBrandsList());
 			 String[] response = new String[query.getBrandsList().size()];
@@ -117,8 +142,8 @@ public class SalesRepresentativeServiceImpl implements
 				
 		 } else if (date.length() == 7) {
 			// fetch for quarter
-			 query = new BrandQuery(repId, date);
-			 query.queryCommQuarter();
+			 query = new BrandQuery();
+			 query.queryCommQuarter(repId, date);
 			 
 			 System.out.println(query.getBrandsList());
 			 String[] response = new String[query.getBrandsList().size()];
@@ -132,8 +157,8 @@ public class SalesRepresentativeServiceImpl implements
 			 
 		 } else if (date.length() == 8) {
 			// fetch for month
-			 query = new BrandQuery(repId, date);
-			 query.queryCommMonth();
+			 query = new BrandQuery();
+			 query.queryCommMonth(repId, date);
 			 
 			 System.out.println(query.getBrandsList());
 			 String[] response = new String[query.getBrandsList().size()];
@@ -148,53 +173,27 @@ public class SalesRepresentativeServiceImpl implements
 			 return null;
 		 }
 		
-		
+
 
 	}
 
 	@Override
-	public Integer[] getSalesTrendDataByProduct(String repId, String product, String date) {
+//	@WebResult(name="getBrandsByDate", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public ProductSalesValue[] getSalesTrendDataByProduct(String repId, String product, String date) {
 		SalesValueQuery query;
 		
-		if (date.length() == 4) {
+		ArrayList<ProductSalesValue> list;
+//		if (date.length() == 4) {
 			// fetch for year
 			query = new SalesValueQuery(repId, product, date);
-			query.queryCommYear();
-			
-			System.out.println(query.getSalesValuesList());
-			Integer[] response = new Integer[query.getSalesValuesList().size()];
+			list = query.queryCommYear();
 		
-			salesList = query.getSalesValuesList();
-				
-			return   response = query.getSalesValuesList().toArray(response);
+			ProductSalesValue[] response = new ProductSalesValue[list.size()];
+			response = list.toArray(response);
 			
-		} else if (date.length() == 7) {
-			// fetch for quarter
-			query = new SalesValueQuery(repId, product, date);
-			query.queryCommQuarter();
-			
-			System.out.println(query.getSalesValuesList());
-			Integer[] response = new Integer[query.getSalesValuesList().size()];
-		
-			salesList = query.getSalesValuesList();
-				
-			return   response = query.getSalesValuesList().toArray(response);			
-		} else if (date.length() == 8) {
-			query = new SalesValueQuery(repId, product, date);
-			query.queryCommMonth();
-			
-			System.out.println(query.getSalesValuesList());
-			Integer[] response = new Integer[query.getSalesValuesList().size()];
-		
-			salesList = query.getSalesValuesList();
-				
-			return   response = query.getSalesValuesList().toArray(response);	
-			
-		} else {
-			
-			return null;	
-		}
-		
+			return response;
+	//	}
+
 		
 	}
 
@@ -205,53 +204,49 @@ public class SalesRepresentativeServiceImpl implements
 		
 		AggregatedSalesValueQuery aggQuery;
 		
-//		HashMap<String, Double[]> chartDataMap;
-		SalesTrendData[] salesTrendData;
-		
-//		if (date.length() == 4) {
-			aggQuery = new AggregatedSalesValueQuery();
 
-	//		chartDataMap = aggQuery.queryCommYear(repId, date);
+		SalesTrendData[] salesTrendData;
+		// year
+		if (date.length() == 4) {
+			aggQuery = new AggregatedSalesValueQuery();
 			salesTrendData =  aggQuery.queryCommYear(repId, date);
 			
 			
 			return salesTrendData;
+		// quarter
+		}  else if (date.length() == 7) {
 			
-//		} 
-		/*else if (date.length() == 7) {
-			aggQuery = new AggregatedSalesValueQuery);
-			aggQuery.queryCommQuarter((repId, date);
-			chartDataMap = aggQuery.queryCommYear(repId, date);
+			aggQuery = new AggregatedSalesValueQuery();
+			salesTrendData = aggQuery.queryCommQuarter(repId, date);
+			
 
-			return chartDataMap;
-
+			return salesTrendData;
+		// month
 		} else if (date.length() == 8) {
-			aggQuery = new AggregatedSalesValueQuery(repId, date);
-			aggQuery.queryCommMonth();
+			aggQuery = new AggregatedSalesValueQuery();
 			
-			String[] salesList = new String[aggQuery.getSalesList().size()];
-			salesList = aggQuery.getSalesList().toArray(salesList);
+			salesTrendData = aggQuery.queryCommMonth(repId, date);
 			
-			String[] productList = new String[aggQuery.getProductList().size()];
-			productList = aggQuery.getProductList().toArray(productList);
-			
-			
-			String[] commList = new String[aggQuery.getCommList().size()];
-			commList = aggQuery.getCommList().toArray(commList);
-			
-//			Integer[] response = new Integer[aggQuery.]
-			
-			return salesList;
+			return salesTrendData;
 	
 		} else {
 			return null;
 		}
- 		
-*/	
+ 	
 			
 	}
 
-	
+	@Override
+	public ProxyCustomer[] getMyTop25CustomersByBrick(String repId, String date, String brick) {
+		Top25CustomersQuery query = new Top25CustomersQuery(repId, date, brick);
+		query.queryBrick();
+		//BELLVILLE +S - 2361
+		
+		ProxyCustomer[] response = new ProxyCustomer[query.getCustomerValuesList().size()];
+		
+		response = query.getCustomerValuesList().toArray(response);
+		return response;
+	}
 	
 	@Override
 	public ProxyCustomer[] getMyTop25Customers(String repId, String date) {
@@ -295,16 +290,53 @@ public class SalesRepresentativeServiceImpl implements
 	}
 
 	@Override
-	public SalesVisualizedModel[] getMySalesVisualized(String repId, String date) {
-		SalesVisualizedQuery query = new SalesVisualizedQuery();
+	@WebResult(name="getMyTop25CustomersBrick", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public String[] getMyTop25CustomersBrick(String repId, String date) {
 		
-		ArrayList<SalesVisualizedModel> modelList = query.queryCommYear(repId, date);
-		
-		SalesVisualizedModel[] response = new SalesVisualizedModel[modelList.size()];
-		
-		response = modelList.toArray(response);
+		Top25CustomerBrickQuery query = new Top25CustomerBrickQuery();
+		String[] response = query.getTop25Brick(repId, date);
 		
 		return response;
+	}
+	
+	@Override
+	public SalesVisualizedModel[] getMySalesVisualized(String repId, String date) {
+		
+		if (date.length() == 4) {
+			SalesVisualizedQuery query = new SalesVisualizedQuery();
+			
+			ArrayList<SalesVisualizedModel> modelList = query.queryCommYear(repId, date);
+			
+			SalesVisualizedModel[] response = new SalesVisualizedModel[modelList.size()];
+			
+			response = modelList.toArray(response);
+			
+			return response;
+		} else if (date.length() == 7) {
+			SalesVisualizedQuery query = new SalesVisualizedQuery();
+			
+			ArrayList<SalesVisualizedModel> modelList = query.queryCommQuarter(repId, date);
+			
+			SalesVisualizedModel[] response = new SalesVisualizedModel[modelList.size()];
+			
+			response = modelList.toArray(response);
+			
+			return response;
+			
+		} else if (date.length() == 8) {
+			SalesVisualizedQuery query = new SalesVisualizedQuery();
+			
+			ArrayList<SalesVisualizedModel> modelList = query.queryCommMonth(repId, date);
+			
+			SalesVisualizedModel[] response = new SalesVisualizedModel[modelList.size()];
+			
+			response = modelList.toArray(response);
+			
+			return response;
+		} else {
+			return null;
+		}
+
 	}
 
 	@Override
@@ -375,7 +407,7 @@ public class SalesRepresentativeServiceImpl implements
 	public ProxySalesGrading[] getSalesGradingByQuarter(String repId,
 			String date) {
 		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
-		ProxySalesGrading[] response = query.getQuaterlyValues(repId,date);
+		ProxySalesGrading[] response = query.getQuarterlyValues(repId,date);
 		
 		System.out.println(response);
 		
@@ -387,7 +419,7 @@ public class SalesRepresentativeServiceImpl implements
 	public ProxySalesGrading[] getSalesGradingByMonth(String repId, String date) {
 	
 		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
-		ProxySalesGrading[] response = query.getMothlyValues(repId,date);
+		ProxySalesGrading[] response = query.getMonthlyValues(repId,date);
 		System.out.println(response);
 		
 		return response;
@@ -411,7 +443,7 @@ public class SalesRepresentativeServiceImpl implements
 	public ProxySalesGrading[] getSalesGradingByBrickByQuarter(String repId,
 			String date, String brick) {
 		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
-		ProxySalesGrading[] response = query.getQuaterlyValuesByBrick(repId,date,brick);
+		ProxySalesGrading[] response = query.getQuarterlyValuesByBrick(repId,date,brick);
 
 		System.out.println(response);
 		
@@ -424,7 +456,7 @@ public class SalesRepresentativeServiceImpl implements
 			String date, String brick) {
 		
 		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
-		ProxySalesGrading[] response = query.getMothlyValuesByBrick(repId, date, brick);
+		ProxySalesGrading[] response = query.getMonthlyValuesByBrick(repId, date, brick);
 		
 
 		System.out.println(response);
@@ -434,8 +466,7 @@ public class SalesRepresentativeServiceImpl implements
 
 	@Override
 	@WebResult(name="getSalesGradingByYearByBrand", targetNamespace="http://gondwana.mobile.arkitex.com/")
-	public ProxySalesGrading[] getSalesGradingByYearByBrand(String repId,
-			String date, String brand) {
+	public ProxySalesGrading[] getSalesGradingByYearByBrand(String repId, String date, String brand) {
 		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
 		ProxySalesGrading[] response = query.getYearValuesByBrand(repId, date, brand);
 
@@ -443,13 +474,30 @@ public class SalesRepresentativeServiceImpl implements
 		
 		return response;
 	}
+	
+	@Override
+	@WebResult(name="getSalesGradingByYearByBrandForFilter", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public ProxySalesGrading[] getSalesGradingByYearByBrandForFilter(String repId, String date, String brand) {
+		TokenizeString token = new TokenizeString();
+		token.processRawMaterial(brand);
+		System.out.println("Product #--> " + brand);
+		
+		SalesGradingCustomersQueryV2 query  = new SalesGradingCustomersQueryV2();
+		query.setProductInject(token.getProcessedSQL());
+		
+		ProxySalesGrading[] response = query.getYearValuesByBrand(repId, date, brand);
 
+		System.out.println(response);
+		
+		return response;
+	}
+	
 	@Override
 	@WebResult(name="getSalesGradingByQuarterByBrand", targetNamespace="http://gondwana.mobile.arkitex.com/")
 	public ProxySalesGrading[] getSalesGradingByQuarterByBrand(String repId,
 			String date, String brand) {
 		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
-		ProxySalesGrading[] response = query.getQuaterlyValuesByBrand(repId, date, brand);
+		ProxySalesGrading[] response = query.getQuarterlyValuesByBrand(repId, date, brand);
 
 		System.out.println(response);
 		
@@ -461,7 +509,7 @@ public class SalesRepresentativeServiceImpl implements
 	public ProxySalesGrading[] getSalesGradingByMonthByBrand(String repId,
 			String date, String brand) {
 		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
-		ProxySalesGrading[] response = query.getMothlyValuesByBrand(repId, date, brand);
+		ProxySalesGrading[] response = query.getMonthlyValuesByBrand(repId, date, brand);
 
 		System.out.println(response);
 		
@@ -470,8 +518,8 @@ public class SalesRepresentativeServiceImpl implements
 
 	@Override
 	@WebResult(name="getSalesGradingByRatingByYear", targetNamespace="http://gondwana.mobile.arkitex.com/")
-	public ProxySalesGrading[] getSalesGradingByRatingByYear(String repId,
-			String date, String rating) {
+	public ProxySalesGrading[] getSalesGradingByRatingByYear(String repId, String date, String rating) {
+		
 		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
 		ProxySalesGrading[] response = query.getYearValuesByRating(repId, date, rating);
 
@@ -485,7 +533,7 @@ public class SalesRepresentativeServiceImpl implements
 	public ProxySalesGrading[] getSalesGradingByRatingByQuarter(String repId,
 			String date, String rating) {
 		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
-		ProxySalesGrading[] response = query.getQuaterlyValuesByRating(repId, date, rating);
+		ProxySalesGrading[] response = query.getQuarterlyValuesByRating(repId, date, rating);
 
 		System.out.println(response);
 		
@@ -497,7 +545,7 @@ public class SalesRepresentativeServiceImpl implements
 	public ProxySalesGrading[] getSalesGradingByRatingByMonth(String repId,
 			String date, String rating) {
 		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
-		ProxySalesGrading[] response = query.getMothlyValuesByRating(repId, date, rating);
+		ProxySalesGrading[] response = query.getMonthlyValuesByRating(repId, date, rating);
 
 		System.out.println(response);
 		
@@ -516,9 +564,9 @@ public class SalesRepresentativeServiceImpl implements
 
 	@Override
 	@WebResult(name="getDBFilterForBrand", targetNamespace="http://gondwana.mobile.arkitex.com/")
-	public String[] getDBFilterForBrand() {
+	public String[] getDBFilterForBrand(String repId, String date) {
 		FilterQuery query = new FilterQuery();
-		String[] response = query.filerByBrand();
+		String[] response = query.filterByBrand(repId, date);
 		
 		System.out.println(response);
 		return response;
@@ -557,7 +605,239 @@ public class SalesRepresentativeServiceImpl implements
 		
 	}
 
+	@Override
+	@WebResult(name="getDBFilterForYear", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public String[] getDBFilterForYear() {
+		FilterQuery query = new FilterQuery();
+		String[] response = query.filerByYear();
+		
+		System.out.println(response);
+		
+		return response;
+	}
 
+	@Override
+	@WebResult(name="getDBFilterForMonth", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public String[] getDBFilterForMonth() {
+		FilterQuery query = new FilterQuery();
+		String[] response = query.filerByMonth();
+		
+		System.out.println(response);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getSalesGrowth", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public CompiledModel[] getSalesGrowth(String date) {
+		
+		if (date.length() == 4) {
+			ArrayList<CompiledModel> temp = ProcessGrowthV2.process(MashBrands.getDefaultSalesGrowth(date));
+			
+			CompiledModel[] response = new CompiledModel[temp.size()];
+			response = temp.toArray(response);
+			
+			return response;
+		} else if (date.length() == 7) {
+			ArrayList<CompiledModel> temp = ProcessGrowthV2.process(MashBrands.getQuarterSalesGrowth(date));
+			
+			CompiledModel[] response = new CompiledModel[temp.size()];
+			response = temp.toArray(response);
+			
+			return response;
+			
+		}	else if (date.length() == 8){
+		
+			
+			ArrayList<CompiledModel> temp = ProcessGrowthV2.process(MashBrands.getMonthSalesGrowth(date));
+			
+			CompiledModel[] response = new CompiledModel[temp.size()];
+			response = temp.toArray(response);
+			
+			return response;
+		} else {
+			return null;
+		}
+		
+	}
 
 	
+	@Override
+	@WebResult(name="getSalesGrowthWithNappi", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public SalesGrowth[] getSalesGrowthWithNappi() {
+		SalesGrowthQuery query = new SalesGrowthQuery();
+		SalesGrowth[] response =  query.queryDefaultWithNappi();
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getRepSalesGrowth", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public SalesGrowth[] getRepSalesGrowth(String repId) {
+	
+		SalesGrowthQuery query = new SalesGrowthQuery();
+		SalesGrowth[] response =  query.query(repId);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getProductSalesGrowth", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public CompiledModel[] getProductSalesGrowth(String product, String date) {
+		ArrayList<CompiledModel> temp = ProcessGrowthV2.process(MashBrands.getProductSalesGrowth(date, product));
+		
+		CompiledModel[] response = new CompiledModel[temp.size()];
+		response = temp.toArray(response);
+		
+		return response;
+	}
+	
+	
+	@Override
+	@WebResult(name="getSalesGrowthProductList", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public CompiledModel[] getSalesGrowthProductList(String products, String date) {
+		ArrayList<CompiledModel> temp = ProcessGrowthV2.process(MashBrands.getSalesGrowthProductList(date, products));
+		
+		CompiledModel[] response = new CompiledModel[temp.size()];
+		response = temp.toArray(response);
+		
+		return response;
+	}
+	
+	
+	@Override
+	@WebResult(name="getSalesGrowthWithOutRegion", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public SalesGrowth[] getSalesGrowthWithOutRegion() {
+		SalesGrowthQuery query = new SalesGrowthQuery();
+		SalesGrowth[] response =  query.queryDefaultWithOutRegion();
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getSalesGrowthPreferential", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public SalesGrowth[] getSalesGrowthPreferential() {
+		SalesGrowthQuery query = new SalesGrowthQuery();
+		SalesGrowth[] response =  query.queryPreferential();
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getSalesGrowthHeading", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public GrowthLabelName getSalesGrowthHeading() {
+		
+		return GrowthConstantsV2.getGrowthLabelName();
+	}
+
+
+	@Override
+	@WebResult(name="getYearlySalesGradeByProductByRating", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public ProxySalesGrading[] getYearlySalesGradeByProductByRating(
+			String repId, String date, String rating, String product) {
+		SalesGradingCustomersQuery query  = new SalesGradingCustomersQuery();
+		ProxySalesGrading[] response = query.getYearlySalesGradingByProductByRating(repId, date, rating, product);
+
+		System.out.println(response);
+		
+		return response;
+
+	}
+
+	@Override
+	@WebResult(name="getRefinedQuarterFilter", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public String[] getRefinedQuarterFilter(String year) {
+		FilterQuery query = new FilterQuery();
+		String[] response = query.refinedQuarterFilter(year);
+		
+		System.out.println(response);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getRefinedMonthFilter", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public String[] getRefinedMonthFilter(String year) {
+		FilterQuery query = new FilterQuery();
+		String[] response = query.refinedMonthFilter(year);
+		
+		System.out.println(response);
+		
+		return response;
+	}
+
+	@Override
+	public boolean validateUser(String username, String password) {
+		ValidateUser user = new ValidateUser();
+		boolean response = user.verify(username, password);
+		return response;
+	}
+
+	@Override
+	public String getRepIdForUser(String username) {
+		
+		ValidateUser user = new ValidateUser();
+		String response = user.getRepId(username);
+		
+		return response;
+	}
+
+	@Override
+	@WebResult(name="getSalesTrendDataForFilters", targetNamespace="http://gondwana.mobile.arkitex.com/")
+	public SalesTrendData[] getSalesTrendDataForFilters(String products, String repId, String date) {
+		AggregatedSalesValueQueryV2 aggQuery;
+		
+
+		SalesTrendData[] response;
+		// year
+		if (date.length() == 4) {
+			System.out.println("Print Products: -->" + products);
+			TokenizeString token = new TokenizeString();
+//			token.processRawMaterial("Product 11/Product 14/Product 28/Product 7/Product 13");
+			token.processRawMaterial(products);
+			
+			aggQuery = new AggregatedSalesValueQueryV2();
+			aggQuery.setProductInject(token.getProcessedSQL());
+			ArrayList<SalesTrendData> temp = aggQuery.queryCommYear(repId, date);
+			response = new SalesTrendData[temp.size()];
+			response = temp.toArray(response);
+			
+			return response;
+		// quarter
+		}  else if (date.length() == 7) {
+			System.out.println("Print Products: -->" + products);
+			TokenizeString token = new TokenizeString();
+//			token.processRawMaterial("Product 11/Product 14/Product 28/Product 7/Product 13");
+			token.processRawMaterial(products);
+			
+			aggQuery = new AggregatedSalesValueQueryV2();
+			aggQuery.setProductInject(token.getProcessedSQL());
+			ArrayList<SalesTrendData> temp = aggQuery.queryCommQuarter(repId, date);
+			response = new SalesTrendData[temp.size()];
+			response = temp.toArray(response);
+			
+			return response;
+		// month
+		} else if (date.length() == 8) {
+			TokenizeString token = new TokenizeString();
+//			token.processRawMaterial("Product 11/Product 14/Product 28/Product 7/Product 13");
+			token.processRawMaterial(products);
+			
+			aggQuery = new AggregatedSalesValueQueryV2();
+			aggQuery.setProductInject(token.getProcessedSQL());
+			ArrayList<SalesTrendData> temp = aggQuery.queryCommMonth(repId, date);
+			response = new SalesTrendData[temp.size()];
+			response = temp.toArray(response);
+			
+			return response;
+	
+		} else {
+			return null;
+		}
+ 	
+
+	}
+
+
+
 }

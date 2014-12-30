@@ -5,19 +5,20 @@ import java.io.Serializable;
 public class ProxySalesGrading implements Serializable {
 	
 	private String brick;
-	private double values;
+	private String values;
 	private String rating;
-	private String Brand;
+	private String brand;
+	
 	public String getBrick() {
 		return brick;
 	}
 	public void setBrick(String brick) {
 		this.brick = brick;
 	}
-	public double getValues() {
+	public String getValues() {
 		return values;
 	}
-	public void setValues(double values) {
+	public void setValues(String values) {
 		this.values = values;
 	}
 	public String getRating() {
@@ -27,11 +28,14 @@ public class ProxySalesGrading implements Serializable {
 		this.rating = rating;
 	}
 	public String getBrand() {
-		return Brand;
+		return brand;
 	}
 	public void setBrand(String brand) {
-		Brand = brand;
+		this.brand = brand;
 	}
 	
+	public String toString() {
+		return brand + " " + values + " " + rating;
+	}
 	
 }

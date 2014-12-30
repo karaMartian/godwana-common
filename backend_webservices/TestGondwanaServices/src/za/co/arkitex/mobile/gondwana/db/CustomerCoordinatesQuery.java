@@ -54,7 +54,8 @@ public class CustomerCoordinatesQuery {
 		sql +=  " 	b.CustomerDescription,	";
 		sql +=  " 	Rating ";
 		sql +=  " 	,b.lat ";
-		sql +=  " 	,b.long ";
+		sql +=  " 	,b.long ,";
+		sql +=  " 	b.Reporting_Block";
 		sql +=  " FROM ";
 		sql +=  " 	vw_CUBE_FACT_TT_Transactions a ";
 		sql +=  " INNER JOIN ";
@@ -78,6 +79,7 @@ public class CustomerCoordinatesQuery {
 				customer.setRating(rs.getString("Rating"));
 				customer.setLatitude(rs.getString("lat"));
 				customer.setLongitude(rs.getString("long"));
+				customer.setReportingBlock(rs.getString("Reporting_Block"));
 				
 				customerList.add(customer);
 				

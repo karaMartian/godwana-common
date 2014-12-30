@@ -149,7 +149,7 @@ public class SalesValueQuery {
 		}		
 	}
 	
-	public void queryCommYear(){
+	public ArrayList<ProductSalesValue> queryCommYear(){
 		
 		String sql = "";
 		sql += " SELECT ";
@@ -181,25 +181,16 @@ public class SalesValueQuery {
 	        ResultSet rs = ps.executeQuery();
 	        
 //	        System.out.println(sql);
-//	        productList = new ArrayList<ProductSalesValue>();
-	        ProductSalesValue productSalesValue = new ProductSalesValue();
-	        
-	       
+	        productList = new ArrayList<ProductSalesValue>();
 	        
 	        while(rs.next()) {
-	        	
-//	        	System.out.println( rs.getString("Comm_Month"));
-	        	double sales = Double.parseDouble(rs.getString("SalesValues"));
-	        	String s = String.format("%.0f", sales);
-	        	Integer salesValue = Integer.parseInt(s);
-	      //  	salesValuesList.add(salesValue);
-	    //    	System.out.println(s);
-	        	
+	        	ProductSalesValue productSalesValue = new ProductSalesValue();
 	        	productSalesValue.setName(brand);
 	        	productSalesValue.setMonth(rs.getString("Comm_Month"));
 	        	productSalesValue.setValue(rs.getString("SalesValues"));
-	        	        	
-	        	System.out.println(productSalesValue);
+	        	   
+	        	productList.add(productSalesValue);
+	        	
 	        }
 	
 		} catch (SQLException sqle) {
@@ -210,8 +201,9 @@ public class SalesValueQuery {
 			ex.printStackTrace();
 	                  	
 		}		
-		addToMap();
-
+//		addToMap();
+		System.out.println(productList);
+		return productList;
 	}
 	
 

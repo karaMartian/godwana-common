@@ -6,6 +6,6 @@ public class TestSalesVisualized {
 
 	public static void main(String[] args) {
 		SalesVisualizedQuery qry = new SalesVisualizedQuery();
-		qry.queryCommMonth("0008", "2013");
+		qry.queryCommYear("0008", "2013");
 	}
 }

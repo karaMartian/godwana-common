@@ -31,7 +31,7 @@ public class SalesVisualizedQuery {
 		this.date = date;
 	}
 
-	public void queryCommMonth(String repId, String date) {
+	public ArrayList<SalesVisualizedModel> queryCommMonth(String repId, String date) {
 		
 		String sql = "";
 		sql += " SELECT DISTINCT ";
@@ -53,7 +53,8 @@ public class SalesVisualizedQuery {
 		sql += " ORDER BY ";
 		sql += "  Total_Sales DESC; ";
 
-
+		modelList = new ArrayList<SalesVisualizedModel>();
+		
 		try {
 			Connection conn = DBAdapter.getConnection();
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -61,16 +62,22 @@ public class SalesVisualizedQuery {
 			ResultSet rs = ps.executeQuery();
 			// System.out.println(sql);
 			while (rs.next()) {
-			
-				System.out.println( rs.getString("ProductCode"));
-				System.out.println(rs.getString("ProductDescription"));
-				System.out.println(rs.getString("Brand"));
-				System.out.println(rs.getString("Rating"));
+				SalesVisualizedModel model = new SalesVisualizedModel();
+				model.setProductCode(rs.getString("ProductCode"));
+				model.setProductDescription(rs.getString("ProductDescription"));
+				model.setBrand(rs.getString("Brand"));
+				model.setRating(rs.getString("Rating"));
 				double sales = Double.parseDouble(rs.getString("Total_Sales"));
 
 				String s = String.format("%.0f", sales);
-				Integer salesValue = Integer.parseInt(s);
-				System.out.println(s);
+				
+				model.setTotalSales(s);
+				
+//				Integer salesValue = Integer.parseInt(s);
+				
+//				System.out.println(model);
+				
+				modelList.add(model);
 			}
 
 		} catch (SQLException sqle) {
@@ -81,10 +88,10 @@ public class SalesVisualizedQuery {
 
 		}
 
-		
+		return modelList;
 	}
 	
-	public void queryCommQuarter(String repId, String date) {
+	public ArrayList<SalesVisualizedModel> queryCommQuarter(String repId, String date) {
 		
 		String sql = "";
 		sql += " SELECT DISTINCT ";
@@ -106,6 +113,7 @@ public class SalesVisualizedQuery {
 		sql += " ORDER BY ";
 		sql += "  Total_Sales DESC; ";
 
+		modelList = new ArrayList<SalesVisualizedModel>();
 
 		try {
 			Connection conn = DBAdapter.getConnection();
@@ -114,16 +122,22 @@ public class SalesVisualizedQuery {
 			ResultSet rs = ps.executeQuery();
 			// System.out.println(sql);
 			while (rs.next()) {
-			
-				System.out.println( rs.getString("ProductCode"));
-				System.out.println(rs.getString("ProductDescription"));
-				System.out.println(rs.getString("Brand"));
-				System.out.println(rs.getString("Rating"));
+				SalesVisualizedModel model = new SalesVisualizedModel();
+				model.setProductCode(rs.getString("ProductCode"));
+				model.setProductDescription(rs.getString("ProductDescription"));
+				model.setBrand(rs.getString("Brand"));
+				model.setRating(rs.getString("Rating"));
 				double sales = Double.parseDouble(rs.getString("Total_Sales"));
 
 				String s = String.format("%.0f", sales);
-				Integer salesValue = Integer.parseInt(s);
-				System.out.println(s);
+				
+				model.setTotalSales(s);
+				
+//				Integer salesValue = Integer.parseInt(s);
+				
+//				System.out.println(model);
+				
+				modelList.add(model);
 			}
 
 		} catch (SQLException sqle) {
@@ -133,7 +147,7 @@ public class SalesVisualizedQuery {
 			ex.printStackTrace();
 
 		}
-
+		return modelList;
 				
 	}
 	

@@ -6,7 +6,7 @@ public class TestPeriodFormatter {
 
 	public static void main(String[] args) {
 		PeriodFormatter pf = new PeriodFormatter("dec 2013");
-		pf.getNextMonth();
+		System.out.println(pf.getNextMonth());
 
 	}
 

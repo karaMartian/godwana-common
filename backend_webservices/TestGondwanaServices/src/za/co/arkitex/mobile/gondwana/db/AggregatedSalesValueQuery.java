@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 import za.co.arkitex.mobile.domain.SalesTrendData;
 
@@ -20,14 +19,8 @@ public class AggregatedSalesValueQuery {
 	private ArrayList<String> productList;
 	private ArrayList<String> commList;
 	
-	// ----------------------
-//	public AggregatedSalesValueQuery(String repId, String date) {
-//		this.repId = repId;
-//		this.date = date;
-//	}
-//	
 	
-	public void queryCommMonth(){
+	public SalesTrendData[] queryCommMonth(String repId, String date){
 		
 		String sql = "";
 		sql += " SELECT ";
@@ -52,24 +45,65 @@ public class AggregatedSalesValueQuery {
 		sql += " c.Comm_Month, b.Brand ";
 		
 		Connection conn = DBAdapter.getConnection();
+		HashMap<String, Double[]> chartDataMap = new HashMap<String,Double[]>();
+		
+		SalesTrendData[] data  = new SalesTrendData[10];
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 	        ResultSet rs = ps.executeQuery();
+	        
+			String brandName = "";
+			int i = 0;
+			int j = 0;
+			ArrayList<Double> monthlySalesValues = new ArrayList<Double>(); 
 			
 			while (rs.next()) {
-
-				System.out.println(rs.getString("Brand"));
-				System.out.println(rs.getString("Comm_Month"));
-				System.out.println(rs.getString("SalesValues"));
+				if (brandName.equalsIgnoreCase("")){
+//					monthlySalesValues[i] = rs.getDouble("SalesValues");
+					monthlySalesValues.add(i, rs.getDouble("SalesValues"));
+					brandName = rs.getString("Brand");
+					i++;
+					continue;
+				}
+				
+				if (brandName.equalsIgnoreCase(rs.getString("Brand"))) {
+//					monthlySalesValues[i] = rs.getDouble("SalesValues");
+					monthlySalesValues.add(i, rs.getDouble("SalesValues"));
+					i++;
+				} else{
+					i = 0;	
+			//		chartDataMap.put(brandName, monthlySalesValues);
+					SalesTrendData salesTrendData = new SalesTrendData();
+					salesTrendData.setBrandName(brandName);
+					salesTrendData.setMonthlySalesValues(monthlySalesValues);
+					data[j] = salesTrendData;
+					
+					monthlySalesValues = new ArrayList<Double>(); 
+//					monthlySalesValues[i] = rs.getDouble("SalesValues");
+					monthlySalesValues.add(i, rs.getDouble("SalesValues"));
+					i++;
+					j++;
+				}				
+				brandName = rs.getString("Brand");		
+				
 			}
+			SalesTrendData trends = new SalesTrendData();
+			trends.setBrandName(brandName);
+			trends.setMonthlySalesValues(monthlySalesValues);
+
+			data[j] =trends;
+	
+	
 		} catch (Exception ex) {
 			ex.printStackTrace();
-		}
+		} 
+		System.out.println(data);
+		return data;
 		
 	}
 	
-	public void queryCommQuarter() {
+	public SalesTrendData[] queryCommQuarter(String repId, String date) {
 		
 		String sql = "";
 		sql += " SELECT ";
@@ -94,19 +128,61 @@ public class AggregatedSalesValueQuery {
 		sql += " c.Comm_Month, b.Brand ";
 		
 		Connection conn = DBAdapter.getConnection();
+		
+		HashMap<String, Double[]> chartDataMap = new HashMap<String,Double[]>();
+		
+		SalesTrendData[] data  = new SalesTrendData[10];
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 	        ResultSet rs = ps.executeQuery();
+	        
+			String brandName = "";
+			int i = 0;
+			int j = 0;
+			ArrayList<Double> monthlySalesValues = new ArrayList<Double>(); 
 			
 			while (rs.next()) {
-
-				System.out.println(rs.getString("Brand"));
-				System.out.println(rs.getString("Comm_Month"));
-				System.out.println(rs.getString("SalesValues"));
+				if (brandName.equalsIgnoreCase("")){
+//					monthlySalesValues[i] = rs.getDouble("SalesValues");
+					monthlySalesValues.add(i, rs.getDouble("SalesValues"));
+					brandName = rs.getString("Brand");
+					i++;
+					continue;
+				}
+				
+				if (brandName.equalsIgnoreCase(rs.getString("Brand"))) {
+//					monthlySalesValues[i] = rs.getDouble("SalesValues");
+					monthlySalesValues.add(i, rs.getDouble("SalesValues"));
+					i++;
+				} else{
+					i = 0;	
+			//		chartDataMap.put(brandName, monthlySalesValues);
+					SalesTrendData salesTrendData = new SalesTrendData();
+					salesTrendData.setBrandName(brandName);
+					salesTrendData.setMonthlySalesValues(monthlySalesValues);
+					data[j] = salesTrendData;
+					
+					monthlySalesValues = new ArrayList<Double>(); 
+//					monthlySalesValues[i] = rs.getDouble("SalesValues");
+					monthlySalesValues.add(i, rs.getDouble("SalesValues"));
+					i++;
+					j++;
+				}				
+				brandName = rs.getString("Brand");		
+				
 			}
+			SalesTrendData trends = new SalesTrendData();
+			trends.setBrandName(brandName);
+			trends.setMonthlySalesValues(monthlySalesValues);
+
+			data[j] =trends;
+	
+		
 		} catch (Exception ex) {
 			ex.printStackTrace();
-		}	
+		} 
+		System.out.println(data);
+		return data;
 	}
 	
 	public SalesTrendData[]  queryCommYear(String repId, String date){
@@ -136,16 +212,11 @@ public class AggregatedSalesValueQuery {
 		sql += " b.Brand, Comm_Month";
 		
 		Connection conn = DBAdapter.getConnection();
-//		
-//		salesList = new ArrayList<String>();
-//		productList = new ArrayList<String>();
-//		commList = new ArrayList<String>();
+
 		
 		HashMap<String, Double[]> chartDataMap = new HashMap<String,Double[]>();
 		
 		SalesTrendData[] data  = new SalesTrendData[10];
-		//SalesTrendData salesTrendData = new SalesTrendData();
-		
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 	        ResultSet rs = ps.executeQuery();
@@ -153,18 +224,20 @@ public class AggregatedSalesValueQuery {
 			String brandName = "";
 			int i = 0;
 			int j = 0;
-			Double[] monthlySalesValues = new Double[12]; 
+			ArrayList<Double> monthlySalesValues = new ArrayList<Double>(); 
 			
 			while (rs.next()) {
 				if (brandName.equalsIgnoreCase("")){
-					monthlySalesValues[i] = rs.getDouble("SalesValues");
+//					monthlySalesValues[i] = rs.getDouble("SalesValues");
+					monthlySalesValues.add(i, rs.getDouble("SalesValues"));
 					brandName = rs.getString("Brand");
 					i++;
 					continue;
 				}
 				
 				if (brandName.equalsIgnoreCase(rs.getString("Brand"))) {
-					monthlySalesValues[i] = rs.getDouble("SalesValues");
+//					monthlySalesValues[i] = rs.getDouble("SalesValues");
+					monthlySalesValues.add(i, rs.getDouble("SalesValues"));
 					i++;
 				} else{
 					i = 0;	
@@ -174,35 +247,27 @@ public class AggregatedSalesValueQuery {
 					salesTrendData.setMonthlySalesValues(monthlySalesValues);
 					data[j] = salesTrendData;
 					
-					monthlySalesValues = new Double[12]; 
-					monthlySalesValues[i] = rs.getDouble("SalesValues");
+					monthlySalesValues = new ArrayList<Double>(); 
+//					monthlySalesValues[i] = rs.getDouble("SalesValues");
+					monthlySalesValues.add(i, rs.getDouble("SalesValues"));
 					i++;
 					j++;
 				}				
+				
 				brandName = rs.getString("Brand");		
 				
 			}
-			for (int k = 0; k < data.length; k++) {
-				System.out.println(data[k]);
-			}
-			//System.out.println(chartDataMap.values().toArray());
-//			Iterator it = chartDataMap.values().iterator();
-//			int j;
-//			Double[] yearSalesValues = new Double[12];
 	
-//			while(it.hasNext()){
-//				yearSalesValues =(Double[]) it.next();
-//				for (Double d : yearSalesValues){
-//					System.out.println(d);					
-//				}
-//				break;
-//				
-//			}
-			
-				
+			SalesTrendData trends = new SalesTrendData();
+			trends.setBrandName(brandName);
+			trends.setMonthlySalesValues(monthlySalesValues);
+
+			data[j] =trends;
+	
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} 
+		System.out.println(data);
 		return data;
 	}
 

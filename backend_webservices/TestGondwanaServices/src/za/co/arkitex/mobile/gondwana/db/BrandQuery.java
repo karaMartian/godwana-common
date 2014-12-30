@@ -12,13 +12,6 @@ public class BrandQuery {
 	private String salesRepId;
 	private ArrayList<String> brandsList;
 	
-	
-	public BrandQuery(String salesRepId, String date) {
-		this.salesRepId = salesRepId;
-		this.date = date;
-
-	}
-	
 	public ArrayList<String> getBrandsList() {
 		return brandsList;
 	}
@@ -32,27 +25,28 @@ public class BrandQuery {
 	
 	
 	// fetch brands for comm month
-	public void queryCommMonth() {
+	public void queryCommMonth(String repId, String date) {
 		Connection conn = DBAdapter.getConnection();
 		
 		String sql = "";
-		sql += " SELECT ";
-		sql += " distinct ";
-		sql += " b.Brand ";
+		sql += " SELECT DISTINCT ";
+		sql += " 	b.Brand ";
 		sql += " FROM ";
-		sql += " vw_CUBE_FACT_TT_Transactions a ";
+		sql += " 	vw_CUBE_FACT_TT_Transactions a ";
 		sql += " INNER JOIN ";
-		sql += " vw_CUBE_Products b ";
-		sql += " ON ";
-		sql += " a.ProductCode = b.ProductCode ";
+		sql += " 	vw_CUBE_Products b ";
+		sql += " ON "; 
+		sql += " 	a.ProductCode = b.ProductCode ";
 		sql += " INNER JOIN ";
-		sql += " vw_CUBE_Times c ";
+		sql += " 	vw_CUBE_Times c ";
 		sql += " ON ";
-		sql += " CAST (a.TransactionDate AS DATE)   = c.Date ";
+		sql += " 	CAST (a.TransactionDate AS DATE)   = c.Date ";
 		sql += " WHERE ";
-		sql += " c.Comm_Month = '" + date +"'";
-		sql += " AND";
-		sql += " a.Rep = '0008'";
+		sql += " 	c.Comm_Month = '" + date + "'";
+		sql += " AND ";
+		sql += " a.Rep = '"+ repId +"'";
+		sql += " GROUP BY ";
+		sql += " c.Comm_Month, b.Brand ";
 		
 		brandsList = new ArrayList<String>();
 		
@@ -62,7 +56,7 @@ public class BrandQuery {
 			
 			while (rs.next()) {
 				brandsList.add(rs.getString("Brand"));
-			//	System.out.println(rs.getString("Brand"));
+
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -70,26 +64,27 @@ public class BrandQuery {
 	}
 	
 	// fetch brands for comm quarter
-	public void queryCommQuarter() {
+	public void queryCommQuarter(String repId, String date) {
 		Connection conn = DBAdapter.getConnection();
 		String sql = "";
-		sql += " SELECT ";
-		sql += " distinct ";
-		sql += " b.Brand ";
+		sql += " SELECT DISTINCT ";
+		sql += " 	b.Brand ";
 		sql += " FROM ";
-		sql += " vw_CUBE_FACT_TT_Transactions a ";
+		sql += " 	vw_CUBE_FACT_TT_Transactions a ";
 		sql += " INNER JOIN ";
-		sql += " vw_CUBE_Products b ";
+		sql += " 	vw_CUBE_Products b ";
 		sql += " ON ";
-		sql += " a.ProductCode = b.ProductCode ";
+		sql += " 	a.ProductCode = b.ProductCode ";
 		sql += " INNER JOIN ";
-		sql += " vw_CUBE_Times c ";
+		sql += " 	vw_CUBE_Times c "; 
 		sql += " ON ";
-		sql += " CAST (a.TransactionDate AS DATE)   = c.Date ";
-		sql += " WHERE ";
-		sql += " c.Comm_Quarter = '" + date + "'";
-		sql += " AND";
-		sql += " a.Rep = '0008'";
+		sql += " 	CAST (a.TransactionDate AS DATE)   = c.Date ";
+		sql += " WHERE ";									
+		sql += " 	c.Comm_Quarter = '" + date + "' ";
+		sql += " AND ";
+		sql += " a.Rep = '" + repId + "'";
+		sql += " GROUP BY ";
+		sql += " c.Comm_Month, b.Brand ";
 		
 		brandsList = new ArrayList<String>();
 		
@@ -108,28 +103,33 @@ public class BrandQuery {
 	
 	
 	// fetch brands for comm year
-	public void queryCommYear() {
+	public void queryCommYear(String repId, String date) {
+		System.out.println("Date: --->  " + date);
 		Connection conn = DBAdapter.getConnection();
 		String sql = "";
-		sql += " SELECT ";
-		sql += " distinct ";
-		sql += " b.Brand ";
-		sql += " FROM ";
-		sql += " vw_CUBE_FACT_TT_Transactions a ";
-		sql += " INNER JOIN ";
-		sql += " vw_CUBE_Products b ";
-		sql += " ON ";
-		sql += " a.ProductCode = b.ProductCode ";
-		sql += " INNER JOIN ";
-		sql += " vw_CUBE_Times c ";
-		sql += " ON ";
-		sql += " CAST (a.TransactionDate AS DATE)   = c.Date ";
-		sql += " WHERE ";
-		sql += " c.Comm_Year = '" + date + "'";
-		sql += " AND";
-		sql += " a.Rep = '0008'";
+		sql += " SELECT DISTINCT ";
+		sql += " 	b.Brand ";
+		sql += " 	FROM  ";
+		sql += " 		vw_CUBE_FACT_TT_Transactions a ";
+		sql += " 	INNER JOIN ";
+		sql += " 		vw_CUBE_Products b ";
+		sql += " 	ON ";
+		sql += " 		a.ProductCode = b.ProductCode ";
+		sql += " 	INNER JOIN ";
+		sql += " 		vw_CUBE_Times c ";
+		sql += " 	ON ";
+		sql += " 		CAST (a.TransactionDate AS DATE)   = c.Date ";
+		sql += " 	WHERE ";
+		sql += " 		c.Comm_Year = '" + date +"'";
+		sql += " 	AND ";
+		sql += " 		a.Rep = '" + repId + "'";
+		sql += " 	GROUP BY ";
+		sql += " 		c.Comm_Month, b.Brand ";
 		
 		brandsList = new ArrayList<String>();
+		
+		System.out.println(sql);
+		
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -138,48 +138,10 @@ public class BrandQuery {
 			
 			while (rs.next()) {
 				brandsList.add(rs.getString("Brand"));
-			//	System.out.println(rs.getString("Brand"));
+
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} 
 	}
 }
-
-
-/*SELECT 
-distinct
-	b.Brand
-FROM 
-vw_CUBE_FACT_TT_Transactions a
-INNER JOIN 
-vw_CUBE_Products b
-ON 
-a.ProductCode = b.ProductCode
-INNER JOIN
-vw_CUBE_Times c 
-ON 
-CAST (a.TransactionDate AS DATE)   = c.Date
-WHERE 
-c.Comm_Quarter = 'q2 2013'
-AND
-a.Rep = '0008'*/
-
-/*String sql = "";
-sql += " SELECT ";
-sql += " distinct ";
-sql += " b.Brand ";
-sql += " FROM ";
-sql += " vw_CUBE_FACT_TT_Transactions a ";
-sql += " INNER JOIN ";
-sql += " vw_CUBE_Products b ";
-sql += " ON ";
-sql += " a.ProductCode = b.ProductCode ";
-sql += " INNER JOIN ";
-sql += " vw_CUBE_Times c ";
-sql += " ON ";
-sql += " CAST (a.TransactionDate AS DATE)   = c.Date ";
-sql += " WHERE ";
-sql += " c.Comm_Quarter = 'q2 2013'";
-sql += " AND";
-sql += " a.Rep = '0008'";*/

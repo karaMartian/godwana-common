@@ -42,28 +42,40 @@ public class YearFilter {
 
 	public void format(String calendar) {
 		yearList = new ArrayList<String>();
-		yearList.add("jan " + calendar);
-		yearList.add("feb " + calendar);
-		yearList.add("mar " + calendar);
-		yearList.add("apr " + calendar);
-		yearList.add("may " + calendar);
-		yearList.add("jun " + calendar);
-		yearList.add("jul " + calendar);
-		yearList.add("aug " + calendar);
-		yearList.add("sep " + calendar);
-		yearList.add("oct " + calendar);
-		yearList.add("nov " + calendar);
-		yearList.add("dec " + calendar);
+		yearList.add("Jan " + calendar);
+		yearList.add("Feb " + calendar);
+		yearList.add("Mar " + calendar);
+		yearList.add("Apr " + calendar);
+		yearList.add("May " + calendar);
+		yearList.add("Jun " + calendar);
+		yearList.add("Jul " + calendar);
+		yearList.add("Aug " + calendar);
+		yearList.add("Sep " + calendar);
+		yearList.add("Oct " + calendar);
+		yearList.add("Nov " + calendar);
+		yearList.add("Dec " + calendar);
 	
 		
+	}
+	
+	public String getPreviousMonthMTD(String month) {
+		String temp = "";
+		for (int i = 0; i < yearList.size(); i++) {
+			if (yearList.get(i).equalsIgnoreCase(month)) {
+			//	System.out.println(yearList.get(i));
+			//	System.out.println("Prev MTD " + yearList.get(i-1));
+				temp = yearList.get(i-1);
+			}
+			
+		}
+		return temp;
 	}
 	
 	public void  filter(String calendar) {
 		validate(calendar);
 		// to decide whether to format before validating?
 		format(getYear());
-		System.out.println(yearList);
-		
+	//	System.out.println(yearList);
 
 	}
 
